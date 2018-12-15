@@ -7,5 +7,11 @@
 * Course : Data Science II - Foundations Nanodegree
 * COD    : ND111
 
+## Outline
 
-## Syllabus
+* [ ] Lesson 01 - Basic SQL
+* [ ] Lesson 02 - SQL Joins
+* [ ] Lesson 03 - SQL Aggregations
+* [ ] Lesson 04 - (Optional) SQL Subqueries & Temporary Tables (Advanced)
+* [ ] Lesson 05 - (Optional) SQL Data Cleaning (Advanced)
+* [ ] Project 01 - Query a Digital Music Store Database

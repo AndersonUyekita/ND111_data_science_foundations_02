@@ -2,7 +2,7 @@
 
 This is the second course of the Nanodegree of Data Science from Coursera.
 
-* Dedication   : 10 horas/semana (suggested)
+* Dedication   : 10 hour/semana (suggested)
 * Start        : 14/12/2018
 * End (Planned): 28/12/2018
 * Title        : Data Science II - Foundations Nanodegree Program
