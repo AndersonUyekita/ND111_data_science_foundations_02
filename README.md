@@ -86,9 +86,9 @@ ND110_data_science_foundation_02
 |           +--  README.md                       # General information
 |           +--  00-Project_01                   # Project 01
 |           +--  01-Lesson_01                    # Files from Lesson 01
-|           |        +--  nd111_c01_les_01.md    # Notes from Lesson 01 from Chapter 01
+|           |        +--  nd111_c02_les_01.md    # Notes from Lesson 01 from Chapter 02
 |           +--  02-Lesson_02                    # Files from Lesson 02
-|           |        +--  nd111_c01_les_02.md    # Notes from Lesson 02 from Chapter 01
+|           |        +--  nd111_c02_les_02.md    # Notes from Lesson 02 from Chapter 02
 |           .
 |
 +--  03-Chapter_03
