@@ -2,17 +2,29 @@
 
 This is the second course of the Nanodegree of Data Science from Coursera.
 
+* [My repository to the first course][repo_nd110].
+
+[repo_nd110]: https://github.com/AndersonUyekita/ND111_data_science_foundations_01
+
+#### Tags
+* Author       : AH Uyekita
 * Dedication   : 10 hours/week (suggested)
 * Start        : 14/12/2018
 * End (Planned): 28/12/2018
 * Title        : Data Science II - Foundations Nanodegree Program
     * COD          : ND111
 
-## Objectivies
+#### Related Courses
+
+* [ND110 - Data Science I - Nanodegree Foundations][nd110]
+
+[nd110]: https://br.udacity.com/course/python-fundamentos-data-science--nd110
+
+## Objectives
 
 I want to finish this course in two weeks. It includes the Optional videos and chapters.
 
-#### Syllabus
+## Syllabus
 
 * Chapter 01 - Welcome
     * Lesson 01 - Instructions

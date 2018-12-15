@@ -16,11 +16,13 @@
 
 [rel_1]: https://br.udacity.com/course/data-wrangling-with-mongodb--ud032
 
-#### Notes
+#### Exercises
 
-[Access the Notes of this Lesson][note]
+All exercises of this chapter I have stored in the Mode Analytics platform.
 
-[note]: /02-Chapter02/01-Lesson_01/nd111_c02_les_01.md
+[Solutions in Mode Analytics][sol_ma]
+
+[sol_ma]: https://modeanalytics.com/ah_uyekita/reports/03e5141ea602
 
 ********************************************************************************
 

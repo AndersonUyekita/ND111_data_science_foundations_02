@@ -11,7 +11,7 @@
 
 General information about the course.
 
-* Dues
+* Projects Deadline
 * Projects Review
 * Mentoring
 
