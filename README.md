@@ -2,15 +2,15 @@
 
 This is the second course of the Nanodegree of Data Science from Coursera.
 
-* Dedication   : 10 hour/semana (suggested)
+* Dedication   : 10 hours/week (suggested)
 * Start        : 14/12/2018
 * End (Planned): 28/12/2018
 * Title        : Data Science II - Foundations Nanodegree Program
-* COD          : ND111
+    * COD          : ND111
 
 ## Objectivies
 
-Finish this course in two weeks including the Optionals.
+I want to finish this course in two weeks. It includes the Optional videos and chapters.
 
 #### Syllabus
 
@@ -74,6 +74,8 @@ Finish this course in two weeks including the Optionals.
 
 #### Repository Structure
 
+This is the structure of this repository, each course's chapters (or parts) will be stored in different folders.
+
 ```
 ND110_data_science_foundation_02
 |
@@ -86,9 +88,9 @@ ND110_data_science_foundation_02
 |           +--  README.md                       # General information
 |           +--  00-Project_01                   # Project 01
 |           +--  01-Lesson_01                    # Files from Lesson 01
-|           |        +--  nd111_c02_les_01.md    # Notes from Lesson 01 from Chapter 02
+|           |        +--  README.md              # Notes from Lesson 01 from Chapter 02
 |           +--  02-Lesson_02                    # Files from Lesson 02
-|           |        +--  nd111_c02_les_02.md    # Notes from Lesson 02 from Chapter 02
+|           |        +--  README.md              # Notes from Lesson 02 from Chapter 02
 |           .
 |
 +--  03-Chapter_03
@@ -96,9 +98,9 @@ ND110_data_science_foundation_02
 |           +--  README.md                       # General information
 |           +--  00-Project_02                   # Project 02
 |           +--  01-Lesson_01                    # Files from Lesson 01
-|           |        +--  nd111_c02_les_01.md    # Notes from Lesson 01 from Chapter 02
+|           |        +--  README.md              # Notes from Lesson 01 from Chapter 02
 |           +--  02-Lesson_02                    # Files from Lesson 02
-|           |        +--  nd111_c02_les_02.md    # Notes from Lesson 02 from Chapter 02
+|           |        +--  README.md              # Notes from Lesson 02 from Chapter 02
 |           .
 ```
 
@@ -108,4 +110,4 @@ ND110_data_science_foundation_02
 * Take notes using the [`Markdown`][bp_2].
 
 [bp_1]: https://www.gitkraken.com/invite/5Ua2spL4
-[bp_2]: https://en.wikipedia.org/wiki/Markdown
+[bp_2]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
