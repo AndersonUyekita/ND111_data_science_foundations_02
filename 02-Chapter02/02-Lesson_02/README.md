@@ -10,6 +10,16 @@
 
 [derek]: https://modeanalytics.com
 
+#### Exercises
+
+All exercises of this chapter I have stored in the Mode Analytics platform.
+
+[Solutions in Mode Analytics][sol_ma]
+
+[sol_ma]: https://modeanalytics.com/ah_uyekita/reports/7a7293af2041
+
+********************************************************************************
+
 ## Joins
 
 When a table is splited the performance to update or just to make a query is better than a big one. The reason is the quantity of data to read. This is one of the reason to split dataset in several tables, even more, sometimes in convinient to split because the type of data stored.
@@ -100,7 +110,7 @@ SELECT col1 + col2 total, col3
 ```
 **or**
 
-#### `INNER JOIN`
+### `INNER JOIN`
 
 Returns rows which appears in both tables.
 
@@ -110,16 +120,13 @@ SELECT table_1.id, table_1.name, table_2.total
     JOIN table_1
       ON table_2.account_id = table_1.id
 ```
+These last examples are all `INNER JOINS`, and will return a new dataframe (intersection between two dataframes).
 
+### `OUTER JOIN`
 
+There are two kinds of OUTER JOINs
 
+* Left outer JOIN, and;
+* Right outer JOIN.
 
-These last examples are all `INNER JOINS`, this kind of join will return a new dataframe with rows
-
-```sql
-
-
-```
-
-
-.
+This two new JOINs has a property to pull rows that only exist in one table, it means some rows might have NULL values. The standard for this course will be to use only the left outer join.
