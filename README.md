@@ -4,7 +4,7 @@ This is the second course of the Nanodegree of Data Science from Coursera.
 
 * [My repository to the first course][repo_nd110].
 
-[repo_nd110]: https://github.com/AndersonUyekita/ND111_data_science_foundations_01
+[repo_nd110]: https://github.com/AndersonUyekita/ND110_data_science_foundations_01
 
 #### Tags
 * Author       : AH Uyekita
