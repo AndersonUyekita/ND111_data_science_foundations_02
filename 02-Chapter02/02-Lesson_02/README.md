@@ -3,7 +3,7 @@
 #### Tags
 * Author : AH Uyekita
 * Title  :  _SQL Joins_
-* Date   : 14/12/2018
+* Date   : 15/12/2018
 * Course : Data Science II - Foundations Nanodegree
     * COD    : ND111
     * **Instructor:** [Derek Steer][derek]
