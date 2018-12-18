@@ -13,8 +13,8 @@
 ## Outline
 
 * [x] [Lesson 01 - Basic SQL][1]
-* [ ] [Lesson 02 - SQL Joins][2]
-* [ ] [Lesson 03 - SQL Aggregations][3]
+* [x] [Lesson 02 - SQL Joins][2]
+* [x] [Lesson 03 - SQL Aggregations][3]
 * [ ] [Lesson 04 - (Optional) SQL Subqueries & Temporary Tables (Advanced)][4]
 * [ ] [Lesson 05 - (Optional) SQL Data Cleaning (Advanced)][5]
 * [ ] [Project 01 - Query a Digital Music Store Database][6]

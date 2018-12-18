@@ -14,9 +14,9 @@
 
 All exercises of this chapter I have stored in the Mode Analytics platform.
 
-[Solutions in Mode Analytics - Part 1][sol_ma1]
+[Solutions in Mode Analytics][sol_ma]
 
-[sol_ma1]: https://modeanalytics.com/ah_uyekita/reports/c44f93e9f2d4
+[sol_ma]: https://modeanalytics.com/ah_uyekita/reports/c44f93e9f2d4
 
 ********************************************************************************
 
@@ -30,3 +30,18 @@ FROM(SELECT something
      FROM   interesting) AS table_1
 ```
 In the example above, I have one query nested to another. Bear in mind, I must give a alias to the nested query.
+
+If the result of the subquery is a single value, you are allowed to insert this subquery wherever you want.
+
+## WITH
+
+Also known as _Common Table Expression_ (CTE), is a kinf of subquery but could be more helpful if someone is going to read the code. Due to the possibility to write the code in fragments an assign name, this is very handy.
+
+**Example**
+```sql
+WITH my_with_example AS (SELECT ... MY CODE)
+
+SELECT something
+FROM my_with_example
+```
+As you can see it provide a better way to code because the code became more readable.
