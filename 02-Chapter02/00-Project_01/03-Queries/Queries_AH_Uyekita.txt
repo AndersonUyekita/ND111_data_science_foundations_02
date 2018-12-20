@@ -1,0 +1,169 @@
+SELECT genre.name AS genre,
+       AVG(track.milliseconds)/(60 * 1000) AS song_duration
+FROM track
+JOIN album
+  ON track.albumid = album.albumid
+JOIN artist
+  ON artist.artistid = album.artistid
+JOIN genre
+  ON track.genreid = genre.genreid
+WHERE genre.name NOT IN ('TV Shows',
+                         'Sci Fi & Fantasy',
+                         'Science Fiction',
+                         'Comedy',
+                         'Drama')
+GROUP BY genre
+ORDER BY song_duration DESC LIMIT 10;
+
+
+SELECT AVG(track.milliseconds)/(60 * 1000) AS song_duration
+FROM track
+JOIN album
+  ON track.albumid = album.albumid
+JOIN artist
+  ON artist.artistid = album.artistid
+JOIN genre
+  ON track.genreid = genre.genreid
+WHERE genre.name NOT IN ('TV Shows',
+                         'Sci Fi & Fantasy',
+                         'Science Fiction',
+                         'Comedy',
+                         'Drama');
+WITH table_aux
+AS (SELECT
+  invoice.customerid,
+  invoice.invoiceid,
+  invoiceline.invoicelineid,
+  genre.name,
+  genre.genreid,
+  customer.country,
+  invoiceline.unitprice,
+  invoiceline.quantity,
+  invoiceline.quantity * invoiceline.unitprice AS amt_sold
+FROM invoiceline
+JOIN invoice
+  ON invoice.invoiceid = invoiceline.invoiceid
+JOIN track
+  ON track.trackid = invoiceline.trackid
+JOIN genre
+  ON track.genreid = genre.genreid
+JOIN customer
+  ON customer.customerid = invoice.customerid
+ORDER BY invoice.customerid DESC),
+table_country
+AS (SELECT
+  table_aux.name,
+  table_aux.genreid,
+  table_aux.country,
+  SUM(table_aux.amt_sold) AS amt_sold_country
+FROM table_aux
+GROUP BY table_aux.genreid,
+         table_aux.name,
+         table_aux.country),
+table_brazil
+AS (SELECT
+  table_country.name,
+  table_country.genreid,
+  table_country.amt_sold_country
+FROM table_country
+WHERE table_country.country = 'Brazil'),
+table_world
+AS (SELECT
+  table_country.name,
+  table_country.genreid,
+  AVG(table_country.amt_sold_country) AS avg_world
+FROM table_country
+GROUP BY table_country.genreid,
+         table_country.name)
+SELECT
+  table_world.name AS genre,
+  table_world.avg_world / (SELECT
+    SUM(table_world.avg_world)
+  FROM table_world)
+  AS world,
+  table_brazil.amt_sold_country / (SELECT
+    SUM(table_brazil.amt_sold_country)
+  FROM table_brazil)
+  AS brazil
+FROM table_world
+LEFT JOIN table_brazil
+  ON table_world.genreid = table_brazil.genreid;
+WITH income_by_artist AS
+  (SELECT artist.name,
+          SUM(invoiceline.quantity * invoiceline.unitprice) AS amt_sold
+   FROM artist
+   JOIN album
+     ON album.artistid = artist.artistid
+   JOIN track
+     ON track.albumid = album.albumid
+   JOIN invoiceline
+     ON invoiceline.trackid = track.trackid
+   GROUP BY artist.name
+   ORDER BY amt_sold DESC),
+number_songs_artist AS
+  (SELECT artist.name,
+          COUNT(track.trackid) AS qty_songs
+   FROM artist
+   JOIN album
+     ON artist.artistid = album.artistid
+   JOIN track
+     ON track.albumid = album.albumid
+   GROUP BY artist.name
+   ORDER BY qty_songs DESC),
+total_minutes_by_artist AS
+  (SELECT artist.name,
+          SUM(track.milliseconds)/(60 * 1000) AS total_duration
+   FROM artist
+   JOIN album
+     ON artist.artistid = album.artistid
+   JOIN track
+     ON track.albumid = album.albumid
+   GROUP BY artist.name
+   ORDER BY total_duration DESC)
+SELECT income_by_artist.name,
+       income_by_artist.amt_sold,
+       number_songs_artist.qty_songs,
+       total_minutes_by_artist.total_duration,
+       income_by_artist.amt_sold/number_songs_artist.qty_songs AS profitability_by_song,
+       income_by_artist.amt_sold/total_minutes_by_artist.total_duration AS profitability_by_minutes
+FROM income_by_artist
+JOIN number_songs_artist
+  ON income_by_artist.name = number_songs_artist.name
+JOIN total_minutes_by_artist
+  ON total_minutes_by_artist.name = number_songs_artist.name
+WHERE income_by_artist.name NOT IN ('Lost',
+                                    'The Office',
+                                    'Battlestar Galactica (Classic)',
+                                    'Heroes',
+                                    'Battlestar Galactica')
+ORDER BY total_duration DESC LIMIT 20;
+SELECT playlist.name AS playlist_name,
+       artist.name AS artist_name,
+       COUNT(*) AS most_played
+FROM playlist
+JOIN playlisttrack
+  ON playlisttrack.playlistid = playlist.playlistid
+JOIN track
+  ON track.trackid = playlisttrack.trackid
+JOIN album
+  ON album.albumid = track.albumid
+JOIN artist
+  ON artist.artistid = album.artistid
+WHERE playlist.name = 'Music'
+GROUP BY playlist.name,
+         artist.name
+ORDER BY most_played DESC
+LIMIT 20;
+SELECT playlist.name AS playlist_name,
+       track.name AS track_name,
+       COUNT(*) AS most_played
+FROM playlist
+JOIN playlisttrack
+  ON playlisttrack.playlistid = playlist.playlistid
+JOIN track
+  ON track.trackid = playlisttrack.trackid
+WHERE playlist.name = 'Music'
+GROUP BY playlist.name,
+         track.name
+ORDER BY most_played DESC
+LIMIT 20;

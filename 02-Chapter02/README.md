@@ -15,8 +15,8 @@
 * [x] [Lesson 01 - Basic SQL][1]
 * [x] [Lesson 02 - SQL Joins][2]
 * [x] [Lesson 03 - SQL Aggregations][3]
-* [ ] [Lesson 04 - (Optional) SQL Subqueries & Temporary Tables (Advanced)][4]
-* [ ] [Lesson 05 - (Optional) SQL Data Cleaning (Advanced)][5]
+* [x] [Lesson 04 - (Optional) SQL Subqueries & Temporary Tables (Advanced)][4]
+* [x] [Lesson 05 - (Optional) SQL Data Cleaning (Advanced)][5]
 * [ ] [Project 01 - Query a Digital Music Store Database][6]
 
 [1]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/tree/master/02-Chapter02/01-Lesson_01
