@@ -58,6 +58,47 @@ import pandas as pd
 df = pd.read_cvs('bestofrt.tsv', sep= '\t')
 ```
 
-### Web Scrapping
+### Web Scraping
 
-This is terminology used to say the data extracted from a website (usually using code to do it).
+This is terminology is used to say the data extracted from a website (usually using code to do it). Due to this code depends on the HTML file, if any change of the website happens, all the code used to web scrapping could stopping to working properly, which requires an adjustments. For this reason, web scraping is not a definitive solution.
+
+
+## Methods in this Lesson
+
+#### `.find()`
+
+This method is used to find tags and containers.
+
+**Example:**
+```py
+soup.find('title')
+```
+This code above will find the tag title, and return the content.
+
+#### `.find_all()`
+
+It is almost the same of `.find()`, but will find in all document the given pattern.
+
+**Example:**
+```py
+something.find_all('div')
+```
+This code will return all `div` in the document. It could be used with `limit = 1`, which will return the first `div`.
+
+#### `.contents`
+The `.contents` get the elements from the `find` and `find_all`.You are capable to select, which element you want (indexing).
+
+```py
+something.find_all('div')[1].contents[2]
+```
+
+In this fragment of code, I am selecting only the third element of `something.find_all('div')[1]`.
+
+
+#### `os.listdir()`
+
+This function list the file inside a given folder/directory.
+
+```py
+os.listdir(my_path)
+```
