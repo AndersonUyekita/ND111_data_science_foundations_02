@@ -9,8 +9,8 @@
 
 ## Outline
 
-* [ ] Lesson 01 - Introduction to Data Wrangling
-* [ ] Lesson 02 - Gathering
-* [ ] Lesson 03 - Assessing Data
+* [x] Lesson 01 - Introduction to Data Wrangling
+* [x] Lesson 02 - Gathering
+* [x] Lesson 03 - Assessing Data
 * [ ] Lesson 04 - Cleaning Data
 * [ ] Project 02 - Wrangle and Analyze Data
