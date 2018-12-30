@@ -8,8 +8,13 @@
     * COD: ND111
     * **Instructor:** David Venturi
 
+## Project
 
+Please, find below the URL to redirect to the project Jupyter Notebook.
 
+[<kbd>Project 02 - WeRateDogs - Wrangle and Analyze Data</kbd>][project02_url]
+
+[project02_url]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/blob/master/03-Chapter03/00-Project_02/nd111_udacity_project_02.ipynb
 
 ********************************************************************************
 
