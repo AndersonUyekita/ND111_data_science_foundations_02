@@ -1,0 +1,20 @@
+---
+title: "Untitled"
+author: "Anderson Uyekita"
+date: "30 de dezembro de 2018"
+output:
+  html_document:
+    theme: spacelab
+    highlight: tango
+    toc: true
+    toc_float: true
+    collapse: true
+    smooth_scroll: true
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown

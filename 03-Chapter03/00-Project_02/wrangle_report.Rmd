@@ -1,0 +1,92 @@
+---
+title: "UD111 Project 02 - Data Science II"
+subtitle: "Wrangle and Analyze Data"
+author: "Anderson Hitoshi Uyekita"
+date: "30 December 2018"
+output:
+  html_document:
+    theme: spacelab
+    highlight: tango
+    toc: true
+    toc_float: true
+    collapse: true
+    smooth_scroll: true
+    number_sections: false
+    includes:
+      after_body: footer.html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Wrangle Report
+
+## Synopsis
+
+I have found several problems with dog's name, probably the regex used to gather is not well calibrated, and in many cases has gathered articles, nouns, etc.. I have also found several problems with rating_numerator due to the lack of standard way to rate the dogs.
+
+In respect to the data analysis, I have observed a seasonality in the frequency of tweets, the user @dog_rates tend to tweets more in the begining of the week, monday and tuesday specially, and i have also identified seasonality along the year, there are much more tweets in december and november, going in opposite way these two month have the lowest rating_numerator.
+
+In regard to the algorithms used to predict the dog's breed, I have realized the three algorithms has results very distinct, after a visual investigation plotting a graphic without sucess I have used the Correlation Map to found my insights.
+
+## 1. Introduction
+
+This project aims to combine data set from Twitter (from the user `@dog_rates`, as known as WeRateDogs) and two other sources to build a new data frame, to do so it is necessary to perform the entire process preconized by the Data Wrangling, which will be describe in details in the next chapters.
+
+## 2. Data Gathering
+
+I have "downloaded" the files `image_predictions.tsv` and `twitter_archive_enhanced.csv` using the `requests` package. For the additional info from twitter I have used the `tweepy` package to access the @dog_rates tweets.
+
+## 3. Data Assessing
+
+The Data Assessing process was quite extense due to the many issues found:
+
+<center><strong>Table 1 - Summary of Issues Identified.</strong></center>
+
+|Issue ID|Table|Issue Type|Dimension|Method|Column|Description|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|1|df_ach|Quality|Validity|Visual|name|Invalid names or non-standard names.|
+|2|df_ach|Tidiness|-|Visual|source|HTML tags, URL, and content in a single column.|
+|3|df_ach|Quality|Validity|Programmatic|rating_numerator|Invalid ratings. Value varies from 1776 to 0.<br>Data Strucutre must be converted from `int` to `float`.|
+|4|df_ach|Quality|Validity|Programmatic|rating_denominator|Invalid denominator, I expected a fixed base.<br>Data Strucutre must be converted from `int` to `float`.|
+|5|df_ach|Tidiness|-|Programmatic|doggo, floofer, pupper, and puppo|This is a categorical variable and could be combine into one column.|
+|6|df_ach|Tidiness|-|Programmatic|text|There are two information in a single column. Split the text from the URL.|
+|7|df_ach|Quality|Validity|Programmatic|timestamp|Converted to date.|
+|8|df_ach|Quality|Validity|Programmatic|tweet_id|Following the example of zip code, it must be string.|
+|9|df_ach|Quality|Accuracy|Programmatic|retweeted_status_id|The same dog could be recorded twice or more in cases of retweets.|
+|10|df_ach|Quality|Accuracy|Programmatic|in_reply_to_status_id|The same dog could be recorded twice or more in cases of reply.|
+|11|df_img|Quality|Consistency|Visual|p1, p2, and p3|Dog's breed is not standardized.|
+|12|df_img|Quality|Validity|Programmatic|tweet_id|Convert it to string.|
+|13|df_img|Quality|Validity|Programmatic|jpg_url|Duplicated images and consequently double entry.|
+|14|twt_ach_mstr|Tidiness|-|Programmatic|-|Merging these two tables (`df_ach` and `df_img`) into one.|
+|15|df_img|Quality|Completeness|Programmatic|"retweet count"|Gather additional info in `tweet_json.txt` file.|
+|16|df_img|Quality|Completeness|Programmatic|"favorite count"|Gather additional info in `tweet_json.txt` file.|
+|17|twt_ach_mstr|Quality|Validity|Programmatic|"many columns"|Remove `in_reply_to_status_id`, `in_reply_to_user_id`, `retweeted_status_timestamp`, `retweeted_status_id`, and `retweeted_status_user_id`.
+
+Legend:
+
+* df_ach: twitter_archive_enhanced.csv
+* df_img: image_predictions.tsv
+* twt_ach_mstr: twitter_archive_master.csv
+
+
+## 4. Data Cleaning
+
+
+
+## 5. Conclusions
+
+
+
+### Additional Info
+
+
+
+* [UD111 - Data Science Repository][url_1] (Github Repository)
+* [Project 02 - Wrangle Act][url_2] (Jupyter Notebook File)
+* [Project 02 - Act Report][url_3] (Markdown File)
+
+[url_1]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02
+[url_2]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/blob/master/03-Chapter03/00-Project_02/nd111_udacity_project_02.ipynb
+[url_3]: ads
