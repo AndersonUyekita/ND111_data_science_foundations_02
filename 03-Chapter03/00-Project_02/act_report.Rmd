@@ -1,7 +1,8 @@
 ---
-title: "Untitled"
-author: "Anderson Uyekita"
-date: "30 de dezembro de 2018"
+title: "ND111 Project 02 - Data Science II"
+subtitle: 'Wrangle and Analyze Data'
+author: "Anderson Hitoshi Uyekita"
+date: "30 December 2018"
 output:
   html_document:
     theme: spacelab
@@ -11,10 +12,78 @@ output:
     collapse: true
     smooth_scroll: true
     number_sections: false
+    includes:
+      after_body: footer.html
+      in_header: header.html
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE,message=FALSE)
 ```
 
-## R Markdown
+# Act Report
+
+## Synopsis
+
+In respect to the data analysis, I have observed a seasonality in the frequency of tweets, the user @dog_rates tend to tweets more in the begining of the week, monday and tuesday specially, and i have also identified seasonality along the year, there are much more tweets in december and november, going in opposite way these two month have the lowest rating_numerator.
+
+In regard to the algorithms used to predict the dog's breed, I have realized the three algorithms has results very distinct, after a visual investigation plotting a graphic without sucess I have used the Correlation Map to found my insights.
+
+
+## Objectivies
+
+Basically, this project is an opportunity to:
+
+* Have practice using Jupyter Notebook (Python, Markdown, etc.);
+* Hands on in Data Wrangling process
+       * Data Gathering
+              * Files from internet
+              * Local dataset (on machine)
+       * Data Assessing
+              * Detect and Document
+       * Data Cleaning
+              * Ensure reproducibility
+       * Data Storing/Saving
+* Also provide opportunity to EDA;
+       * Data Visualization
+       * Pose question
+* Pratice in Documentation and Reporting
+
+
+## 1. Introduction
+
+
+
+## 2. Data Wrangling
+
+
+
+## 3, Exploratory Analysis
+
+
+
+
+## 4. Data Analysis 
+
+
+
+
+
+## 5. Conclusions
+
+
+
+
+### Additional Info
+
+For further information about the UD111 - Project 02:
+
+* [ND111 - Project 02 - Repository][url_4] (Github Repository)
+* [ND111 - Project 02 - Wrangle Act][url_2] (Jupyter Notebook File)
+* [ND111 - Project 02 - Act Report][url_3] (Markdown File)
+* [ND111 - Data Science II - Nanodegree Repository][url_1] (Github Repository)
+
+[url_1]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02
+[url_2]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/blob/master/03-Chapter03/00-Project_02/nd111_udacity_project_02.ipynb
+[url_3]: ads
+[url_4]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/tree/master/03-Chapter03/00-Project_02

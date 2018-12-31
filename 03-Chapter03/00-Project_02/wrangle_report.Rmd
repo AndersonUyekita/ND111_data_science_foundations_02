@@ -1,19 +1,22 @@
 ---
-title: "UD111 Project 02 - Data Science II"
-subtitle: "Wrangle and Analyze Data"
+title: "ND111 - Project 02 - Data Science II"
 author: "Anderson Hitoshi Uyekita"
 date: "30 December 2018"
 output:
   html_document:
-    theme: spacelab
+    collapse: yes
     highlight: tango
-    toc: true
-    toc_float: true
-    collapse: true
-    smooth_scroll: true
-    number_sections: false
     includes:
       after_body: footer.html
+      in_header: header.html
+    number_sections: no
+    smooth_scroll: yes
+    theme: spacelab
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+subtitle: Wrangle and Analyze Data
 ---
 
 ```{r setup, include=FALSE}
@@ -26,9 +29,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 I have found several problems with dog's name, probably the regex used to gather is not well calibrated, and in many cases has gathered articles, nouns, etc.. I have also found several problems with rating_numerator due to the lack of standard way to rate the dogs.
 
-In respect to the data analysis, I have observed a seasonality in the frequency of tweets, the user @dog_rates tend to tweets more in the begining of the week, monday and tuesday specially, and i have also identified seasonality along the year, there are much more tweets in december and november, going in opposite way these two month have the lowest rating_numerator.
-
-In regard to the algorithms used to predict the dog's breed, I have realized the three algorithms has results very distinct, after a visual investigation plotting a graphic without sucess I have used the Correlation Map to found my insights.
 
 ## 1. Introduction
 
@@ -40,12 +40,12 @@ I have "downloaded" the files `image_predictions.tsv` and `twitter_archive_enhan
 
 ## 3. Data Assessing
 
-The Data Assessing process was quite extense due to the many issues found:
+The Data Assessing process have found several issues, which will be shown in Table 1:
 
 <center><strong>Table 1 - Summary of Issues Identified.</strong></center>
 
 |Issue ID|Table|Issue Type|Dimension|Method|Column|Description|
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|:---:|:--:|:---:|:---:|:----:|:----:|:--------------------------------:|
 |1|df_ach|Quality|Validity|Visual|name|Invalid names or non-standard names.|
 |2|df_ach|Tidiness|-|Visual|source|HTML tags, URL, and content in a single column.|
 |3|df_ach|Quality|Validity|Programmatic|rating_numerator|Invalid ratings. Value varies from 1776 to 0.<br>Data Strucutre must be converted from `int` to `float`.|
@@ -70,23 +70,30 @@ Legend:
 * df_img: image_predictions.tsv
 * twt_ach_mstr: twitter_archive_master.csv
 
-
 ## 4. Data Cleaning
 
+Most of the issues involving wrong or non standard values were solved using a tailored regular expression, which allow me to fix it finding in the `text` column the original values. In respect to the data type problems, it was fixed using the `.astype()` method and `.loc()`. Finally, I have solved the tidiness issues combining two tables in one, and merging 4 columns (doggo, pupper, puppo, and floofer) into one so-called dogtionary.
 
+In regard to the duplicated rows and "depricated" columns, I have removed to turn the final dataset much cleaner.
+
+The data frame have started with XX rows and end up with YY rows. Have in mind, retweet_count and favorite_count do not have in all tweet_id, which means there are observation with NaN in these two rows.
 
 ## 5. Conclusions
 
-
+Although I have written/documented 17 issues, the final file (twitter_archive_master.csv) is not totally free of issues, because I faced the Data Wrangle as an iterative process, what I did so far was the first iteration.
 
 ### Additional Info
 
+For further information about the UD111 - Project 02:
 
-
-* [UD111 - Data Science Repository][url_1] (Github Repository)
-* [Project 02 - Wrangle Act][url_2] (Jupyter Notebook File)
-* [Project 02 - Act Report][url_3] (Markdown File)
+* [ND111 - Project 02 - Repository][url_4] (Github Repository)
+* [ND111 - Project 02 - Wrangle Act][url_2] (Jupyter Notebook File)
+* [ND111 - Project 02 - Act Report][url_3] (Markdown File)
+* [ND111 - Data Science II - Nanodegree Repository][url_1] (Github Repository)
 
 [url_1]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02
 [url_2]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/blob/master/03-Chapter03/00-Project_02/nd111_udacity_project_02.ipynb
 [url_3]: ads
+[url_4]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/tree/master/03-Chapter03/00-Project_02
+
+
