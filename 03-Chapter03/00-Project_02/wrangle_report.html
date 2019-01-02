@@ -277,21 +277,29 @@ div.tocify {
 
 <div id="wrangle-report" class="section level1">
 <h1>Wrangle Report</h1>
+<p>This is a dedicated Data Wrangling Report for internal communication.</p>
 <div id="synopsis" class="section level2">
 <h2>Synopsis</h2>
-<p>I have found several problems with dog’s name, probably the regex used to gather is not well calibrated, and in many cases has gathered articles, nouns, etc.. I have also found several problems with rating_numerator due to the lack of standard way to rate the dogs.</p>
+<p>Along the Data Wrangling process, in the <code>twitter_archive_enhanced.csv</code> file, I have found several problems in the dog’s name column, probably the regex used to gather/find it (from the Twitter user <code>@dog_rates</code> also known as <a href="https://twitter.com/dog_rates">WeRateDogs™</a>) was not well calibrated, and in many cases has gathered articles, nouns, etc. or any other ordinary word. I have fixed it assuming these problematic dog’s names as <code>None</code>.</p>
+<p>I have also found problems in <code>rating_numerator</code> and <code>rating_denominator</code> columns, both from <code>image_predictions.tsv</code> file, which has required a new process of “scrapping” these values from the <code>text</code> column.</p>
+<p>Finally, I have combined the files <code>twitter_archive_enhanced.csv</code> and <code>image_predictions.tsv</code> into a new data frame called <code>twitter_archive_master.csv</code>, which I have aggregated some new features:</p>
+<ul>
+<li><code>retweet_count</code>, and;</li>
+<li><code>favorite_count</code>.</li>
+</ul>
+<p>Both features, are gathered from the WeRateDogs™ tweets using the <code>tweepy</code> package.</p>
 </div>
 <div id="introduction" class="section level2">
 <h2>1. Introduction</h2>
-<p>This project aims to combine data set from Twitter (from the user <code>@dog_rates</code>, as known as WeRateDogs) and two other sources to build a new data frame, to do so it is necessary to perform the entire process preconized by the Data Wrangling, which will be describe in details in the next chapters.</p>
+<p>This Wrangle Report is a part of a Data Science Course Project offered by Udacity (<a href="https://br.udacity.com/course/fundamentos-data-science-ii--nd111">ND111 - Data Science II</a>). The project aims to gather data from Twitter and combine it with a third party data frame to create analysis about the tweets and the predicted dog’s breed.</p>
 </div>
 <div id="data-gathering" class="section level2">
 <h2>2. Data Gathering</h2>
-<p>I have “downloaded” the files <code>image_predictions.tsv</code> and <code>twitter_archive_enhanced.csv</code> using the <code>requests</code> package. For the additional info from twitter I have used the <code>tweepy</code> package to access the <span class="citation">@dog_rates</span> tweets.</p>
+<p>I have gathered the files <code>image_predictions.tsv</code> and <code>twitter_archive_enhanced.csv</code> using the <code>requests</code> package. Although the <code>image_predictions.tsv</code> file has almost all the information from the WeRateDogs™ user, there is some missed variable, which I have gathered using the <code>tweepy</code> package.</p>
 </div>
 <div id="data-assessing" class="section level2">
 <h2>3. Data Assessing</h2>
-<p>The Data Assessing process have found several issues, which will be shown in Table 1:</p>
+<p>The Data Assessing process have found several issues, which I have detailed in Table 1:</p>
 <center>
 <strong>Table 1 - Summary of Issues Identified.</strong>
 </center>
@@ -342,7 +350,7 @@ div.tocify {
 <td align="center">Validity</td>
 <td align="center">Programmatic</td>
 <td align="center">rating_numerator</td>
-<td align="center">Invalid ratings. Value varies from 1776 to 0.<br>Data Strucutre must be converted from <code>int</code> to <code>float</code>.</td>
+<td align="center">Invalid ratings. Value varies from 1776 to 0.<br>Data Structure must be converted from <code>int</code> to <code>float</code>.</td>
 </tr>
 <tr class="even">
 <td align="center">4</td>
@@ -351,7 +359,7 @@ div.tocify {
 <td align="center">Validity</td>
 <td align="center">Programmatic</td>
 <td align="center">rating_denominator</td>
-<td align="center">Invalid denominator, I expected a fixed base.<br>Data Strucutre must be converted from <code>int</code> to <code>float</code>.</td>
+<td align="center">Invalid denominator, I expected a fixed base.<br>Data Structure must be converted from <code>int</code> to <code>float</code>.</td>
 </tr>
 <tr class="odd">
 <td align="center">5</td>
@@ -360,7 +368,7 @@ div.tocify {
 <td align="center">-</td>
 <td align="center">Programmatic</td>
 <td align="center">doggo, floofer, pupper, and puppo</td>
-<td align="center">This is a categorical variable and could be combine into one column.</td>
+<td align="center">This is a categorical variable, and I can combine these columns into one column.</td>
 </tr>
 <tr class="even">
 <td align="center">6</td>
@@ -369,7 +377,7 @@ div.tocify {
 <td align="center">-</td>
 <td align="center">Programmatic</td>
 <td align="center">text</td>
-<td align="center">There are two information in a single column. Split the text from the URL.</td>
+<td align="center">There is two information in a single column. Split the text from the URL.</td>
 </tr>
 <tr class="odd">
 <td align="center">7</td>
@@ -378,7 +386,7 @@ div.tocify {
 <td align="center">Validity</td>
 <td align="center">Programmatic</td>
 <td align="center">timestamp</td>
-<td align="center">Converted to date.</td>
+<td align="center">Convert to date.</td>
 </tr>
 <tr class="even">
 <td align="center">8</td>
@@ -387,7 +395,7 @@ div.tocify {
 <td align="center">Validity</td>
 <td align="center">Programmatic</td>
 <td align="center">tweet_id</td>
-<td align="center">Following the example of zip code, it must be string.</td>
+<td align="center">Following the example of zip code, it must be a string.</td>
 </tr>
 <tr class="odd">
 <td align="center">9</td>
@@ -414,7 +422,7 @@ div.tocify {
 <td align="center">Consistency</td>
 <td align="center">Visual</td>
 <td align="center">p1, p2, and p3</td>
-<td align="center">Dog’s breed is not standardized.</td>
+<td align="center">Dog’s breed has no standard. Capital letter or lowercase names.</td>
 </tr>
 <tr class="even">
 <td align="center">12</td>
@@ -423,7 +431,7 @@ div.tocify {
 <td align="center">Validity</td>
 <td align="center">Programmatic</td>
 <td align="center">tweet_id</td>
-<td align="center">Convert it to string.</td>
+<td align="center">Convert to string.</td>
 </tr>
 <tr class="odd">
 <td align="center">13</td>
@@ -432,7 +440,7 @@ div.tocify {
 <td align="center">Validity</td>
 <td align="center">Programmatic</td>
 <td align="center">jpg_url</td>
-<td align="center">Duplicated images and consequently double entry.</td>
+<td align="center">It has duplicated images and consequently double entry.</td>
 </tr>
 <tr class="even">
 <td align="center">14</td>
@@ -474,27 +482,30 @@ div.tocify {
 </table>
 <p>Legend:</p>
 <ul>
-<li>df_ach: twitter_archive_enhanced.csv</li>
-<li>df_img: image_predictions.tsv</li>
-<li>twt_ach_mstr: twitter_archive_master.csv</li>
+<li><code>df_ach</code>: Loaded data frame from <code>twitter_archive_enhanced.csv</code>;</li>
+<li><code>df_img</code>: Loaded data frame from <code>image_predictions.tsv</code>, and;</li>
+<li><code>twt_ach_mstr</code>: Loaded data frame from <code>twitter_archive_master.csv</code>.</li>
 </ul>
 </div>
 <div id="data-cleaning" class="section level2">
 <h2>4. Data Cleaning</h2>
-<p>Most of the issues involving wrong or non standard values were solved using a tailored regular expression, which allow me to fix it finding in the <code>text</code> column the original values. In respect to the data type problems, it was fixed using the <code>.astype()</code> method and <code>.loc()</code>. Finally, I have solved the tidiness issues combining two tables in one, and merging 4 columns (doggo, pupper, puppo, and floofer) into one so-called dogtionary.</p>
-<p>In regard to the duplicated rows and “depricated” columns, I have removed to turn the final dataset much cleaner.</p>
-<p>The data frame have started with XX rows and end up with YY rows. Have in mind, retweet_count and favorite_count do not have in all tweet_id, which means there are observation with NaN in these two rows.</p>
+<p>The dog’s names issue was solved evaluating if it starts with a capital letter it was a name if not it was an ordinary word and I have converted to “None”. Most of the issues involving non-usual values to rating_numerator and rating_denominator were solved using a new tailored regular expression to gather the ratings from <code>text</code> column.</p>
+<p>In respect to the data type problems in <code>timestamp</code> and <code>tweet_id columns</code>, were fixed using the <code>.astype()</code> method and <code>.loc[]</code>.</p>
+<p>In regard to the duplicated information, I decided to remove all retweets and reply to avoid double entries of the same dog.</p>
+<p>Finally, I have solved the tidiness issues combining the tables <code>twitter_archive_enhanced.csv</code> and <code>image_predictions.tsv</code> in one called <code>twitter_archive_master.csv</code>. I have also merged 4 columns (doggo, pupper, puppo, and floofer) into one, which I have bundled and named as dogtionary.</p>
 </div>
 <div id="conclusions" class="section level2">
 <h2>5. Conclusions</h2>
-<p>Although I have written/documented 17 issues, the final file (twitter_archive_master.csv) is not totally free of issues, because I faced the Data Wrangle as an iterative process, what I did so far was the first iteration.</p>
+<p>I have documented 17 issues but this final file version is not totally free of issues, because I faced the Data Wrangle as an iterative process, what I did so far was the first iteration.</p>
+<p>For this reason, the <code>twitter_archive_master.csv</code> file is the final file version with a minored number of issues, and ready for a Data Analysis. This file has 1968 observations and 24 features.</p>
+<p><em>Caveats.: Bear in mind, there are some <code>tweet_id</code> that do not have <code>retweet_count</code> and <code>favorite_count</code>, which means there are observations with NaN.</em></p>
 <div id="additional-info" class="section level3">
 <h3>Additional Info</h3>
-<p>For further information about the UD111 - Project 02:</p>
+<p>For further information about Project 02 from Data Science II, you can access the following link:</p>
 <ul>
 <li><a href="https://github.com/AndersonUyekita/ND111_data_science_foundations_02/tree/master/03-Chapter03/00-Project_02">ND111 - Project 02 - Repository</a> (Github Repository)</li>
-<li><a href="https://github.com/AndersonUyekita/ND111_data_science_foundations_02/blob/master/03-Chapter03/00-Project_02/nd111_udacity_project_02.ipynb">ND111 - Project 02 - Wrangle Act</a> (Jupyter Notebook File)</li>
-<li><a href="ads">ND111 - Project 02 - Act Report</a> (Markdown File)</li>
+<li><a href="https://github.com/AndersonUyekita/ND111_data_science_foundations_02/blob/master/03-Chapter03/00-Project_02/wrangle_act.ipynb">ND111 - Project 02 - Wrangle Act</a> (Jupyter Notebook File)</li>
+<li><a href="http://rpubs.com/AndersonUyekita/nd111_project_02_act_report">ND111 - Project 02 - Act Report</a> (Markdown File)</li>
 <li><a href="https://github.com/AndersonUyekita/ND111_data_science_foundations_02">ND111 - Data Science II - Nanodegree Repository</a> (Github Repository)</li>
 </ul>
 </div>
