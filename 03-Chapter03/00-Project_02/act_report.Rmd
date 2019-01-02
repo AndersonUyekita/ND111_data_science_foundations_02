@@ -1,20 +1,22 @@
 ---
 title: "ND111 - Project 02 - Data Science II"
-subtitle: 'Wrangle and Analyze Data'
 author: "Anderson Hitoshi Uyekita"
 date: "30 December 2018"
 output:
   html_document:
-    theme: spacelab
+    collapse: yes
     highlight: tango
-    toc: true
-    toc_float: true
-    collapse: true
-    smooth_scroll: true
-    number_sections: false
     includes:
       after_body: footer.html
       in_header: header.html
+    number_sections: no
+    smooth_scroll: yes
+    theme: spacelab
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+subtitle: Wrangle and Analyze Data
 ---
 
 ```{r setup, include=FALSE}
@@ -27,14 +29,22 @@ knitr::opts_chunk$set(echo = TRUE,message=FALSE)
 
 ## Synopsis
 
-In respect to the data analysis, I have observed a seasonality in the frequency of tweets, the user @dog_rates tend to tweets more in the begining of the week, monday and tuesday specially, and i have also identified seasonality along the year, there are much more tweets in december and november, going in opposite way these two month have the lowest rating_numerator.
+This project aims to give to the student a real case of how to gather, assess, clean, and analyze the data, in other words its englobes the Data Wrangling and Exploratory Data Analysis. The database used as an example is about the [WeRateDogs™][dog_rates] Twitter user, this account has more than 7,572,000 followers, 9,500 tweets, and 141,000 likes.
 
-In regard to the algorithms used to predict the dog's breed, I have realized the three algorithms has results very distinct, after a visual investigation plotting a graphic without sucess I have used the Correlation Map to found my insights.
+The Data Gathering process bundled three different tasks, the first one download file from URL and later loading to the Jupyter Notebook, which requires a manual step, the second downloading a file programmatically, and the third gathering data from the Twitter API. This step has also required to save these data in a local machine.
+
+Based on the data gathered, I have assessed the most evident issues (17 issues in total) and documented it to create a record of modifications. Later, in Data Cleaning process I have fixed all identified issues, and I have also merged (the two downloaded files from the Data Gathering process) into one and added some missing values (from the archive downloaded from the Twitter API). The final data frame was stored as `twitter_archive_master.csv`.
+
+In the Data Analysis and Visualization, which I have interpreted as Exploratory Analysis, I have posed few questions to guide my analysis, which lead me to found strong evidence of:
+
+* Seasonality in the number of tweets along the week and along the year;
+* A positive correlation between the number of retweets and the number of favourites, and;
+* No correlation between the algorithms output used to predict the dog breed.
 
 
 ## 1. Introduction
 
-This report is based on _Wrangle and Analyze Data_ Project outcome, and aims to shows the insights observed in the [wrangle_act.ipynb][wrangle_act] file. The project's subject is about the [WeRateDogs™][dog_rates] user, which gives rates for dog's pictures, nowadays this account has more than 7,572,000 followers, more than 9,500 tweets, and more than 141,000 likes.
+This report is based on _Wrangle and Analyze Data_ Project outcome, and aims to shows the insights observed in the [wrangle_act.ipynb][wrangle_act] file.
 
 [wrangle_act]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/blob/master/03-Chapter03/00-Project_02/wrangle_act.ipynb
 
@@ -53,27 +63,27 @@ For a better understanding, I have divided this chapter into three parts:
 
 The bedrock of this project is a combination of the `twitter_archive_enhanced.csv` and `image_predictions.tsv` files, which I have named as `twitter_archive_master.csv`. Later, I have added to the `twitter_archive_master.csv` two new features gathered from the Twitter using the tweepy package.
 
-The `twitter_archive_master.csv` has severeal information about [WeRateDogs™][dog_rates], including the predicted dog's breeds by three differents algorithms. Let's investigate this data frame to identify any kind of pattern or relationship between the recorded data.
+The `twitter_archive_master.csv` has information about [WeRateDogs™][dog_rate], including the predicted dog's breeds by three differents algorithms. Let's investigate this data frame to identify any kind of pattern or relationship between the recorded data.
 
 ### 2.2. Data Assessing {#data_assessing}
 
-Following the good pratices, I have documented each issue found before fixing it, and I have found 17 issues. In [Appendix A1](#appendix_a1) you can see an entire Table with all issues and its description.
+Following the good practices, I have documented each issue found before fixing it, and I have found 17 issues. In [Appendix A1](#appendix_a1) you can see an entire Table with all issues and its description.
 
-Most of the problems is related to:
+Most of the problems are related to:
 
 * Data quality
     * Invalid values: Too high values (e.g. rating of 1776) or non-standard values (e. g. dog's names such a, an, very, etc.);
-    * Wrong data type: Date Time variables as string.
+    * Wrong data type: Date Time variables as a string.
 
 * Data tidiness
-    * Converting several columns into a one column, and;
+    * Converting several columns into one column, and;
     * Merging tables.
 
 ### 2.3. Data Cleaning {#data_cleaning}
 
-Along the process of Cleaning, I have fixed problems in rating_numerator and rating_denominator values resulted by a non well calibrated regular expression to extract the rating from the `text` column. Similarly, the dog's name was fixed due to a problem gathering ordinary words instead the dog's name.
+Along the process of Cleaning, I have fixed problems in rating_numerator and rating_denominator values resulted by a non well calibrated regular expression to extract the rating from the `text` column. Similarly, the dog's name was fixed due to a problem gathering ordinary words instead of the dog's name.
 
-In this chapter I have performed the merging of data frames.
+In this chapter, I have performed the merging of data frames.
 
 For further information about Data Wrangling, please read the complete Project Report in this [link][wrangle_act].
 
@@ -83,7 +93,7 @@ Based on a data frame of several tweets from WeRateDogs™ (provided by `twitter
 
 ### 3.1. Predict Dog Breed Algorithm
 
-The Graphics 1, 2, and 3 shows the first 20 breeds with more appearance.
+The Graphics 1, 2, and 3 show the first 20 breeds with more appearance.
 
 ![](02-img/01.png)
 
@@ -92,56 +102,91 @@ The Graphics 1, 2, and 3 shows the first 20 breeds with more appearance.
 
 ![](02-img/03.png)
 
-As you can see, P1 algorithm has the lowest quantity of breed with more than 20 appearance, only 14 breeds, and has the breed with more apperance between the three algorithms. In other hand, the algorithm P3 has 21 breeds with more than 20 apperance, which also results the lowest between the top scored breeds.
+As you can see, P1 algorithm has the lowest quantity of breed with more than 20 appearance, only 14 breeds, and has the breed with more appearance between the three algorithms. On the other hand, the algorithm P3 has 21 breeds with more than 20 appearance, which also results the lowest between the top scored breeds.
 
->The algorithm 1 tend to concentrate the breed classification in few breeds, whereas algorithm P3 do the opposite, spreading the classification in more breeds. The algorithm P2 is a midterm between P1 and P3 algprithms.
+
+>**Conclusion:** The algorithm 1 tends to concentrate the breed classification in few breeds, whereas algorithm P3 do the opposite, spreading the classification in more breeds. The algorithm P2 is a midterm between P1 and P3 algorithms.
 
 ### 3.2. Retweets vs Favorite
 
-The graphics 4 and 5, presents a straighforward scatterplot graphic of favorite_count x retweet_count to visualize any pattern.
+The graphics 4 and 5, presents a straightforward scatterplot graphic of `favorite_count` vs `retweet_count` to visualize any pattern.
 
 ![](02-img/04.png)
+
+
+>**Conclusion:** There is a strong and positive correlation between both variables.
+
+
+### 3.3. Puppo, Pupper, Doggo, or Floofer
+
+> **Question** Are Puppo, Pupper, Doggo or Floofer with better rating than "ordinary" dogs?
+
+Based on Graphic 4, I want to visualize if there is any pattern using the Dogtionary as a classifier.
 
 ![](02-img/05.png)
 
 
 
+>**Conclusion:** It is not possible to identify any pattern using the dogtionary classification.
+
+
 ### 3.3. Tweet's Seasonality
 
+>**Question:** Are there seasonality in the tweets behaviour?
+
+
+The Graphic 6 shows the Tweets' number during the week.
 
 ![](02-img/06.png)
 
+>**Conclusion:** There is a seasonality along the week because the WeRateDogs tend to tweet in average more on Mondays, Tuesday, and Wednesday. Although the number of tweets is different during the week, the rating stays steadily. 
 
+
+The Graphic 7 shows the Tweets' number along the year.
 
 ![](02-img/07.png)
 
+>**Conclusion:** The tweets have also seasonality during the year, there are much more tweets in December and November. A strange characteristic is the average rating in these two months, which is the lowest values over the year.
 
-### 3.4. Algorithm Correlation
+### 3.4. Dog's Breed Appeal
 
+> **Question:** What is the dog's breed with more impact?
 
+The graphics 8, 9, and 10 show how is the behaviour of the relation between favourite and retweet. The red line represents the rate of favourite by each retweet, green line average rate, the blue bars (number of Favorites), and orange bars (number of retweets).
 
 ![](02-img/08.png)
 
 ![](02-img/09.png)
 
-
-
 ![](02-img/10.png)
 
+>**Conclusion:** Unfortunately, it is impossible to take any conclusion based on these three graphics, but these results open an opportunity to pose a new question. How different are the results of these three algorithm?
 
+### 3.5. Algorithm Correlation
 
+> **Question: ** How different are the results of these three algorithms?
 
+Founded on the 3.4. item, where it is not possible to identify what is the breed with better performance with respect to the rate (the relationship between favourite and retweet). There is no dog's breed which appears in the three algorithms in the top 20. For this reason, I have increased the threshold to 40 (top 40) and later I have used all breeds.
+
+The graphic 11 shows a comparison between the rate of the same breed for all algorithms.
 
 ![](02-img/11.png)
 
-
-
-
+>**Conclusion:** There is no correlation between the results of the three algorithms. An analysis oblique using only the 40 breeds with the highest rate could lead us an erroneous conclusion. The Correlation Map using all breeds gave a good measure of (un)similarities between these algorithms.
 
 ## 4. Conclusions
 
+This project aims to perform the Data Wrangling and the Exploratory Data Analysis in the WeRateDogs™ Twitter account.
 
+The Data Gathering process englobed three different tasks, the first one download file from URL and later loading to the Jupyter Notebook, which requires a manual step, the second downloading a file programmatically, and the third gathering data from the Twitter API.
 
+Based on the data gathered, I have assessed the most evident issues (17 issues in total) and documented it to create a record of modifications. Later, in Data Cleaning process I have fixed all identified issues to complete, and I have also merged separated data frame into one and added some missing values. The final data frame was stored as twitter_archive_master.csv.
+
+In the Data Analysis and Visualization, which I have interpreted as Exploratory Analysis, I have posed few questions to guide my analysis. I have found strong evidence of:
+
+Seasonality in the number of tweets along the week and along the year;
+A positive correlation between the number of retweets and the number of favourites, and;
+No correlation between the algorithms output used to predict the dog breed.
 
 ### Additional Info
 
