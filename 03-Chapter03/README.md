@@ -12,5 +12,5 @@
 * [x] Lesson 01 - Introduction to Data Wrangling
 * [x] Lesson 02 - Gathering
 * [x] Lesson 03 - Assessing Data
-* [ ] Lesson 04 - Cleaning Data
-* [ ] Project 02 - Wrangle and Analyze Data
+* [x] Lesson 04 - Cleaning Data
+* [x] Project 02 - Wrangle and Analyze Data

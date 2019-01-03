@@ -3,7 +3,7 @@
 #### Tags
 * Author : AH Uyekita
 * Title  :  _Advanced Statistics_
-* Date   : 14/12/2018
+* Date   : 02/01/2019
 * Course : Data Science II - Foundations Nanodegree
 * COD    : ND111
 

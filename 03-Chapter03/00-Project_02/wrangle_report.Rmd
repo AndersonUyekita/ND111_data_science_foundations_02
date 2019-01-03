@@ -2,7 +2,7 @@
 title: "ND111 - Project 02 - Data Science II"
 subtitle: "Wrangle and Analyze Data"
 author: "Anderson Hitoshi Uyekita"
-date: "30 December 2018"
+date: "03 January 2019"
 output:
   html_document:
     collapse: yes

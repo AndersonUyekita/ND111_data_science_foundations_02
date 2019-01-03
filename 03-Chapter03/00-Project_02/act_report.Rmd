@@ -1,7 +1,7 @@
 ---
 title: "ND111 - Project 02 - Data Science II"
 author: "Anderson Hitoshi Uyekita"
-date: "30 December 2018"
+date: "03 January 2019"
 output:
   html_document:
     collapse: yes
@@ -44,7 +44,16 @@ In the Data Analysis and Visualization, which I have interpreted as Exploratory 
 
 ## 1. Introduction
 
-This report is based on _Wrangle and Analyze Data_ Project outcome, and aims to shows the insights observed in the [wrangle_act.ipynb][wrangle_act] file.
+This report is a resume of the _Wrangle and Analyze Data_ Project from the Udacity Data Science Nanodegree, and aims to shows the insights observed in the [wrangle_act.ipynb][wrangle_act] file.
+
+One of the funniest parts of the WeRateDogs tweets is about the humour content in almost all tweets and the very non-standard rating systems, which generally exceed the limits, in other words, from 0 to 10 the dogs usually receive a rating above 10. You can see below the best moments from 2018.
+
+<center>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The Dogs of 2018 <a href="https://t.co/vxbahkstHe">pic.twitter.com/vxbahkstHe</a></p>&mdash; WeRateDogs™ (@dog_rates) <a href="https://twitter.com/dog_rates/status/1079815312319627265?ref_src=twsrc%5Etfw">December 31, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</center>
 
 [wrangle_act]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/blob/master/03-Chapter03/00-Project_02/wrangle_act.ipynb
 
@@ -58,10 +67,17 @@ For a better understanding, I have divided this chapter into three parts:
 * [Data Assessing](#data_assessing), and;
 * [Data Cleaning](#data_cleaning).
 
-
 ### 2.1. Data Gathering {#data_gathering}
 
-The bedrock of this project is a combination of the `twitter_archive_enhanced.csv` and `image_predictions.tsv` files, which I have named as `twitter_archive_master.csv`. Later, I have added to the `twitter_archive_master.csv` two new features gathered from the Twitter using the tweepy package.
+The bedrock of this project is a combination of the `twitter_archive_enhanced.csv` and `image_predictions.tsv` files, which I have named as `twitter_archive_master.csv`. Later, I have added to the `twitter_archive_master.csv` two new features gathered from the Twitter using the tweepy package, one feature is the number of retweet and the other is the number of favorite. Figure 1 shows the most retweeted and the most favorite tweets from WeRateDogs™.
+
+<center>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">This is Stephan. He just wants to help. 13/10 such a good boy <a href="https://t.co/DkBYaCAg2d">pic.twitter.com/DkBYaCAg2d</a></p>&mdash; WeRateDogs™ (@dog_rates) <a href="https://twitter.com/dog_rates/status/807106840509214720?ref_src=twsrc%5Etfw">December 9, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</center>
+
 
 The `twitter_archive_master.csv` has information about [WeRateDogs™][dog_rate], including the predicted dog's breeds by three differents algorithms. Let's investigate this data frame to identify any kind of pattern or relationship between the recorded data.
 
@@ -75,13 +91,71 @@ Most of the problems are related to:
     * Invalid values: Too high values (e.g. rating of 1776) or non-standard values (e. g. dog's names such a, an, very, etc.);
     * Wrong data type: Date Time variables as a string.
 
+Figure 2a, 2b, and 2c shows an examples of issues I have faced.
+
+##### {.tabset}
+
+###### Figure 2a
+
+<center>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">This is Atticus. He&#39;s quite simply America af. 1776/10 <a href="https://t.co/GRXwMxLBkh">pic.twitter.com/GRXwMxLBkh</a></p>&mdash; WeRateDogs™ (@dog_rates) <a href="https://twitter.com/dog_rates/status/749981277374128128?ref_src=twsrc%5Etfw">July 4, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+This is an outlier (1776 is too much).
+
+</center>
+
+###### Figure 2b
+
+<center>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Meet Sam. She smiles 24/7 &amp; secretly aspires to be a reindeer. <br>Keep Sam smiling by clicking and sharing this link:<a href="https://t.co/98tB8y7y7t">https://t.co/98tB8y7y7t</a> <a href="https://t.co/LouL5vdvxx">pic.twitter.com/LouL5vdvxx</a></p>&mdash; WeRateDogs™ (@dog_rates) <a href="https://twitter.com/dog_rates/status/810984652412424192?ref_src=twsrc%5Etfw">December 19, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+In this case there is no rating, for this case I have removed this tweet from teh database.
+
+</center>
+
+###### Figure 2c
+
+<center>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">After so many requests... here you go.<br><br>Good dogg. 420/10 <a href="https://t.co/yfAAo1gdeY">pic.twitter.com/yfAAo1gdeY</a></p>&mdash; WeRateDogs™ (@dog_rates) <a href="https://twitter.com/dog_rates/status/670842764863651840?ref_src=twsrc%5Etfw">November 29, 2015</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+Other example of outlier (420 as rating is also too much).
+
+</center>
+
+##### {.end}
+
 * Data tidiness
     * Converting several columns into one column, and;
     * Merging tables.
 
+One example of tidiness issue faced in this project is the category variable to classify dogs in 5 categories was in a wide format and I have converted to a long format. The dog's categories are explained in details in Figure 3.
+
+![](02-img/dogtionary-combined.png)
+<center><em>Figure 3 - The Dogtionary explains the various stages of dog: doggo, pupper, puppo, and floof(er) (via the #WeRateDogs book on Amazon)</em></center>
+
+
 ### 2.3. Data Cleaning {#data_cleaning}
 
-Along the process of Cleaning, I have fixed problems in rating_numerator and rating_denominator values resulted by a non well calibrated regular expression to extract the rating from the `text` column. Similarly, the dog's name was fixed due to a problem gathering ordinary words instead of the dog's name.
+Along the process of Cleaning, I have fixed problems in `rating_numerator` and `rating_denominator` values resulted by a non well calibrated regular expression to extract the rating from the `text` column. Similarly, the dog's name was fixed due to a problem gathering ordinary words instead of the dog's name. The Top 10 most used dog's names is shown in Table 1.
+
+|Dog's Name|Frequency|
+|:-:|:-:|
+|Charlie|12
+|Cooper|11
+|Oliver|11
+|Lucy|11
+|Lola|10
+|Tucker|10
+|Penny|10
+|Winston|9
+|Bo|9
+|Sadie|8
 
 In this chapter, I have performed the merging of data frames.
 
@@ -117,9 +191,9 @@ The graphics 4 and 5, presents a straightforward scatterplot graphic of `favorit
 >**Conclusion:** There is a strong and positive correlation between both variables.
 
 
-### 3.3. Puppo, Pupper, Doggo, or Floofer
+### 3.3. Puppo, Pupper, Doggo, Multiclass, or Floofer
 
-> **Question** Are Puppo, Pupper, Doggo or Floofer with better rating than "ordinary" dogs?
+> **Question** Are Puppo, Pupper, Doggo, Multiclass or Floofer with better rating than "ordinary" dogs?
 
 Based on Graphic 4, I want to visualize if there is any pattern using the Dogtionary as a classifier.
 
