@@ -1,0 +1,5 @@
+book_filename: "ND111 - Data Science II"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
