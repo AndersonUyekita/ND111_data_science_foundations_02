@@ -1,6 +1,6 @@
 # ND111 - Data Science II - Nanodegree Foundations
 
-This is the second course of the Nanodegree of Data Science from Coursera.
+This is the second course of the Nanodegree of Data Science from Udacity.
 
 * [My repository to the first course][repo_nd110].
 
@@ -12,7 +12,7 @@ This is the second course of the Nanodegree of Data Science from Coursera.
 * Start        : 14/12/2018
 * End (Planned): 28/12/2018
 * Title        : Data Science II - Foundations Nanodegree Program
-    * COD          : ND111
+    * COD      : ND111
 
 #### Related Courses
 
@@ -89,7 +89,7 @@ I want to finish this course in two weeks. It includes the Optional videos and c
 This is the structure of this repository, each course's chapters (or parts) will be stored in different folders.
 
 ```
-ND110_data_science_foundation_02
+ND111_data_science_foundation_02
 |
 +--  01-Chapter_01
 |           |
