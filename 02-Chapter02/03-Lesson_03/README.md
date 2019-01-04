@@ -226,7 +226,3 @@ SELECT demo.orders.account_id,
 FROM demo.orders
 LIMIT 10;
 ```
-
-
-
-.

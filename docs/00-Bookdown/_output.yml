@@ -1,12 +1,19 @@
 bookdown::gitbook:
   css: style.css
+  split_by: section
+  include:
+    after_body: footer.html
   config:
     toc:
       before: |
-        <li><a href="./">ND111 - Data Science</a></li>
+        <li><a href="./" target='_blank'><h3>ND111 - Data Science II</h3></a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+      collapse: section
+      scroll_highlight: yes
     download: ["pdf", "epub"]
+    sharing:
+      all: ['facebook', 'google', 'twitter', 'linkedin', 'weibo', 'instapaper']
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex

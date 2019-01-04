@@ -1,0 +1,422 @@
+# Data Wrangling
+
+## Introduction to Data Wrangling
+
+There are roughly three steps in the Data Wrangling.
+
+* Gathering;
+* Assessing, and;
+* Cleaning.
+
+This is a iterate process between these three steps.
+
+>Data wrangling is about gathering the right pieces of data, assessing your data's quality and structure, then modifying your data to make it clean. But the assessments you make and convert to cleaning operations won't make your analysis, viz, or model better, though. The goal is to just make them possible, i.e., functional.
+
+>EDA is about exploring your data to later augment it to maximize the potential of our analyses, visualizations, and models. When exploring, simple visualizations are often used to summarize your data's main characteristics. From there you can do things like remove outliers and create new and more descriptive features from existing data, also known as feature engineering. Or detect and remove outliers so your model's fit is better.
+
+>ETL: You also may have heard of the extract-transform-load process also known as ETL. ETL differs from data wrangling in three main ways:
+>* The users are different
+>* The data is different
+>* The use cases are different
+>This article (Data Wrangling Versus ETL: What’s the Difference?) by Wei Zhang explains these three differences well.
+
+All text extracted from the class notes.
+
+### Gathering
+
+Gathering is the first step of a Data Wrangling, is also known as Collecting or Acquiring. The Armenian Online Job Post has 19,000 jobs postings from 2004 to 2015.
+
+>Best Practice: Downloading Files Programmatically
+
+This is the reasons:
+
+* Scalability: This automation will save time, and prevents erros;
+* Reproducibility: Key point to any research. Anyone could reproduce your work and check it.
+
+### Assessing
+
+The assessing in divided into two mains aspects:
+
+* Quality of the dataset
+* Tidiness of the dataset
+
+#### Quality
+
+Low quality dataset is related to a dirty dataset, which means the content quality of data.
+
+Commom issues:
+
+* Missing values
+* Non standard units (km, meters, inches, etc. all mixed)
+* Innacurate data, invalid data, inconsistent data, etc.
+
+>One dataset may be high enough quality for one application but not for another.
+
+#### Tidiness
+
+Untidy data or _messy_ data, is about the structure of the dataset.
+
+* Each obsevation by rows, and;
+* Each variable/features by column.
+
+This is the Hadley Wickham definition of tidy data.
+
+### Assessing the data
+
+There are two ways to assess the data.
+
+* Visual, and;
+* Programmatic.
+
+#### Visual Assessment
+
+Using regular tools, such as Graphics, Excel, tables, etc. It means, there is a human assessing the data.
+
+#### Programmatic Assessment
+
+Using automation to dataset evaluation is scalable, and allows you to handle a very huge quantity of data.
+
+Examples of "Programmatic Assessment": Analysing the data using `.info()`, `.head()`, `.describe()`, plotting graphics (`.plot()`), etc..
+
+Bear in mind, in this step we do not use "verbs" to describe any erros/problem, because the "verbs" will be actions to the next step.
+
+### Cleaning
+
+Improving the quality of a dataset or cleaning the dataset do not means: Changing the data (because it could be **data fraud**).
+
+The meaning of Cleaning is correcting the data or removing the data.
+
+* Innacurate, wrong or irrelevant data.
+* Replacing or filling (NULL or NA values) data.
+* Combining/Merging datasets.
+
+Improving the tidiness is transform the dataset to follow:
+
+* each observation = row
+* each variable = column
+
+There are two ways to cleaning the data: manually and programmatic.
+
+#### Manually
+
+To be avoided.
+
+#### Programmatic
+
+There are three steps:
+
+1. Define
+2. Code
+3. Test
+
+>**Defining** means defining a data cleaning plan in writing, where we turn our assessments into defined cleaning tasks. This plan will also serve as an instruction list so others (or us in the future) can look at our work and reproduce it.
+
+>**Coding** means translating these definitions to code and executing that code.
+
+>**Testing** means testing our dataset, often using code, to make sure our cleaning operations worked.
+
+Text from the class notes.
+
+## Data Gathering
+
+This is the first step of any Data Wrangling, sometimes this process is a bit complicated because you need to find these data (probably from different sources and then merge).
+
+### Flat File
+
+This is the way to store data into a single text file, usually, this file has another extension (.csv, tsv, etc.), each one of this extension has your own characteristic.
+
+* Each variable/features is separated by a comma and each row is an observation;
+* Each variable/features is separated by a tab and each row is an observation.
+
+There are some **advantages** for using the flat files.
+
+* Anyone could read, even a human;
+* Is lightweight;
+* You do not need to install a specific software;
+* Simple to understand (each variable is delimited by a coma/tab);
+* Any software could open it;
+* Very good to small dataset.
+
+But has disadvantages also:
+
+* Do not have standard;
+* Do not have data integrity checks;
+    * Duplicated rows;
+    * You can record any value in any field;
+* Not great to large datasets.
+
+##### Importing the tsv file
+
+I have used the `read_csv` to load the data, but I have set the sep argument as `\t`, which means tabular. Sometimes, the flat files use `;` or `,`, so it is necessary to define what is the delimiter.
+
+**Example:**
+```py
+import pandas as pd
+df = pd.read_cvs('bestofrt.tsv', sep= '\t')
+```
+
+### Web Scraping
+
+This is terminology is used to say the data extracted from a website (usually using code to do it). Due to this code depends on the HTML file, if any change of the website happens, all the code used to web scrapping could stopping to working properly, which requires an adjustments. For this reason, web scraping is not a definitive solution.
+
+### HTTP Request
+
+This is useful to access archives from the internet, combining with the OS package, it is possible to download and store locally the file.
+
+
+### Encoding and Character Set
+
+This explanation is based on [this][url_1] Stack Overflow thread.
+
+Encoding: Is a proccess to convert a something into bytes.
+
+* Audio is encoded into MP3, WAV, etc.
+* Images is encoded into PNG, JPG, TIFF, etc.
+* Text files is enconded into ASCII, UTF-8, etc.
+
+The Character Set is as the name, is a set of charaters which I can use to write a phrase, each character has a code which represents the letter/character. There are several character set such as ASCII and UTF-8.
+
+[url_1]: https://stackoverflow.com/questions/6224052/what-is-the-difference-between-a-string-and-a-byte-string
+
+### Application Programming Interfaces - API
+
+The API let you access the data from the internet in a resonable easy manner.
+
+There are several API available in the internet for many social media:
+
+* Facebook;
+* Instagram;
+* Twitter, etc.;
+
+This lesson will use the [Mediawiki][url_2], which is a Open Source API to Wikipedia.
+
+[url_2]: https://www.mediawiki.org/wiki/MediaWiki
+
+Most of the file from the API are formated as JSON or XML.
+
+### JSON and XML
+
+JSON stands for Javascript Object Notation and XML for Extensible Markup Language.
+
+Sometimes the regular tabular way to structure the data is not a good solution, and for this reason, there are other forms to store data as JSON and XML.
+
+They use a kind of "dictionary" to store data, which allows storing more than one information per variable.
+
+There are some similarities in JSON and Python:
+
+* JSON Array = Python list
+* JSON Object = Python dictonary
+
+
+
+### Methods in this Lesson
+
+#### `.find()`
+
+This method is used to find tags and containers.
+
+**Example:**
+```py
+soup.find('title')
+```
+This code above will find the tag title, and return the content.
+
+#### `.find_all()`
+
+It is almost the same of `.find()`, but will find in all document the given pattern.
+
+**Example:**
+```py
+something.find_all('div')
+```
+This code will return all `div` in the document. It could be used with `limit = 1`, which will return the first `div`.
+
+#### `.contents`
+The `.contents` get the elements from the `find` and `find_all`.You are capable to select, which element you want (indexing).
+
+```py
+something.find_all('div')[1].contents[2]
+```
+In this fragment of code, I am selecting only the third element of `something.find_all('div')[1]`.
+
+#### `os.listdir()`
+
+This function list all files inside a given folder/directory.
+
+```py
+os.listdir(my_path)
+```
+#### `.glob()`
+
+This method is a part of the glob package.
+
+If you are familiar with Linux CLI, you have alread used the globbing to find a file in a folder.
+
+```py
+import glob
+glob.glob('any_folder/*.txt')
+```
+The result of the `.glob()` will be a list with all files which matches the `.txt`.
+
+
+#### `.read()`
+
+Convert the file into a in memory variable.
+
+```py
+my_new_variable = file.read() # my_new_variable is a variable which contains the file.
+```
+
+#### `.readline()`
+
+Read line by line every instance which is used this method.
+
+```py
+file.readline() # Read the first line of the document file
+file.readline() # Read the second line of the document file
+file.read()     # Read the rest of the content.
+```
+
+#### `.DataFrame()`
+
+This method from the pandas package converts a simple dictonary to a Pandas DataFrame.
+
+```py
+pd.DataFrame(my_dataframe, columns = ['column_1', 'column_2', 'column_3'])
+```
+
+#### `.page()`
+
+The `.page()` method from the wptools package converts a Wikipedia page into a object.
+
+```py
+any_website = wptools.page('E.T._the_Extra-Terrestrial')
+```
+
+#### `.get()`
+
+The `.get()` method from the wptools package extract all info from the wptools object.
+
+```py
+any_website = wptools.page('E.T._the_Extra-Terrestrial').get()
+```
+
+
+## Assessing Data
+
+This is the second step of the Data Wrangling, and the aims of this lesson is to explain some details. There are two kind of _unclean_ data:
+
+* Quality issues: Dirty data;
+    * Missing, duplicated, or incorrect data;
+* Lack of tidiness: Also known as messy data.
+    * Strucutural issues
+
+There are two ways to assess:
+
+* Visual: Plotting a simple graphic or visualizing the table (rows and columns);
+* Programmatic: Using code to summarize the data frame using .info(), .describe(), average, summation, max, min, etc..
+
+#### Dirty Data
+
+Is related to the content issues, as known as low quality data.
+
+* Innacurated data: Typos, corrupted, and duplicated data;
+
+#### Messy Data
+
+Messy data is related to structural issues, as known as untidy data.
+
+* Each observation is a row;
+* Each variable/features is a column;
+* Based on the Hadley Wickham principles of tidy data.
+
+### Assess Proccess
+
+In both cases (visual or programmatic), we could be divided into two main steps:
+
+* Detect;
+* Document.
+
+### Data Quality Dimensions
+
+>Data quality dimensions help guide your thought process while assessing and also cleaning. The four main data quality dimensions are:
+
+* Completeness: Missing values;
+* Validity: Invalid value (like negative height or weight, zip code with only 4 digits, etc.);
+* Accuracy: Wrong data which is valid (like the typo in the height);
+* Consistency: Data without a standard notation (New York and NY, Colorado and CO, same information but differents notations).
+
+The severity of this problem is decreasing order: Completeness, Validity, Accuracy, and Consistency.
+
+
+
+
+## Cleaning Data
+
+Always opt to clean the data using the Programmatic way because manually it is more error prone.
+
+This is the steps of Data Cleaning:
+
+* Define: Defining a Data Cleaning Plan (usually writting down);
+* Code: Converts the Data Cleaning Plan into code;
+* Test: Evaluates the outuput of the code.
+
+### Tidiness
+
+It is the standard preconized by Hadley Wickham.
+
+Usually, the tidiness issues is the first to be solved.
+
+### Quality
+
+After fixing tidiness issues, the quality issues could be fixed.
+
+
+### Methods
+
+#### `.melt()`
+
+Convert a wide format to a long format. It is the same of gather and spread functions from tidyr R package.
+
+[Good Video - Explaning the melt][melt_vd]
+
+[melt_vd]: https://www.youtube.com/watch?v=qOkj5zOHwRE
+
+## Project 02 - Wrangle and Analyze Data
+
+<h4>Project Submitted</h4>
+
+Please, find below the URL to redirect to the project Jupyter Notebook.
+
+[Project 02 - WeRateDogs™ - Wrangle and Analyze Data][project02_url]
+
+[project02_url]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/blob/master/03-Chapter03/00-Project_02/wrangle_act.ipynb
+
+********************************************************************************
+
+### Project Submission
+
+In this project, you'll gather, assess, and clean data then act on it through analysis, visualization and/or modeling.
+
+Before you submit:
+
+1. Ensure you meet specifications for all items in the Project Rubric. Your project "meets specifications" only if it meets specifications for all of the criteria.
+
+2. Ensure you have not included your API keys, secrets, and tokens in your project files.
+
+3. If you completed your project in the Project Workspace, ensure the following files are present in your workspace, then click "Submit Project" in the bottom righthand corner of the Project Workspace page:
+
+  * `wrangle_act.ipynb`: code for gathering, assessing, cleaning, analyzing, and visualizing data
+  * `wrangle_report.pdf` or wrangle_report.html: documentation for data wrangling steps: gather, assess, and clean
+  * `act_report.pdf` or `act_report.html`: documentation of analysis and insights into final data
+  * `twitter_archive_enhanced.csv`: file as given
+  * `image_predictions.tsv`: file downloaded programmatically
+  * `tweet_json.txt`: file constructed via API
+  * `twitter_archive_master.csv`: combined and cleaned data
+  * any additional files (e.g. files for additional pieces of gathered data or a database file for your stored clean data)
+
+4. If you completed your project outside of the Udacity Classroom, package the above listed files into a zip archive or push them from a GitHub repo, then click the "Submit Project" button on this page.
+
+As stated in point 4 above, you can submit your files as a zip archive or you can link to a GitHub repository containing your project files. If you go with GitHub, note that your submission will be a snapshot of the linked repository at time of submission. It is recommended that you keep each project in a separate repository to avoid any potential confusion: if a reviewer gets multiple folders representing multiple projects, there might be confusion regarding what project is to be evaluated.
+
+It can take us up to a week to grade the project, but in most cases it is much faster. You will get an email once your submission has been reviewed. If you are having any problems submitting your project or wish to check on the status of your submission, please email us at review-support@udacity.com. In the meantime, you should feel free to proceed with your learning journey by continuing on to the next module in the program.

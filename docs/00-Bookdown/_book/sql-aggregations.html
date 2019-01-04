@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>2.3 SQL Aggregations | ND111 - Data Science II - Notebook</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="2.3 SQL Aggregations | ND111 - Data Science II - Notebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.3 SQL Aggregations | ND111 - Data Science II - Notebook" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="sql-joins.html">
+<link rel="next" href="sql-subqueries-temporary-tables-advanced.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./" target='_blank'><h3>ND111 - Data Science II</h3></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course Info</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
+<li class="chapter" data-level="2" data-path="sql-for-data-analysis.html"><a href="sql-for-data-analysis.html"><i class="fa fa-check"></i><b>2</b> SQL for Data Analysis</a><ul>
+<li class="chapter" data-level="2.1" data-path="sql-basics.html"><a href="sql-basics.html"><i class="fa fa-check"></i><b>2.1</b> SQL Basics</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="sql-basics.html"><a href="sql-basics.html#entity-relationship-diagrams-erd"><i class="fa fa-check"></i><b>2.1.1</b> Entity Relationship Diagrams (ERD)</a></li>
+<li class="chapter" data-level="2.1.2" data-path="sql-basics.html"><a href="sql-basics.html#sql-introduction"><i class="fa fa-check"></i><b>2.1.2</b> SQL Introduction</a></li>
+<li class="chapter" data-level="2.1.3" data-path="sql-basics.html"><a href="sql-basics.html#clauses"><i class="fa fa-check"></i><b>2.1.3</b> Clauses</a></li>
+<li class="chapter" data-level="2.1.4" data-path="sql-basics.html"><a href="sql-basics.html#derived-columns"><i class="fa fa-check"></i><b>2.1.4</b> Derived Columns</a></li>
+<li class="chapter" data-level="2.1.5" data-path="sql-basics.html"><a href="sql-basics.html#introduction-to-logical-operators"><i class="fa fa-check"></i><b>2.1.5</b> Introduction to “Logical Operators”</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="sql-joins.html"><a href="sql-joins.html"><i class="fa fa-check"></i><b>2.2</b> SQL Joins</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="sql-joins.html"><a href="sql-joins.html#joins"><i class="fa fa-check"></i><b>2.2.1</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="sql-aggregations.html"><a href="sql-aggregations.html"><i class="fa fa-check"></i><b>2.3</b> SQL Aggregations</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="sql-aggregations.html"><a href="sql-aggregations.html#aggregations-functions"><i class="fa fa-check"></i><b>2.3.1</b> Aggregations Functions</a></li>
+<li class="chapter" data-level="2.3.2" data-path="sql-aggregations.html"><a href="sql-aggregations.html#functions"><i class="fa fa-check"></i><b>2.3.2</b> Functions</a></li>
+<li class="chapter" data-level="2.3.3" data-path="sql-aggregations.html"><a href="sql-aggregations.html#date"><i class="fa fa-check"></i><b>2.3.3</b> DATE</a></li>
+<li class="chapter" data-level="2.3.4" data-path="sql-aggregations.html"><a href="sql-aggregations.html#case"><i class="fa fa-check"></i><b>2.3.4</b> CASE</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="sql-subqueries-temporary-tables-advanced.html"><a href="sql-subqueries-temporary-tables-advanced.html"><i class="fa fa-check"></i><b>2.4</b> SQL Subqueries &amp; Temporary Tables (Advanced)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="sql-subqueries-temporary-tables-advanced.html"><a href="sql-subqueries-temporary-tables-advanced.html#subqueries"><i class="fa fa-check"></i><b>2.4.1</b> Subqueries</a></li>
+<li class="chapter" data-level="2.4.2" data-path="sql-subqueries-temporary-tables-advanced.html"><a href="sql-subqueries-temporary-tables-advanced.html#with"><i class="fa fa-check"></i><b>2.4.2</b> WITH</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="data-cleaning-advanced.html"><a href="data-cleaning-advanced.html"><i class="fa fa-check"></i><b>2.5</b> Data Cleaning (Advanced)</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="data-cleaning-advanced.html"><a href="data-cleaning-advanced.html#data-cleaning"><i class="fa fa-check"></i><b>2.5.1</b> Data Cleaning</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="project-01-chinook.html"><a href="project-01-chinook.html"><i class="fa fa-check"></i><b>2.6</b> Project 01 - Chinook</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="project-01-chinook.html"><a href="project-01-chinook.html#project-submission"><i class="fa fa-check"></i><b>2.6.1</b> Project Submission</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html"><i class="fa fa-check"></i><b>3.1</b> Introduction to Data Wrangling</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html#gathering"><i class="fa fa-check"></i><b>3.1.1</b> Gathering</a></li>
+<li class="chapter" data-level="3.1.2" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html#assessing"><i class="fa fa-check"></i><b>3.1.2</b> Assessing</a></li>
+<li class="chapter" data-level="3.1.3" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html#assessing-the-data"><i class="fa fa-check"></i><b>3.1.3</b> Assessing the data</a></li>
+<li class="chapter" data-level="3.1.4" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html#cleaning"><i class="fa fa-check"></i><b>3.1.4</b> Cleaning</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-gathering.html"><a href="data-gathering.html"><i class="fa fa-check"></i><b>3.2</b> Data Gathering</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="data-gathering.html"><a href="data-gathering.html#flat-file"><i class="fa fa-check"></i><b>3.2.1</b> Flat File</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-gathering.html"><a href="data-gathering.html#web-scraping"><i class="fa fa-check"></i><b>3.2.2</b> Web Scraping</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-gathering.html"><a href="data-gathering.html#http-request"><i class="fa fa-check"></i><b>3.2.3</b> HTTP Request</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-gathering.html"><a href="data-gathering.html#encoding-and-character-set"><i class="fa fa-check"></i><b>3.2.4</b> Encoding and Character Set</a></li>
+<li class="chapter" data-level="3.2.5" data-path="data-gathering.html"><a href="data-gathering.html#application-programming-interfaces---api"><i class="fa fa-check"></i><b>3.2.5</b> Application Programming Interfaces - API</a></li>
+<li class="chapter" data-level="3.2.6" data-path="data-gathering.html"><a href="data-gathering.html#json-and-xml"><i class="fa fa-check"></i><b>3.2.6</b> JSON and XML</a></li>
+<li class="chapter" data-level="3.2.7" data-path="data-gathering.html"><a href="data-gathering.html#methods-in-this-lesson"><i class="fa fa-check"></i><b>3.2.7</b> Methods in this Lesson</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="assessing-data.html"><a href="assessing-data.html"><i class="fa fa-check"></i><b>3.3</b> Assessing Data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="assessing-data.html"><a href="assessing-data.html#assess-proccess"><i class="fa fa-check"></i><b>3.3.1</b> Assess Proccess</a></li>
+<li class="chapter" data-level="3.3.2" data-path="assessing-data.html"><a href="assessing-data.html#data-quality-dimensions"><i class="fa fa-check"></i><b>3.3.2</b> Data Quality Dimensions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="cleaning-data.html"><a href="cleaning-data.html"><i class="fa fa-check"></i><b>3.4</b> Cleaning Data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="cleaning-data.html"><a href="cleaning-data.html#tidiness-1"><i class="fa fa-check"></i><b>3.4.1</b> Tidiness</a></li>
+<li class="chapter" data-level="3.4.2" data-path="cleaning-data.html"><a href="cleaning-data.html#quality-1"><i class="fa fa-check"></i><b>3.4.2</b> Quality</a></li>
+<li class="chapter" data-level="3.4.3" data-path="cleaning-data.html"><a href="cleaning-data.html#methods"><i class="fa fa-check"></i><b>3.4.3</b> Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="project-02-wrangle-and-analyze-data.html"><a href="project-02-wrangle-and-analyze-data.html"><i class="fa fa-check"></i><b>3.5</b> Project 02 - Wrangle and Analyze Data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="project-02-wrangle-and-analyze-data.html"><a href="project-02-wrangle-and-analyze-data.html#project-submission-1"><i class="fa fa-check"></i><b>3.5.1</b> Project Submission</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
+<li class="chapter" data-level="4.1" data-path="example-one.html"><a href="example-one.html"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.2" data-path="example-two.html"><a href="example-two.html"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ND111 - Data Science II - Notebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sql-aggregations" class="section level2">
+<h2><span class="header-section-number">2.3</span> SQL Aggregations</h2>
+<div id="aggregations-functions" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Aggregations Functions</h3>
+<p>This is functions return a single row with the aggregated value.</p>
+<ul>
+<li>sum;</li>
+<li>min;</li>
+<li>max;</li>
+<li>mean, etc.</li>
+</ul>
+<div id="null" class="section level4">
+<h4><span class="header-section-number">2.3.1.1</span> NULL</h4>
+<p>NULL is no a value, it is different from ZERO or a space, for this reason you can not use equal (<code>=</code>) to find it, for do so you must use <code>IS</code>. The NULL is ignored in all aggregatins functions, and it is defined as a property of the data.</p>
+<p>For the <em>Parch and Posey</em> dataset, NULL is equal to zero.</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">WHERE</span> something <span class="kw">IS</span> <span class="kw">NULL</span>
+<span class="kw">WHERE</span> something <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></code></pre></div>
+<div id="nulls---expert-tip" class="section level5">
+<h5><span class="header-section-number">2.3.1.1.1</span> NULLs - Expert Tip</h5>
+<p>There are two common ways in which you are likely to encounter NULLs:</p>
+<ul>
+<li>NULLs frequently occur when performing a LEFT or RIGHT JOIN. You saw in the last lesson - when some rows in the left table of a left join are not matched with rows in the right table, those rows will contain some NULL values in the result set.</li>
+<li>NULLs can also occur from simply missing data in our database.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="functions" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Functions</h3>
+<div id="count" class="section level4">
+<h4><span class="header-section-number">2.3.2.1</span> COUNT()</h4>
+<p>Count the number of rows. If the entire line has only NULLs, this line will be noted counted.</p>
+<p>Simple Example:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">COUNT</span>(*)
+<span class="kw">FROM</span> accounts;</code></pre></div>
+<p>Example with filter</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">COUNT</span>(*) <span class="kw">AS</span> order_count
+<span class="kw">FROM</span> some_table
+<span class="kw">WHERE</span> any_column &gt; <span class="dv">100</span> <span class="kw">AND</span> any_column &lt; <span class="dv">200</span>;</code></pre></div>
+<p>Example with column selection</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">COUNT</span>(account.id)
+<span class="kw">FROM</span> accounts;</code></pre></div>
+</div>
+<div id="sum" class="section level4">
+<h4><span class="header-section-number">2.3.2.2</span> SUM()</h4>
+<p>Perform the summation among rows. You must define which columns will be applied the sum function.</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">SUM</span>(poster_qty)
+<span class="kw">FROM</span> demo.orders;</code></pre></div>
+</div>
+<div id="max-and-min" class="section level4">
+<h4><span class="header-section-number">2.3.2.3</span> MAX() and MIN()</h4>
+<p>Return a rows with the minimun or maximum of a given column.</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">MAX</span>(poster_qty) <span class="kw">AS</span> max_poster_qty,
+       <span class="fu">MIN</span>(standard_qty) <span class="kw">AS</span> min_standard_qty
+<span class="kw">FROM</span> demo.orders;</code></pre></div>
+</div>
+<div id="group-by" class="section level4">
+<h4><span class="header-section-number">2.3.2.4</span> GROUP BY</h4>
+<p>Divide the non-grouped column into groups, which means the aggregated function will be calculated by group.</p>
+<ul>
+<li>The GROUP BY always goes between WHERE and ORDER BY.</li>
+</ul>
+<p>Example 1:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> a.name, o.occurred_at
+<span class="kw">FROM</span> accounts a
+<span class="kw">JOIN</span> orders o
+<span class="kw">ON</span> a.id = o.account_id
+<span class="kw">ORDER</span> <span class="kw">BY</span> o.occurred_at
+<span class="kw">LIMIT</span> <span class="dv">1</span>;</code></pre></div>
+<p>Same example but indexing by number:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> a.name, o.occurred_at
+<span class="kw">FROM</span> accounts a
+<span class="kw">JOIN</span> orders o
+<span class="kw">ON</span> a.id = o.account_id
+<span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dv">2</span>
+<span class="kw">LIMIT</span> <span class="dv">1</span>;</code></pre></div>
+<p><em>OBS.: The index used in ORDER BY clause is to refence o.occurred_at.</em></p>
+</div>
+<div id="distinct" class="section level4">
+<h4><span class="header-section-number">2.3.2.5</span> DISTINCT</h4>
+<p>DISTINCT is always used in SELECT statements, and it provides the unique rows for all columns written in the SELECT statement. Therefore, you only use DISTINCT once in any particular SELECT statement.</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> column1, column2, column3
+<span class="kw">FROM</span> table1;</code></pre></div>
+</div>
+<div id="having" class="section level4">
+<h4><span class="header-section-number">2.3.2.6</span> HAVING</h4>
+<blockquote>
+<p>HAVING is the “clean” way to filter a query that has been aggregated, but this is also commonly done using a subquery. Essentially, any time you want to perform a WHERE on an element of your query that was created by an aggregate, you need to use HAVING instead.</p>
+</blockquote>
+<p>Note extracted from the class notes.</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> s.id, s.name, <span class="fu">COUNT</span>(*) num_accounts
+<span class="kw">FROM</span> accounts a
+<span class="kw">JOIN</span> sales_reps s
+<span class="kw">ON</span> s.id = a.sales_rep_id
+<span class="kw">GROUP</span> <span class="kw">BY</span> s.id, s.name
+<span class="kw">HAVING</span> <span class="fu">COUNT</span>(*) &gt; <span class="dv">5</span>
+<span class="kw">ORDER</span> <span class="kw">BY</span> num_accounts;</code></pre></div>
+</div>
+</div>
+<div id="date" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> DATE</h3>
+<p>To GROUP BY a date is quite complicated because each time is (obviously) different, for this, reason is necessary to “round” the time/date to group them.</p>
+<div id="date_trunc" class="section level4">
+<h4><span class="header-section-number">2.3.3.1</span> DATE_TRUNC</h4>
+<p>Common trunctions are:</p>
+<ul>
+<li>day;</li>
+<li>month, and;</li>
+<li>year.</li>
+</ul>
+<p>Sintaxe:</p>
+<p>DATE_TRUNC(‘[interval]’, time_column)</p>
+<p>Where:</p>
+<ul>
+<li>microsecond</li>
+<li>millisecond</li>
+<li>second</li>
+<li>minute</li>
+<li>hour</li>
+<li>day</li>
+<li>week</li>
+<li>month</li>
+<li>quarter</li>
+<li>year</li>
+<li>century</li>
+<li>decade</li>
+<li>millenium</li>
+</ul>
+<p>For further explanaition about <a href="https://blog.modeanalytics.com/date-trunc-sql-timestamp-function-count-on/">date</a></p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> demo.accounts.name,
+       DATE_TRUNC(<span class="st">&#39;month&#39;</span>, demo.orders.occurred_at) <span class="kw">AS</span> year_month,
+       <span class="fu">SUM</span>(demo.orders.gloss_amt_usd) <span class="kw">AS</span> sum_gloss_usd
+<span class="kw">FROM</span> demo.orders
+<span class="kw">JOIN</span> demo.accounts
+<span class="kw">ON</span> demo.orders.account_id = demo.accounts.id
+<span class="kw">WHERE</span> demo.accounts.name = <span class="st">&#39;Walmart&#39;</span>
+<span class="kw">GROUP</span> <span class="kw">BY</span> year_month, demo.accounts.name
+<span class="kw">ORDER</span> <span class="kw">BY</span> sum_gloss_usd <span class="kw">DESC</span>
+<span class="kw">LIMIT</span> <span class="dv">1</span>;</code></pre></div>
+</div>
+<div id="date-part" class="section level4">
+<h4><span class="header-section-number">2.3.3.2</span> DATE PART</h4>
+<p>Extract part of the date</p>
+</div>
+</div>
+<div id="case" class="section level3">
+<h3><span class="header-section-number">2.3.4</span> CASE</h3>
+<p>Create a new column, derivate column, with a kind classification (assign a value into this new column according to the statment).</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> account_id,
+       occurred_at,
+       total,
+       <span class="kw">CASE</span> <span class="kw">WHEN</span> total &gt; <span class="dv">500</span> <span class="kw">THEN</span> <span class="st">&#39;Over 500&#39;</span>
+            <span class="kw">WHEN</span> total &gt; <span class="dv">300</span> <span class="kw">AND</span> total &lt;= <span class="dv">500</span> <span class="kw">THEN</span> <span class="st">&#39;301 - 500&#39;</span>
+            <span class="kw">WHEN</span> total &gt; <span class="dv">100</span> <span class="kw">AND</span> total &lt;= <span class="dv">300</span> <span class="kw">THEN</span> <span class="st">&#39;101 - 300&#39;</span>
+            <span class="kw">ELSE</span> <span class="st">&#39;100 or under&#39;</span> <span class="kw">END</span> <span class="kw">AS</span> total_group
+<span class="kw">FROM</span> demo.orders
+<span class="kw">LIMIT</span> <span class="dv">10</span>;</code></pre></div>
+<p>Creates the total_group column.</p>
+<div id="with-aggregation" class="section level4">
+<h4><span class="header-section-number">2.3.4.1</span> With AGGREGATION</h4>
+<p>Combining the CASE clause with aggregations function could be a power tool, because the WHERE clause only evaluate one statement, using WHEN CASE it is possible to evaluate several staments.</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> demo.orders.account_id,
+       demo.orders.total_amt_usd,
+       <span class="kw">CASE</span> <span class="kw">WHEN</span> demo.orders.total_amt_usd &gt;= <span class="dv">3000</span> <span class="kw">THEN</span> <span class="st">&#39;Large&#39;</span>
+            <span class="kw">ELSE</span> <span class="st">&#39;Small&#39;</span> <span class="kw">END</span> <span class="kw">AS</span> <span class="kw">level</span>
+<span class="kw">FROM</span> demo.orders
+<span class="kw">LIMIT</span> <span class="dv">10</span>;</code></pre></div>
+</div>
+</div>
+</div>
+&nbsp;
+<hr />
+<p style="text-align: center;">A work by <a href="https://andersonuyekita.github.io/site/cv.html">AH Uyekita</a></p>
+<p style="text-align: center;"><span style="color: #808080;"><em>anderson.uyekita[at]gmail.com</em></span></p>
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Add font awesome icons -->
+<p style="text-align: center;">
+    <a href="https://linkedin.com/in/andersonuyekita/" class="fa fa-linkedin"></a>
+    <a href="https://github.com/AndersonUyekita/" class="fa fa-github"></a>
+</p>
+
+&nbsp;
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sql-joins.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sql-subqueries-temporary-tables-advanced.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["nd111_-_data_science_ii.pdf", "nd111_-_data_science_ii.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

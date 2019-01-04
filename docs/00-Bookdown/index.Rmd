@@ -1,8 +1,5 @@
 --- 
-title: "ND111 - Notebook"
-subtitle: "Hi everybody"
-author: "AH Uyekita"
-date: "`r Sys.Date()`"
+title: "ND111 - Data Science II - Notebook"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -11,29 +8,133 @@ link-citations: yes
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
 
-# Prerequisites
+# Course Info {-}
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+<h4>Tags</h4>
 
-The **bookdown** package can be installed from CRAN or Github:
+* Author       : AH Uyekita
+* Dedication   : 10 hours/week (suggested)
+* Start        : 14/12/2018
+* End (Planned): 28/12/2018
+* Title        : Data Science II - Foundations Nanodegree Program
+    * COD      : ND111
 
-```{r eval=FALSE}
-install.packages("bookdown")
-# or the development version
-# devtools::install_github("rstudio/bookdown")
+<h4>Related Courses</h4>
+
+* [ND110 - Data Science I - Nanodegree Foundations][nd110]
+
+[nd110]: https://br.udacity.com/course/python-fundamentos-data-science--nd110
+
+***************************************************************************************************
+
+<h2>Objectives</h2>
+
+I want to finish this course in two weeks. It includes the Optional videos and chapters.
+
+<h2>Syllabus</h2>
+
+* Chapter 01 - Welcome
+    * Lesson 01 - Instructions
+    * Lesson 02 - Tips
+* Chapter 02 - SQL for Data Analysis
+    * Lesson 01 - Basic SQL
+    * Lesson 02 - SQL Joins
+    * Lesson 03 - SQL Aggregations
+    * Lesson 04 - (Optional) SQL Subqueries & Temporary Tables (Advanced)
+    * Lesson 05 - (Optional) SQL Data Cleaning (Advanced)
+    * Project 01 - Query a Digital Music Store Database
+* Chapter 03 - Data Wrangling
+    * Lesson 01 - Introduction to Data Wrangling
+    * Lesson 02 - Gathering
+    * Lesson 03 - Assessing Data
+    * Lesson 04 - Cleaning Data
+    * Project 02 - Wrangle and Analyze Data
+* Chapter 04 - Advanced Statistics
+    * Lesson 01 - Descriptive Statistics - Part 1
+    * Lesson 02 - Descriptive Statistics - Part 2
+    * Lesson 03 - Admissions Case Study
+    * Lesson 04 - Probability
+    * Lesson 05 - Binomial Distribution
+    * Lesson 06 - Conditional Probability
+    * Lesson 07 - Bayes Rule
+    * Lesson 08 - Python Probability Practice
+    * Lesson 09 - Normal Distribution Theory
+    * Lesson 10 - Sampling Distributions and the Central Limit Theorem
+    * Lesson 11 - Confidence Intervals
+    * Lesson 12 - Hypothesis Testing
+    * Lesson 13 - Case Study: A/B Tests
+    * Lesson 14 - Regression
+    * Lesson 15 - Multiple Linear Regression
+    * Lesson 16 - Logistic Regression
+    * Project 03 - Analyze A/B Test Results
+* Chapter 05 - Intro to Machine Learning
+    * Lesson 01 - Welcome to Machine Learning
+    * Lesson 02 - Naive Bayes
+    * Lesson 03 - SVM
+    * Lesson 04 - Decision Trees
+    * Lesson 05 - Choose Your Own Algorithm
+    * Lesson 06 - Datasets and Questions
+    * Lesson 07 - Regressions
+    * Lesson 08 - Outliers
+    * Lesson 09 - Clustering
+    * Lesson 10 - Feature Scaling
+    * Lesson 11 - Text Learning
+    * Lesson 12 - Feature Selection
+    * Lesson 13 - PCA
+    * Lesson 14 - Validation
+    * Lesson 15 - Evaluation Metrics
+    * Lesson 16 - Tying It All Together
+    * Project 04 - Identify Fraud from Enron Email
+* Chapter 06 - (Optional) Data Visualization
+    * Lesson 01 - Introduction to Data Visualization
+    * Lesson 02 - Design
+    * Lesson 03 - Data Visualization in Tableau
+    * Lesson 04 - Making Dashboard & Stories in Tableau
+
+<h3>Repository Structure</h3>
+
+This is the structure of this repository, each course's chapters (or parts) will be stored in different folders.
+
+```
+ND111_data_science_foundation_02
+|
++--  01-Chapter_01
+|           |
+|           +--  README.md                       # General information
+|
++--  02-Chapter_02
+|           |
+|           +--  README.md                       # General information
+|           +--  00-Project_01                   # Project 01
+|           +--  01-Lesson_01                    # Files from Lesson 01
+|           |        +--  README.md              # Notes from Lesson 01 from Chapter 02
+|           +--  02-Lesson_02                    # Files from Lesson 02
+|           |        +--  README.md              # Notes from Lesson 02 from Chapter 02
+|           .
+|
++--  03-Chapter_03
+|           |
+|           +--  README.md                       # General information
+|           +--  00-Project_02                   # Project 02
+|           +--  01-Lesson_01                    # Files from Lesson 01
+|           |        +--  README.md              # Notes from Lesson 01 from Chapter 02
+|           +--  02-Lesson_02                    # Files from Lesson 02
+|           |        +--  README.md              # Notes from Lesson 02 from Chapter 02
+|           .
 ```
 
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
+<h3>Best practice</h3>
 
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
+* Add all _deliverables_ in the [`GitKraken Glo`][bp_1];
+* Take notes using the [`Markdown`][bp_2].
+
+[bp_1]: https://www.gitkraken.com/invite/5Ua2spL4
+[bp_2]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
+knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib')
 ```
-
 
 ```{r,message=FALSE,include=FALSE}
 # Saving the original Work Directory

@@ -14,9 +14,9 @@ All exercises of this chapter I have stored in the Mode Analytics platform.
 
 [Optional Question][sol_ma]
 
-[sol_ma]: https://modeanalytics.com/editor/ah_uyekita/reports/5e871f63f8b2
+[sol_ma]: https://modeanalytics.com/ah_uyekita/reports/5e871f63f8b2
 
-#### Project Registration
+#### Project Submitted
 
 I have written all the project in Mode Analytics because is a better place to coding.
 
@@ -26,7 +26,7 @@ I have written all the project in Mode Analytics because is a better place to co
 
 [Project 01 in Mode Analytic][project]
 
-[project]: https://modeanalytics.com/editor/ah_uyekita/reports/e77643786160
+[project]: https://modeanalytics.com/ah_uyekita/reports/e77643786160
 ********************************************************************************
 
 ## Project Submission

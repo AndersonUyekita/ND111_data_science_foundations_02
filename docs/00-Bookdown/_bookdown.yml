@@ -1,4 +1,5 @@
-book_filename: "ND111 - Data Science II"
+book_filename: "nd111_-_data_science_ii"
+repo: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/tree/master/docs/00-Bookdown
 delete_merged_file: true
 language:
   ui:

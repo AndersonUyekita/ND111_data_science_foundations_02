@@ -1,0 +1,17 @@
+# Welcome {#intro}
+
+This chapter is about the General aspects of the Udacity platform study.
+
+<h2>Instructions</h2>
+
+General information about the course.
+
+* Projects Deadline
+* Projects Review
+* Mentoring
+
+<h2>Tips</h2>
+
+* Asking Help
+* Keep in contact with the Slack Community
+* Student Manual

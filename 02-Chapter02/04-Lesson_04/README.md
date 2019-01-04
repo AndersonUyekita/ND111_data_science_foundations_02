@@ -1,4 +1,4 @@
-# ND111 - SQL for Data Analysis `Lesson03`
+# ND111 - SQL for Data Analysis `Lesson04`
 
 #### Tags
 * Author : AH Uyekita

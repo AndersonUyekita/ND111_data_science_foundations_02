@@ -13,7 +13,7 @@
 
 This [Bookdown][bookdown] is a bundle of the notebooks taken along the lessons. I have decided to write this bookdown because it is more convinient for search and read.
 
-[bookdown]: https://bookdown.org
+[bookdown]: https://bookdown.org/yihui/bookdown/
 
 ********************************************************************************
 
