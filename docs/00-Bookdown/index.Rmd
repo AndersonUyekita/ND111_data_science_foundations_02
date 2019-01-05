@@ -140,8 +140,14 @@ knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib
 # Saving the original Work Directory
 original_wd <- getwd()
 
-# Goes to the parents level - Where the files will be rendered
+# Goes to the parents level (\docs) - Where the files will be rendered
 setwd('..')
+
+# Creating a list of all html files.
+rm_html <- list.files(pattern = c('*.html'))
+
+# Cleaning the \docs, removing all html files.
+file.remove(rm_html)
 
 # Saving the \docs path
 destino <- getwd()
@@ -156,7 +162,7 @@ setwd('_book')
 html_files_folders <- list.files()
 
 # Copying the files from _books to \docs folder
-file.copy(html_files_folders, to = destino,overwrite = TRUE)
+file.copy(html_files_folders, to = destino, overwrite = TRUE, recursive = TRUE)
 
 # Defining the original Work Directory
 setwd(original_wd)
