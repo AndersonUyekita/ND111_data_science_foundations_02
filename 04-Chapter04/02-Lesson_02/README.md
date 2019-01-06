@@ -10,6 +10,7 @@
     * **Instructor:** Josh Bernhard
 
 ********************************************************************************
+
 ## Quantitative Data
 
 ### Measures of Spread
@@ -27,7 +28,7 @@ Common values of spread:
 
 Figure 1 shows an example of histogram.
 
-![](01-img/01.png)
+![](01-img/c4_l2_01.png)
 
 This is a way to visualize the quantitative data.
 
@@ -43,7 +44,7 @@ These are the number:
 
 First step to do is order the values, as you can see in Figure 2 (odd set of values).
 
-![](01-img/02.png)
+![](01-img/c4_l2_02.png)
 
 As you can see, Q1 and Q3 are the median of the data on either sides of Q2.
 
@@ -57,13 +58,13 @@ $$ \text{Interquartile} = Q3 - Q1 \tag{2}$$
 
 For a even set of values I need to calculate the "average" of two values.
 
-![](01-img/03.png)
+![](01-img/c4_l2_03.png)
 
 #### Boxplot
 
 The boxplot graphic is a way to visualize the spread of the data.
 
-![](01-img/04.png)
+![](01-img/c4_l2_04.png)
 
 It could be useful for quickly comparing the spread of two data sets.
 
@@ -84,7 +85,7 @@ $$ \text{Standard Deviation} = \frac{1}{n} \sum_{i = 1}^n (\bar x - x_i)^2 \tag{
 
 The shape is related to the histogram form, Figure 5 shows an example.
 
-![](01-img/05.png)
+![](01-img/c4_l2_05.png)
 
 * Left Skewed
     * is pulled to the "begining"
@@ -106,7 +107,7 @@ The shape is related to the histogram form, Figure 5 shows an example.
 
 The "very far" is quite generic and could be interpreted in many forms. One way to visualize it is plotting a histogram, as you can see in Figure 6.
 
-![](01-img/06.png)
+![](01-img/c4_l2_06.png)
 
 1. Note they exist and the impact on summary Statistics
 2. If typo, remove or fix it.

@@ -2217,13 +2217,1042 @@ to check on the status of your submission, please email us at
 In the meantime, you should feel free to proceed with your learning
 journey by continuing on to the next module in the program.
 
-\chapter{Applications}\label{applications}
+\chapter{Advanced Statistics}\label{advanced-statistics}
 
-Some \emph{significant} applications are demonstrated in this chapter.
+\section{Descriptive Statistics}\label{descriptive-statistics}
 
-\section{Example one}\label{example-one}
+This lesson is a kind of review.
 
-\section{Example two}\label{example-two}
+\subsection{What is data?}\label{what-is-data}
+
+Data could be whatever thing: Text, Spreadsheets, video, images,
+database, etc.
+
+\subsection{Data types}\label{data-types}
+
+\begin{itemize}
+\tightlist
+\item
+  Quantitative Data: Allow us to perform mathematical operations with
+  data (1, 2, 3, 4, etc.);
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Continuous: Could be any real number (Age);
+  \item
+    Discrete: Only integer number (Number of persons);
+  \end{itemize}
+\item
+  Categorical Data: Used to label a group or a set of items (blue,
+  yellow, red, etc.);
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Ordinal: There are a way to put the categories in a scale (Very
+    good, so-so, very poor);
+  \item
+    Nominal: It is impossible to put the categories in order (blue,
+    yellow, orange, etc.);
+  \end{itemize}
+\end{itemize}
+
+\subsection{Measures of Center}\label{measures-of-center}
+
+\subsubsection{Categorical}\label{categorical}
+
+The categorical data is analyzed doing a simple summary to count the
+total of each category has.
+
+\subsubsection{Quantitative}\label{quantitative}
+
+Four main aspects when analysing \textbf{quantitative} data:
+
+\begin{itemize}
+\tightlist
+\item
+  Measures of \texttt{Center}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Mean
+  \item
+    Median: The median splits our data so that 50\% of our values are
+    lower and 50\% are higher.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Even number of elements: single values.
+    \item
+      Odd number of elements: average between two ``center'' values.
+    \end{itemize}
+  \item
+    Mode: The mode is the most frequently observed value in our dataset.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      No mode: If all observations in our dataset are observed with the
+      same frequency, there is no mode.
+    \item
+      Many modes: If two (or more) numbers share the maximum value, then
+      there is more than one mode.
+    \end{itemize}
+  \end{itemize}
+\item
+  Measures of \texttt{Spread}
+\item
+  The \texttt{Shape} of the Data
+\item
+  \texttt{Outliers}
+\end{itemize}
+
+\section{Quantitative Data}\label{quantitative-data}
+
+\subsection{Measures of Spread}\label{measures-of-spread}
+
+\begin{quote}
+How far are points from one another.
+\end{quote}
+
+Common values of spread:
+
+\begin{itemize}
+\tightlist
+\item
+  Range;
+\item
+  Interquartile range (IQR);
+\item
+  Standard Deviation, and;
+\item
+  Variance.
+\end{itemize}
+
+\subsubsection{Histogram}\label{histogram}
+
+Figure 1 shows an example of histogram.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l2_01.png}
+\caption{}
+\end{figure}
+
+This is a way to visualize the quantitative data.
+
+\subsection{Five Number Summary}\label{five-number-summary}
+
+These are the number:
+
+\begin{itemize}
+\tightlist
+\item
+  Maximum;
+\item
+  Third quartile or Q3 (75\%);
+\item
+  Second quartile (it is the same of mean) or Q2 (or 50\%);
+\item
+  First quartile or Q1 (25\%), and;
+\item
+  Minimum.
+\end{itemize}
+
+First step to do is order the values, as you can see in Figure 2 (odd
+set of values).
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l2_02.png}
+\caption{}
+\end{figure}
+
+As you can see, Q1 and Q3 are the median of the data on either sides of
+Q2.
+
+The range is defined as:
+
+\[ \text{Range} = maximum - minimum \tag{1}\]
+
+The Interquartile is define as:
+
+\[ \text{Interquartile} = Q3 - Q1 \tag{2}\]
+
+For a even set of values I need to calculate the ``average'' of two
+values.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l2_03.png}
+\caption{}
+\end{figure}
+
+\subsubsection{Boxplot}\label{boxplot}
+
+The boxplot graphic is a way to visualize the spread of the data.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l2_04.png}
+\caption{}
+\end{figure}
+
+It could be useful for quickly comparing the spread of two data sets.
+
+Based on the Figure 4, the graphic on the right shows that in the
+weekends the number of dogs varies much more than on weekdays (looking
+to the range).
+
+\subsection{Standard Deviation}\label{standard-deviation}
+
+\begin{quote}
+Meaning: On average, how much each point varies from the mean of the
+points.
+\end{quote}
+
+First, I need to define the ``distance'' between mean and each
+observation. ``Distance'' could be interpreted as the difference of
+these two values. The issue observed in this difference are positive and
+negative values. For this reason, the square is used to turn everything
+positive (because later I can square root).
+
+\begin{itemize}
+\tightlist
+\item
+  Standard Deviation is frequently used to compare spread of different
+  groups.
+\item
+  Having higher standard deviation is associated with having higher
+  risk.
+\end{itemize}
+
+\[ \text{Standard Deviation} = \frac{1}{n} \sum_{i = 1}^n (\bar x - x_i)^2 \tag{3}\]
+
+\subsection{Shape}\label{shape}
+
+The shape is related to the histogram form, Figure 5 shows an example.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l2_05.png}
+\caption{}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  Left Skewed
+
+  \begin{itemize}
+  \tightlist
+  \item
+    is pulled to the ``begining''
+  \item
+    median stays close to the mode
+  \item
+    GPA, Age of death, Asset price changes
+  \end{itemize}
+\item
+  Simmetric (example: Normal distribution or bell curve)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    mean = median = mode;
+  \item
+    Examples: heights, weights, scores, precipitation, etc.
+  \end{itemize}
+\item
+  Right Skewed
+
+  \begin{itemize}
+  \tightlist
+  \item
+    mean is pulled to the tail
+  \item
+    median stays close to the mode
+  \item
+    Amount of drug left in your bloodstream over time, distribution of
+    wealth, human athletic abilities.
+  \end{itemize}
+\end{itemize}
+
+\begin{quote}
+Side note: If you aren't sure if your data are normally distributed,
+there are plots called normal quantile plots and statistical methods
+like the Kolmogorov-Smirnov test that are aimed to help you understand
+whether or not your data are normally distributed. Implementing this
+test is beyond the scope of this class, but can be used as a fun fact.
+\end{quote}
+
+\subsection{Outliers}\label{outliers}
+
+\begin{quote}
+Data points thah fall very far from the rest of the values in our
+dataset.
+\end{quote}
+
+The ``very far'' is quite generic and could be interpreted in many
+forms. One way to visualize it is plotting a histogram, as you can see
+in Figure 6.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l2_06.png}
+\caption{}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Note they exist and the impact on summary Statistics
+\item
+  If typo, remove or fix it.
+\item
+  Understand why they exist, and the impact on questions we are trying
+  to answer
+\item
+  Reporting the 5 number summary is better than mean and standard
+  deviation when outliers are present
+\item
+  Be careful in reporting know how to ask the right questions
+\end{enumerate}
+
+\subsection{Descriptive vs
+Inferential}\label{descriptive-vs-inferential}
+
+Descriptive Statistics: Describing Collected Data Inferential
+Statistics: Drawing conclusions about a population based on data
+collected from sample of individuals from that population.
+
+\section{Admissions Case Study}\label{admissions-case-study}
+
+\subsection{Simpson's Paradox}\label{simpsons-paradox}
+
+In this example lesson, you learned about Simpson's Paradox, and you had
+the opportunity to apply it to a small example with Sebastian, as well
+as work through similar example in Python.
+
+In the lessons ahead, you will be learning a lot by following along with
+Sebastian, but it is really important to put these ideas to practice
+using data and computing, because that is how you will apply these
+skills in a day to day environment as a Data Analyst or Data Scientist.
+
+It is so easy to get caught up in looking at full aggregates of your
+data. Hopefully, the examples here serve as a reminder to look at your
+data multiple ways.
+
+\subsection{Case Study}\label{case-study}
+
+\section{Probability}\label{probability}
+
+\subsection{Introduction to
+Probability}\label{introduction-to-probability}
+
+Do not confound Statistics and Probability.
+
+\begin{itemize}
+\tightlist
+\item
+  Probability: Make preditcions about the future events based on models,
+  and;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Here I want to predict data!
+  \end{itemize}
+\item
+  Statistics: Analyze data from past events to infer what those models
+  or causes could be.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Here I use data to preditc!
+  \end{itemize}
+\end{itemize}
+
+Figure 1 shows the relation between these two subjects.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l4_01.png}
+\caption{}
+\end{figure}
+
+\subsubsection{Fair Coin}\label{fair-coin}
+
+The probability notation is based on the 0 to 1 scale, where 0 means
+zero percentage and 1 means 100 percentage. The example below is a 50\%.
+
+\[ P(HEADS) = 0.5 \]
+
+To be a fair coin the tail probability it is the same of heads.
+
+\[ P(TAILS) = 0.5 \]
+
+\subsubsection{Loaded Coin}\label{loaded-coin}
+
+Its occurs when the \(P(HEADS)\) is different of \(P(TAILS)\). Bear in
+mind, in the equation 1.
+
+\[ P(HEADS) + P(TAILS) = 1 \tag{1}\]
+
+\textbf{Example 1:} \{HEADS, HEADS\} = \(P(H, H)\) for a fair coin.
+
+\(P(H) = P(T) = 0.5\)
+
+To ilustrate this solution, let's draw the Truth Table (Table 1)
+
+Table 1 - Truth Table for a Fair Coin
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule
+Flip 1 & Flip 2 & Probability\tabularnewline
+\midrule
+\endhead
+H & H & \$ 0.5 * 0.5 = 0.25 \$\tabularnewline
+H & T & \$ 0.5 * 0.5 = 0.25 \$\tabularnewline
+T & H & \$ 0.5 * 0.5 = 0.25 \$\tabularnewline
+T & T & \$ 0.5 * 0.5 = 0.25 \$\tabularnewline
+& & \$ SUM = 1.0 \$\tabularnewline
+\bottomrule
+\end{longtable}
+
+The probability of P(H, H) is 0.25.
+
+\textbf{Example 2:} \{HEADS, HEADS\} = \(P(H, H)\) for a loaded coin.
+
+\$ P(H) = 0.6 \$ \$ P(T) = 0.4 \$
+
+To ilustrate this solution, let's draw the Truth Table (Table 2)
+
+Table 2 - Truth Table for a Loaded Coin
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule
+Flip 1 & Flip 2 & Probability\tabularnewline
+\midrule
+\endhead
+H & H & \$ 0.6 * 0.6 = 0.36 \$\tabularnewline
+H & T & \$ 0.6 * 0.4 = 0.24 \$\tabularnewline
+T & H & \$ 0.4 * 0.6 = 0.24 \$\tabularnewline
+T & T & \$ 0.4 * 0.4 = 0.16 \$\tabularnewline
+& & \$ SUM = 1.0 \$\tabularnewline
+\bottomrule
+\end{longtable}
+
+The probability of P(H, H) is 0.36.
+
+\textbf{Example 3:} Three coins flipped. What is the probability of only
+one heads in three coins flipped. Adopting a fair coin (\$ P(H) = 0.5
+\$).
+
+\(P_1(Only one H)\)
+
+Table 3 - Truth Table for a Loaded Coin
+
+\begin{longtable}[]{@{}cccccc@{}}
+\toprule
+Flip 1 & Flip 2 & Flip 3 & Probability & Has only one heads? &
+\(P_1\)\tabularnewline
+\midrule
+\endhead
+H & H & H & \$ 0.5 * 0.5 * 0.5 = 0.125 \$ & No & 0\tabularnewline
+H & H & T & \$ 0.5 * 0.5 * 0.5 = 0.125 \$ & No & 0\tabularnewline
+H & T & H & \$ 0.5 * 0.5 * 0.5 = 0.125 \$ & No & 0\tabularnewline
+H & T & T & \$ 0.5 * 0.5 * 0.5 = 0.125 \$ & Yes & 0.125\tabularnewline
+T & H & H & \$ 0.5 * 0.5 * 0.5 = 0.125 \$ & No & 0\tabularnewline
+T & H & T & \$ 0.5 * 0.5 * 0.5 = 0.125 \$ & Yes & 0.125\tabularnewline
+T & T & H & \$ 0.5 * 0.5 * 0.5 = 0.125 \$ & Yes & 0.125\tabularnewline
+T & T & T & \$ 0.5 * 0.5 * 0.5 = 0.125 \$ & No & 0\tabularnewline
+& & & \$ SUM = 1.0 \$ & \$ SUM = 3 \text{ cases} \$ & \$ SUM = 0.375
+\$\tabularnewline
+\bottomrule
+\end{longtable}
+
+The \$ P\_1 \$ is 0.375.
+
+\textbf{Example 4:} Three coins flipped. What is the probability of only
+one heads in three coins flipped. Adopting a loaded coin (\$ P(H) = 0.6
+\$).
+
+\(P_2(Only one H)\)
+
+Table 3 - Truth Table for a Loaded Coin
+
+\begin{longtable}[]{@{}cccccc@{}}
+\toprule
+Flip 1 & Flip 2 & Flip 3 & Probability & Has only one heads? &
+\(P_2\)\tabularnewline
+\midrule
+\endhead
+H & H & H & \$ 0.6 * 0.6 * 0.6 = 0.216 \$ & No & 0\tabularnewline
+H & H & T & \$ 0.6 * 0.6 * 0.4 = 0.144 \$ & No & 0\tabularnewline
+H & T & H & \$ 0.6 * 0.4 * 0.6 = 0.144 \$ & No & 0\tabularnewline
+H & T & T & \$ 0.6 * 0.4 * 0.4 = 0.096 \$ & Yes & 0.096\tabularnewline
+T & H & H & \$ 0.4 * 0.6 * 0.6 = 0.144 \$ & No & 0\tabularnewline
+T & H & T & \$ 0.4 * 0.6 * 0.4 = 0.096 \$ & Yes & 0.096\tabularnewline
+T & T & H & \$ 0.4 * 0.4 * 0.6 = 0.096 \$ & Yes & 0.096\tabularnewline
+T & T & T & \$ 0.4 * 0.4 * 0.4 = 0.064 \$ & No & 0\tabularnewline
+& & & \$ SUM = 1.0 \$ & \$ SUM = 3 \text{ cases} \$ & \$ SUM = 0.288
+\$\tabularnewline
+\bottomrule
+\end{longtable}
+
+The \$ P\_2 \$ is 0.288.
+
+\subsection{Bernoulli Distribution}\label{bernoulli-distribution}
+
+Founded on this introduction, let's generalize this concept using the
+Bernoulli Distribution.
+
+\begin{quote}
+In probability theory and statistics, the Bernoulli distribution, named
+after Swiss mathematician Jacob Bernoulli, is the discrete probability
+distribution of a random variable which takes the value 1 with
+probability \({\displaystyle p}\) and the value 0 with probability
+\({\displaystyle q=1-p,}\) that is, the probability distribution of any
+single experiment that asks a yes--no question; the question results in
+a boolean-valued outcome, a single bit of information whose value is
+success/yes/true/one with probability p and failure/no/false/zero with
+probability q. It can be used to represent a (possibly biased) coin toss
+where 1 and 0 would represent ``heads'' and ``tails'' (or vice versa),
+respectively, and p would be the probability of the coin landing on
+heads or tails, respectively. In particular, unfair coins would have
+\({\displaystyle p\neq 1/2.}\)
+\end{quote}
+
+\begin{quote}
+The Bernoulli distribution is a special case of the binomial
+distribution where a single trial is conducted (so n would be 1 for such
+a binomial distribution). It is also a special case of the two-point
+distribution, for which the possible outcomes need not be 0 and 1. --
+\href{https://en.wikipedia.org/wiki/Bernoulli_distribution}{Wikipedia}
+\end{quote}
+
+Rede more in
+\href{http://mathworld.wolfram.com/BernoulliDistribution.html}{wolfram}.
+
+\subsubsection{Summary}\label{summary}
+
+\begin{quote}
+Here you learned some fundamental rules of probability. Using notation,
+we could say that the outcome of a coin flip could either be T or H for
+the event that the coin flips tails or heads, respectively.
+\end{quote}
+
+\begin{quote}
+Then the following rules are true:
+\end{quote}
+
+\begin{itemize}
+\item
+  Probability of a Event \textgreater{} \[\bold{P(H)} = 0.5\]
+\item
+  Probability of opposite event \textgreater{}
+  \[\bold{1 - P(H) = P(\text{not H})} = 0.5\]
+\end{itemize}
+
+\begin{quote}
+where \(\bold{\text{not H}}\) is the event of anything other than heads.
+Since, there are only two possible outcomes, we have that
+\(\bold{P(\text{not H}) = P(T)} = 0.5\). In later concepts, you will see
+this with the following notation: \(\bold{\lnot H}\).
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Probability of composite event
+\end{itemize}
+
+\[ P * P * P * \dots * P \]
+
+It is only true because the events are independent of one another, which
+means the outcome of one does not affect the outcome of another.
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  Across multiple coin flips, we have the probability of seeing n heads
+  as \(\bold{P(H)^n}\). This is because these events are independent.
+\end{itemize}
+\end{quote}
+
+\begin{quote}
+We can get two generic rules from this:
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The probability of any event must be between 0 and 1, inclusive.
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  The probability of the compliment event is 1 minus the probability of
+  an event. That is the probability of all other possible events is 1
+  minus the probability an event itself. Therefore, the sum of all
+  possible events is equal to 1.
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  If our events are independent, then the probability of the string of
+  possible events is the product of those events. That is the
+  probability of one event AND the next AND the next event, is the
+  product of those events.
+\end{enumerate}
+\end{quote}
+
+\subsubsection{Looking Ahead}\label{looking-ahead}
+
+\begin{quote}
+You will be working with the Binomial Distribution, which creates a
+function for working with coin flip events like the first events in this
+lesson. These events are independent, and the above rules will hold.
+from Text: Recap + Next Steps
+\end{quote}
+
+\section{Conditional Probability}\label{conditional-probability}
+
+Here the first event will affect the second one. Figure 1 shows an
+example of it.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l6_01.png}
+\caption{Figure 1}
+\end{figure}
+
+Figure 1 - Example of conditional probability.
+
+The first event is to determine the bird type, and the second event the
+probability to run on the morning. Have in mind, these two birds has
+different probability to run on the morning.
+
+\begin{itemize}
+\tightlist
+\item
+  The early bird has 0.02;
+\item
+  The night owl has 0.00.
+\end{itemize}
+
+\subsection{Medical Example}\label{medical-example}
+
+Supose a patient with a disease, the probability of this patient has
+cancer is 0.9 and to be free cancer is 0.1.
+
+\[P(cancer) = 0.1 \\
+  P(\neg \ cancer) = 0.9 \tag{1}\]
+
+To be honest, we do not know if this patient has cancer, so it is
+necessary to apply a test. This test is not perfect, it means, there are
+a probability to indicates a false positive and a false negative.
+
+For this reason, I introduce the conditional probability.
+
+\[ P(Positive | cancer) = 0.9 \tag{2}\]
+
+\emph{What is the meaning of this notation?}
+
+Given the patient has cancer, the probability of this test indicates
+positive is 0.9. Thus, given the patient has cancer and the test
+indicates negative is 0.1, as shown in equation (3).
+
+\[ P(Negative | cancer) = 0.1 \tag{3}\]
+
+Analogous to the case of the patient do not has cancer.
+
+\[ P(Positive | \neg \ cancer) = 0.2 \\
+   P(Negative | \neg \ cancer) = 0.8 \tag{2} \]
+
+Table 1 shows a representation in a tabular way.
+
+Table 1 - Truth Table for Medical Example
+
+\begin{longtable}[]{@{}ccccccc@{}}
+\toprule
+\begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Disease\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Test\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+\(P_{disease}\)\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+\(P_{test}\)\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+P\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Q1: Test Positive?\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Q1: Answer\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Negative\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(\neg \ cancer) = 0.9\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(Negative\|\neg \ cancer) = 0.8\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.72\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Positive\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(\neg \ cancer) = 0.9\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(Positive\|\neg \ cancer) = 0.2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.18\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Yes\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.18\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Yes\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Negative\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(cancer) = 0.1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(Negative\| cancer) = 0.1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.01\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Yes\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Positive\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(cancer) = 0.1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(Positive\| cancer) = 0.9\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.09\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Yes\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.09\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(SUM = 1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(SUM = 0.27\)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{quote}
+What is the probability the test is positive?
+\end{quote}
+
+\textbf{Q1: 0.27}
+
+\subsubsection{Coin flip example}\label{coin-flip-example}
+
+Two coins, one fair and other loaded.
+
+\begin{itemize}
+\tightlist
+\item
+  Coin 1: \(P_1(HEADS) = P_1(TAILS) = 0.5\);
+\item
+  Coin 2: \(P_2(HEADS) = 0.9\) and \(P_2(TAILS) = 0.1\).
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l6_02.png}
+\caption{Figure 2}
+\end{figure}
+
+Figure 2 - Coin Example of conditional probability.
+
+\emph{What is the probability of this sequence HEADS and TAILS?}
+
+\begin{longtable}[]{@{}ccccccccc@{}}
+\toprule
+\begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Coin\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Flip 1\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Flip 2\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+\(P_{coin}\)\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+\(P_{Flip 1}\)\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+\(P_{Flip 2}\)\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+P\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Q2: HEADS then TAILS?\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Q2: answer\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.9\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.9\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.405\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.9\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.045\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Yes\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.045\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.9\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.045\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.005\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.125\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.125\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Yes\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.125\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.125\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.125\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(SUM = 1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(SUM = 0.170\)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\subsubsection{Summary}\label{summary-1}
+
+\begin{quote}
+In this lesson you learned about conditional probability. Often events
+are not independent like with coin flips and dice rolling. Instead, the
+outcome of one event depends on an earlier event.
+\end{quote}
+
+\begin{quote}
+For example, the probability of obtaining a positive test result is
+dependent on whether or not you have a particular condition. If you have
+a condition, it is more likely that a test result is positive. We can
+formulate conditional probabilities for any two events in the following
+way:
+\end{quote}
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  \(P(A|B) = \frac{P(A\text{ }\cap\text{ }B)}{P(B)}\)
+\item
+  \(P(A ∩ B)\)
+\end{itemize}
+\end{quote}
+
+\begin{quote}
+In this case, we could have this as:
+\end{quote}
+
+\begin{quote}
+\[P(positive|disease) = \frac{P(\text{positive }\cap\text{ disease})}{P(disease)}\]
+\end{quote}
+
+\begin{quote}
+where ∣ represents ``given'' and \(\cap\) represents ``and''. --- Class
+notes - Text: Summary
+\end{quote}
 
 \chapter{Intro to Machine Learning}\label{intro-to-machine-learning}
 

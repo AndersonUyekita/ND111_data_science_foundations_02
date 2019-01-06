@@ -11,6 +11,8 @@
 
 ********************************************************************************
 
+## Admissions Case Study
+
 ### Simpson's Paradox
 
 In this example lesson, you learned about Simpson's Paradox, and you had the opportunity to apply it to a small example with Sebastian, as well as work through similar example in Python.
