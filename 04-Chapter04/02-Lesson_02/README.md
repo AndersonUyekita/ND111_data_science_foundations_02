@@ -49,11 +49,11 @@ As you can see, Q1 and Q3 are the median of the data on either sides of Q2.
 
 The range is defined as:
 
-Range = maximum - minimum
+$$ \text{Range} = maximum - minimum \tag{1}$$
 
 The Interquartile is define as:
 
-$$ Interquartile = Q3 - Q1 $$
+$$ \text{Interquartile} = Q3 - Q1 \tag{2}$$
 
 For a even set of values I need to calculate the "average" of two values.
 
@@ -78,6 +78,8 @@ First, I need to define the "distance" between mean and each observation. "Dista
 * Standard Deviation is frequently used to compare spread of different groups.
 * Having higher standard deviation is associated with having higher risk.
 
+$$ \text{Standard Deviation} = \frac{1}{n} \sum_{i = 1}^n (\bar x - x_i)^2 \tag{3}$$
+
 ### Shape
 
 The shape is related to the histogram form, Figure 5 shows an example.
@@ -95,6 +97,8 @@ The shape is related to the histogram form, Figure 5 shows an example.
     * mean is pulled to the tail
     * median stays close to the mode
     * Amount of drug left in your bloodstream over time, distribution of wealth, human athletic abilities.
+
+>Side note: If you aren't sure if your data are normally distributed, there are plots called normal quantile plots and statistical methods like the Kolmogorov-Smirnov test that are aimed to help you understand whether or not your data are normally distributed. Implementing this test is beyond the scope of this class, but can be used as a fun fact.
 
 ### Outliers
 
