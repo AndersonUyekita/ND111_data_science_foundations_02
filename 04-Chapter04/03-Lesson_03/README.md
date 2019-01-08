@@ -21,4 +21,14 @@ In the lessons ahead, you will be learning a lot by following along with Sebasti
 
 It is so easy to get caught up in looking at full aggregates of your data. Hopefully, the examples here serve as a reminder to look at your data multiple ways.
 
+
+>Simpson's paradox (or Simpson's reversal, Yule–Simpson effect, amalgamation paradox, or reversal paradox[1]), is a phenomenon in probability and statistics, in which a trend appears in several different groups of data but disappears or reverses when these groups are combined. --- <cite>[Wikipedia][wiki_simpsons]<cite>
+
+>An alternative visualization of Simpson's paradox on data resembling real-world variability indicates that risk of misjudgement of true relationship can indeed be hard to spot--- <cite>[Wikipedia][wiki_simpsons]<cite>
+
+![](01-img/c4_l3_01.gif)
+<center><strong>Figure 1 - </strong></center>
+
+[wiki_simpsons]: https://en.wikipedia.org/wiki/Simpson%27s_paradox
+
 ### Case Study
