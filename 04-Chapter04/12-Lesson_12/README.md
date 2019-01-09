@@ -184,4 +184,40 @@ Figure 2 ilustrate it.
 
 Bear in mind, for this example an $\alpha$ of 0.01 is still very high.
 
-z
+#### Common Hypothesis Testing
+
+* T-test: population mean
+* Two sample t-test: difference in means
+* Paired t-test: Comparing after and before of a same individual
+* One sample z-test: population proportion
+* Two sample z-test: difference between population proportion
+
+### Selecting a hypothesis
+
+$$ \text{Which hypothesis is more likely to be True?} $$
+
+There are two ways to select these hypothesis.
+
+1. Using Confidence Intervals: Sampling distribution of our statistics.
+2. Simulating what we believe to be true under the null hypothesis, and than seeing if our data is actually consistent with that
+
+#### Using Confidence Intervals
+
+Create the Confidence Intervals and check where is it.
+
+In the example of coffee drinkers, the interval was entirely below 70, which would suggest the null (the population mean is less than 70) is actually true.
+
+1. Bootstrapping a sample
+2. Calculate the statistics
+3. Plot the histogram to visualize
+4. Calculte the upper and lower bounds from the Confidence Intervals
+5. Check if the $H_0$ or $H_1$ is in this Confidence Interval.
+
+#### Traditional way
+
+1. We assume the $H_0$ is `True`.
+2. We know the sampling distribution is normal
+3. We will use the closest value of the $H_0$, which is almost 70.
+4. Based on the standard deviation of the sampling distribution we could estimate the distribution from the $H_0$.
+5. Plot the histogram
+6. Check the mean and the hypothesis $H_0$.
