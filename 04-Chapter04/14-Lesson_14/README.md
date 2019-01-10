@@ -134,13 +134,105 @@ Figure 8 ilustrate this equation in a picture.
 
 ### Least-squares
 
+This is a method (or even more an "algorithm") used to find the best slope of a line. Is is based on the distance between the _actual_ point ($y$) and the _estimated_ point ($\hat y$). The algorithm aims to minimize the this distance, following equation (1).
 
+$$ \text{distance} = y - \hat y \tag{1}$$
 
+Bear in mind, there are positive and negative distance and each one could anulate another, for this reason, we will use the same strategy applied in the _standard deviation_ squaring the distance as shown in equation (2).
 
+$$ \text{distance}^2 = (y - \hat y)^2 \tag{2}$$
 
+Generalizing this equation (2) for all points.
 
+$$ \sum^n_{i = 1}\text{distance}^2 = \sum^n_{i = 1}(y - \hat y)^2 \tag{3}$$
 
+### Fitting a Linear Model in Python
 
+I will use the `statsmodels` package to perform the OLS. The chunk below ilustrate an example.
 
+```py
+# Loading the Library.
+import statsmodels.api as sm
 
-.
+# Including the intercept.
+df['intercept'] = 1
+
+# Linear Model.
+lm = sm.OLS(df['price'], df[['intercept', 'area']])
+
+# Storing the results in a variable.
+results = lm.fit()
+
+# Printing the results using summary method.
+results.summary()
+```
+
+The output of `results.summary()` is presented in Figure 9.
+
+![](01-img/c4_l14_09.png)
+
+<center><em>Figure 9 - Output of OLS method from Statsmodels Package.</em></center><br>
+
+### Interpretation
+
+#### Statistical Significance {-}
+
+It is possible to perform Hypotheses Testing for each coefficients in our linear models. The reason to keep an eye on these tests because it is possible to evaluate if exist a statistically significant linear relationship between a particular variable and the response.
+
+Altough the hypothesis test for the intercept isn't useful in most cases.
+
+The hypotheses behind the scenes for each x variable is:
+
+$$ H_0 : slope_{population} = 0 \\
+H_1 : slope_{population} \neq 0 \tag{4}$$
+
+* Interpretations:
+    * Fail to reject $H_0$: The x-variable is not relevant or signigicant to the model, remove it;
+    * Reject $H_0$: We have evidence that the x-variable attached to that coefficient has a statistically significant linear relationship with the response. This in turn suggests that the x-variable should help us in predicting the response (or at least be better than not having it in the model).
+
+Based on the Figure 9, and highlighting the results of the slope's, Figure 10 shows the estimate slope's and p-values.
+
+![](01-img/c4_l14_10.png)
+
+<center><em>Figure 10 - Coefficients from OLS.</em></center><br>
+
+Supported by the results from the OLS, the regression linear model is presented in equation (5).
+
+$$ \underbrace{\hat y}_{\text{predicted home price}} = b_0 + b_1\underbrace{x}_{\text{home area}} \\ \ \\
+\hat y = 9,588 + 348x \tag{5} $$
+
+Now, let's take a look in the `p-values` showed in Figure 11.
+
+![](01-img/c4_l14_11.png)
+
+<center><em>Figure 11 - p-values.</em></center><br>
+
+Founded on the Hypotheses posed in equation (4):
+
+* Intercept: The $b_0$ coefficient **fail to reject** the $H_0$ because the `p-value` of 0.209 is higher than the $\alpha$ (usually 0.05);
+* Area: The $b_1$ coefficient **reject** the $H_0$ because the `p-value` is zero.
+
+>**Conclusion:** Based on the results, area is statistically significant for predicting price, and the intercept is not useful.
+
+#### R-Squared {-}
+
+R-Squared in few words: The closer this value is to 1, the better our model fits the data.
+
+* This coefficient varies from 0 (worse) to 1 (better);
+* Is the squared of the correlation coefficient.
+
+$$\text{R-Squared} = r^2$$
+
+The Interpretation for this coefficient is the amount of variability in the response (y-variable) explained by the explanatory variables (x's-variables).
+
+Figure 12 shows a excerpt of the `results.summary()`.
+
+![](01-img/c4_l14_12.png)
+
+<center><em>Figure 12 - R-Squared Interpretation.</em></center><br>
+
+As you can see, the R-Squared for this example is 0.678, which should be interpret as: 67.8% of the variability in price is explained by the area of the house. The remaining 32.2% of variability is due to characteristics of the home that are not the area.
+
+>Many feel that Rsquared isn't a great measure (which is possible true), but I would argue that using cross-validation can assist us with validating with any measure that helps us understand the fit of a model to our data. [Here][url_c4_l14], you can find one such result on why an individual doesn't care for Rsquared. --- <cite>Udacity notebook</cite>
+
+[url_c4_l14]: https://data.library.virginia.edu/is-r-squared-useless/
