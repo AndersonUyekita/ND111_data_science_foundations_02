@@ -104,7 +104,7 @@ _What is the probability of this sequence HEADS and TAILS?_
 
 >In this case, we could have this as:
 
->$$P(positive|disease) = \frac{P(\text{positive }\cap\text{ disease})}{P(disease)}$$​
+>$$P(positive|disease) = \frac{P(\text{positive }\cap\text{ disease})}{P(disease)}$$
 
 >where ∣ represents "given" and $\cap$ represents "and". --- <cite>Class notes - Text: Summary
 </cite>

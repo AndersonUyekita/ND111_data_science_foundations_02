@@ -20,6 +20,19 @@ This is the second course of the Nanodegree of Data Science from Udacity.
 
 [nd110]: https://br.udacity.com/course/python-fundamentos-data-science--nd110
 
+#### Bookdown and Projects
+
+* [Bookdown :book: ][nd111_bookdown]
+* [Project 01 :rocket: ][project_01_url]
+* [Project 02 :rocket: ][project_02_url]
+
+[nd111_bookdown]: https://andersonuyekita.github.io/ND111_data_science_foundations_02/index.html
+[project_01_url]: https://modeanalytics.com/ah_uyekita/reports/e77643786160
+[project_02_url]: https://nbviewer.jupyter.org/github/AndersonUyekita/ND111_data_science_foundations_02/blob/master/03-Chapter03/00-Project_02/wrangle_act.ipynb
+
+
+********************************************************************************
+
 ## Objectives
 
 I want to finish this course in two weeks. It includes the Optional videos and chapters.

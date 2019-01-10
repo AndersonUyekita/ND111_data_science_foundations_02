@@ -2219,7 +2219,8 @@ journey by continuing on to the next module in the program.
 
 \chapter{Advanced Statistics}\label{advanced-statistics}
 
-\section{Descriptive Statistics}\label{descriptive-statistics}
+\section{\texorpdfstring{Descriptive Statistics
+\texttt{Lesson\ 01}}{Descriptive Statistics Lesson 01}}\label{descriptive-statistics-lesson-01}
 
 This lesson is a kind of review.
 
@@ -2310,7 +2311,8 @@ Four main aspects when analysing \textbf{quantitative} data:
   \texttt{Outliers}
 \end{itemize}
 
-\section{Quantitative Data}\label{quantitative-data}
+\section{\texorpdfstring{Quantitative Data
+\texttt{Lesson\ 02}}{Quantitative Data Lesson 02}}\label{quantitative-data-lesson-02}
 
 \subsection{Measures of Spread}\label{measures-of-spread}
 
@@ -2530,7 +2532,8 @@ Descriptive Statistics: Describing Collected Data Inferential
 Statistics: Drawing conclusions about a population based on data
 collected from sample of individuals from that population.
 
-\section{Admissions Case Study}\label{admissions-case-study}
+\section{\texorpdfstring{Admissions Case Study
+\texttt{Lesson\ 03}}{Admissions Case Study Lesson 03}}\label{admissions-case-study-lesson-03}
 
 \subsection{Simpson's Paradox}\label{simpsons-paradox}
 
@@ -2549,7 +2552,8 @@ data multiple ways.
 
 \subsection{Case Study}\label{case-study}
 
-\section{Probability}\label{probability}
+\section{\texorpdfstring{Probability
+\texttt{Lesson\ 04}}{Probability Lesson 04}}\label{probability-lesson-04}
 
 \subsection{Introduction to
 Probability}\label{introduction-to-probability}
@@ -2835,7 +2839,7 @@ lesson. These events are independent, and the above rules will hold.
 from Text: Recap + Next Steps
 \end{quote}
 
-\section{Conditional Probability}\label{conditional-probability}
+\subsection{Conditional Probability}\label{conditional-probability}
 
 Here the first event will affect the second one. Figure 1 shows an
 example of it.
@@ -2860,7 +2864,7 @@ different probability to run on the morning.
   The night owl has 0.00.
 \end{itemize}
 
-\subsection{Medical Example}\label{medical-example}
+\subsubsection{Medical Example}\label{medical-example}
 
 Supose a patient with a disease, the probability of this patient has
 cancer is 0.9 and to be free cancer is 0.1.
@@ -2996,7 +3000,8 @@ What is the probability the test is positive?
 
 \textbf{Q1: 0.27}
 
-\subsubsection{Coin flip example}\label{coin-flip-example}
+\subsubsection*{Coin flip example}\label{coin-flip-example}
+\addcontentsline{toc}{subsubsection}{Coin flip example}
 
 Two coins, one fair and other loaded.
 
@@ -3253,6 +3258,2260 @@ In this case, we could have this as:
 where ∣ represents ``given'' and \(\cap\) represents ``and''. --- Class
 notes - Text: Summary
 \end{quote}
+
+\section{\texorpdfstring{Binomial Distribution
+\texttt{Lesson\ 05}}{Binomial Distribution Lesson 05}}\label{binomial-distribution-lesson-05}
+
+\begin{quote}
+In probability theory and statistics, the binomial distribution with
+parameters n and p is the discrete probability distribution of the
+number of successes in a sequence of n independent experiments, each
+asking a yes--no question, and each with its own boolean-valued outcome:
+a random variable containing a single bit of information:
+success/yes/true/one (with probability p) or failure/no/false/zero (with
+probability q = 1 − p). A single success/failure experiment is also
+called a Bernoulli trial or Bernoulli experiment and a sequence of
+outcomes is called a Bernoulli process; for a single trial, i.e., n = 1,
+the binomial distribution is a Bernoulli distribution. The binomial
+distribution is the basis for the popular binomial test of statistical
+significance.
+\href{https://en.wikipedia.org/wiki/Binomial_distribution}{Wikipedia}
+\end{quote}
+
+\textbf{Example 1:} 5 coin flips. \(P(\text{two HEADS})\).
+
+\begin{itemize}
+\tightlist
+\item
+  The order of the HEADS do not matter.
+\end{itemize}
+
+What's the number of combinations?
+
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule
+Flip 1 & Flip 2 & Flip 3 & Flip 4 & Flip 5\tabularnewline
+\midrule
+\endhead
+H & ? & ? & ? & ?\tabularnewline
+H & H & ? & ? & ?\tabularnewline
+5 & 4 & 1 & 1 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+
+You can place H in 5 places, after place the first H you only have 4
+places. For this reason, there are 20 posibilities.
+
+\[ P_1 = 5 * 4 = 20 \]
+
+Bear in mind, the H's are equal and you can swap each one.
+
+\begin{longtable}[]{@{}cc@{}}
+\toprule
+\(H_1\) & \(H_2\)\tabularnewline
+\midrule
+\endhead
+? & ?\tabularnewline
+2 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+
+So there are two possible H's to insert in the \(H_1\)
+
+\[ P_2 = 2 * 1 = 2 \]
+
+What this \(P_2\) means?
+
+\begin{quote}
+You have two equals instances so the \(P_1\) has double entries. The
+good part is the \(P_2\) is used to ``fix'' it.
+\end{quote}
+
+\[ P = \frac{P_1}{P_2} = \frac{20}{2} = 10 \]
+
+\textbf{Example 2:} 10 coin flips. \(P(\text{four HEADS})\).
+
+\begin{itemize}
+\tightlist
+\item
+  The order of the HEADS do not matter.
+\end{itemize}
+
+What's the number of combinations?
+
+\begin{longtable}[]{@{}cccccccccc@{}}
+\toprule
+Flip 1 & Flip 2 & Flip 3 & Flip 4 & Flip 5 & Flip 6 & Flip 7 & Flip 8 &
+Flip 9 & Flip 10\tabularnewline
+\midrule
+\endhead
+H & ? & ? & ? & ? & ? & ? & ? & ? & ?\tabularnewline
+H & H & H & T & H & T & T & T & T & T\tabularnewline
+10 & 9 & 8 & 1 & 7 & 1 & 1 & 1 & 1 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+
+You can place H in 10 places, after place the first H you only have 9
+places. For this reason, there are (\(10*9*8*7\)) posibilities.
+
+\[ P_1 = 10*9*8*7 = 5,040 \]
+
+Bear in mind, the H's are equal and you can swap each one.
+
+\begin{longtable}[]{@{}cccc@{}}
+\toprule
+\(H_1\) & \(H_2\) & \(H_3\) & \(H_4\)\tabularnewline
+\midrule
+\endhead
+? & ? & ? & ?\tabularnewline
+4 & 3 & 2 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+
+So there are two possible H's to insert in the \(H_1\)
+
+\[ P_2 = 4 * 3 * 2 * 1 = 24 \]
+
+What this \(P_2\) means?
+
+\begin{quote}
+You have two or more equals instances so the \(P_1\) has ``double''
+entries. The good part is the \(P_2\) is used to ``fix'' it.
+\end{quote}
+
+\[ P = \frac{P_1}{P_2} = \frac{5,040}{24} = 210 \]
+
+\subsection{Equation}\label{equation}
+
+Founded on the examples above, it is possible to write a equation, given
+10 flips (\(k\)) and an expected 3 heads (\(n\)).
+
+\[ P = \frac{P_1}{P_2} = \frac{10 * 9 * 8}{\underbrace{3 * 2 * 1}_{3!}}\]
+
+Let's multiply by (\(7 * 6 * 5 * 4 * 3 * 2 * 1\)) or simply by \(7!\).
+
+\[ P = \frac{P_1}{P_2} = \frac{10 * 9 * 8 * 7!}{3! * 7!} = \frac{\overbrace{10!}^{k!}}{\underbrace{3!}_{n!} * \underbrace{7!}_{(k-n)!}} = \frac{k!}{n!(k-n)!} \tag{1}\]
+
+Equation (1) is also noted as:
+
+\[ C_{n,k} = \begin{pmatrix} n \\ k \end{pmatrix} \tag{2}\]
+
+Equation (2) will only calculate the number of combinations. We can
+aggregate the probability.
+
+\begin{itemize}
+\tightlist
+\item
+  \(P(H)\): for heads;
+\item
+  \(P(T)\): for tails;
+\end{itemize}
+
+Given the 10 coins flips, the probability for a single instance, no
+matter the order:
+
+\emph{Obs.: Do not confound with permutation notation.}
+
+\[ P_{k,n} = P(H)^n * P(T)^{k-n}\]
+\[ P_{10,3} = P(H)^3 * P(T)^{7}\tag{3}\]
+
+For a fair coin.
+
+\[ P_{10,3} = 0.5^3 * 0.5^{7} = 0.000976563 \tag{4}\]
+
+The value of \(P(10,3)\) is for a single time, I know there are many
+instances where could happen 3 heads, for this reason I use the
+combination.
+
+\[ C_{10,3} = \begin{pmatrix} 10 \\ 3 \end{pmatrix} = \frac{10!}{7!*3!} = 120\]
+
+The probability to happen 3 heads in 10 flips coins is:
+
+\[ P(10|3) = C_{10,3} * P_{10,3} = 120 * 0.000976563 = 0.1171875 \]
+
+Expanding this concept to a all around equation:
+
+\[ P(k|n) = \underbrace{C_{k,n}}_{\text{note 1}} * \underbrace{P_{k,n}}_{\text{note 2}} \tag{5}\]
+
+\begin{itemize}
+\tightlist
+\item
+  note 1: Probability to occur the given \emph{combination} (3 heads and
+  7 tails) over the all combinations (\(10^2 = 1,024\));
+\item
+  note 2: Probability based on the coins (heads and tails
+  probabilities).
+\end{itemize}
+
+\subsubsection{Additional Info}\label{additional-info}
+
+Do not confound Permutation with Combination.
+
+\begin{itemize}
+\tightlist
+\item
+  Combination: When the order does not matter;
+\item
+  Permutation: When the order is important.
+\end{itemize}
+
+Read more in
+\href{https://www.mathplanet.com/education/algebra-2/discrete-mathematics-and-probability/permutations-and-combinations}{mathplanet}.
+
+\section{\texorpdfstring{Conditional Probability
+\texttt{Lesson\ 06}}{Conditional Probability Lesson 06}}\label{conditional-probability-lesson-06}
+
+Here the first event will affect the second one. Figure 1 shows an
+example of it.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l6_01.png}
+\caption{Figure 1}
+\end{figure}
+
+Figure 1 - Example of conditional probability.
+
+The first event is to determine the bird type, and the second event the
+probability to run on the morning. Have in mind, these two birds has
+different probability to run on the morning.
+
+\begin{itemize}
+\tightlist
+\item
+  The early bird has 0.02;
+\item
+  The night owl has 0.00.
+\end{itemize}
+
+\subsection{Medical Example}\label{medical-example-1}
+
+Supose a patient with a disease, the probability of this patient has
+cancer is 0.9 and to be free cancer is 0.1.
+
+\[P(cancer) = 0.1 \\
+  P(\neg \ cancer) = 0.9 \tag{1}\]
+
+To be honest, we do not know if this patient has cancer, so it is
+necessary to apply a test. This test is not perfect, it means, there are
+a probability to indicates a false positive and a false negative.
+
+For this reason, I introduce the conditional probability.
+
+\[ P(Positive | cancer) = 0.9 \tag{2}\]
+
+\emph{What is the meaning of this notation?}
+
+Given the patient has cancer, the probability of this test indicates
+positive is 0.9. Thus, given the patient has cancer and the test
+indicates negative is 0.1, as shown in equation (3).
+
+\[ P(Negative | cancer) = 0.1 \tag{3}\]
+
+Analogous to the case of the patient do not has cancer.
+
+\[ P(Positive | \neg \ cancer) = 0.2 \\
+   P(Negative | \neg \ cancer) = 0.8 \tag{2} \]
+
+Table 1 shows a representation in a tabular way.
+
+Table 1 - Truth Table for Medical Example
+
+\begin{longtable}[]{@{}ccccccc@{}}
+\toprule
+\begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Disease\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Test\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+\(P_{disease}\)\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+\(P_{test}\)\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+P\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Q1: Test Positive?\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Q1: Answer\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Negative\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(\neg \ cancer) = 0.9\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(Negative\|\neg \ cancer) = 0.8\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.72\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Positive\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(\neg \ cancer) = 0.9\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(Positive\|\neg \ cancer) = 0.2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.18\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Yes\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.18\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Yes\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Negative\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(cancer) = 0.1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(Negative\| cancer) = 0.1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.01\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Yes\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Positive\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(cancer) = 0.1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(P(Positive\| cancer) = 0.9\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.09\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Yes\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.09\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(\sum = 1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(\sum = 0.27\)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{quote}
+What is the probability the test is positive?
+\end{quote}
+
+\textbf{Q1: 0.27}
+
+\subsubsection{Coin flip example}\label{coin-flip-example-1}
+
+Two coins, one fair and other loaded.
+
+\begin{itemize}
+\tightlist
+\item
+  Coin 1: \(P_1(HEADS) = P_1(TAILS) = 0.5\);
+\item
+  Coin 2: \(P_2(HEADS) = 0.9\) and \(P_2(TAILS) = 0.1\).
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l6_02.png}
+\caption{Figure 2}
+\end{figure}
+
+Figure 2 - Coin Example of conditional probability.
+
+\emph{What is the probability of this sequence HEADS and TAILS?}
+
+\begin{longtable}[]{@{}ccccccccc@{}}
+\toprule
+\begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Coin\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Flip 1\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Flip 2\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+\(P_{coin}\)\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+\(P_{Flip 1}\)\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+\(P_{Flip 2}\)\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+P\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Q2: HEADS then TAILS?\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering\strut
+Q2: answer\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.9\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.9\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.405\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.9\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.045\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Yes\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.045\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.9\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.045\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.1\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.005\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.125\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.125\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+Yes\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.125\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+H\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.125\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+T\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.5\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0.125\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+No\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(\sum = 1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering\strut
+\(\sum = 0.170\)\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\subsubsection{Summary}\label{summary-2}
+
+\begin{quote}
+In this lesson you learned about conditional probability. Often events
+are not independent like with coin flips and dice rolling. Instead, the
+outcome of one event depends on an earlier event.
+\end{quote}
+
+\begin{quote}
+For example, the probability of obtaining a positive test result is
+dependent on whether or not you have a particular condition. If you have
+a condition, it is more likely that a test result is positive. We can
+formulate conditional probabilities for any two events in the following
+way:
+\end{quote}
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  \(P(A|B) = \frac{P(A\text{ }\cap\text{ }B)}{P(B)}\)
+\item
+  \(P(A ∩ B)\)
+\end{itemize}
+\end{quote}
+
+\begin{quote}
+In this case, we could have this as:
+\end{quote}
+
+\begin{quote}
+\[P(positive|disease) = \frac{P(\text{positive }\cap\text{ disease})}{P(disease)}\]
+\end{quote}
+
+\begin{quote}
+where ∣ represents ``given'' and \(\cap\) represents ``and''. --- Class
+notes - Text: Summary
+\end{quote}
+
+\section{\texorpdfstring{Bayes Rule
+\texttt{Lesson\ 07}}{Bayes Rule Lesson 07}}\label{bayes-rule-lesson-07}
+
+The person who writes down this theorem.
+
+\begin{quote}
+Thomas Bayes (/beɪz/; c. 1701 -- 7 April 1761) was an English
+statistician, philosopher and Presbyterian minister who is known for
+formulating a specific case of the theorem that bears his name: Bayes'
+theorem. Bayes never published what would become his most famous
+accomplishment; his notes were edited and published after his death by
+Richard Price. ---
+\href{https://en.wikipedia.org/wiki/Thomas_Bayes}{Wikipedia - Thomas
+Bayes}
+\end{quote}
+
+\subsection{Cancer Example}\label{cancer-example}
+
+The probability to a person has cancer is 1\% and the probability to the
+test gives positive is 90\%. If a person do not has cancer the
+probability of the test gives negative is 90\%.
+
+\emph{What is the probability of a given positive test the person has
+cancer?}
+
+\begin{longtable}[]{@{}ccccccc@{}}
+\toprule
+Disease & Test & \(P_{disease}\) & \(P_{test}\) & P & Q1: Test positive?
+& Q1: answer\tabularnewline
+\midrule
+\endhead
+No & Negative & 0.99 & 0.90 & 0.891 & No & 0\tabularnewline
+No & Positive & 0.99 & 0.10 & 0.099 & Yes & 0.099\tabularnewline
+Yes & Negative & 0.01 & 0.10 & 0.001 & No & 0\tabularnewline
+Yes & Positive & 0.01 & 0.90 & 0.009 & Yes & 0.009\tabularnewline
+& & & & & & SUM = 0.108\tabularnewline
+\bottomrule
+\end{longtable}
+
+Bear in mind, the probability of a false positive is 0.099, which is 11
+times bigger than the a truth valeu of 0.009.
+
+Figure 1 ilustrate this situation.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l7_01.png}
+\caption{}
+\end{figure}
+
+Given the test is positive, the probability of this person has cancer
+is:
+
+\[ P(C\|Positive) = \frac{P(C,Positive)}{P(C,Positive) + P(\neg \ C,Positive)} = \frac{0.009}{0.009 + 0.099} = 0.08333\]
+
+\subsection{Bayes Rule}\label{bayes-rule}
+
+From the example above, I can point out some definitions:
+
+\textbf{Prior:}
+
+This is a information before the test.
+
+\[ P(C) = 0.01 \\ P(\neg C) = 0.99 \tag{1}\]
+
+\textbf{Joint:}
+
+Now, I will apply the test for a given positive result.
+
+\[ P(C,Positive) = P(C) * \underbrace{P(Positive\|C)}_{Sensibility} \\
+   P(\neg C,Positive) = P(\neg \ C) * \underbrace{P(Positive\| \neg \ C)}_{Sensibility} \tag{2} \]
+
+For a negative result.
+
+\[ P(C,Negative) = P(C) * \underbrace{P(Negative\|C)}_{Specitivity} \\
+      P(\neg \ C,Negative) = P(\neg \ C) * \underbrace{P(Negative\| \neg \ C)}_{Specitivity} \tag{3}\]
+
+\textbf{Normalization:}
+
+This is performed for each result (Positive and Negative).
+
+\[ P(Positive) = P(C,Positive) + P(\neg \ C,Positive) \tag{4}\]
+
+\textbf{Posterior:}
+
+Divide the \(P(C,Positive)\) and \(P(\neg C,Positive)\) by
+\(P(Positive)\).
+
+\[P(C|Positive) = \frac{P(C,Positive)}{P(Positive)} \tag{5}\]
+
+\[P(\neg C|Positive) = \frac{P(\neg C,Positive)}{P(Positive)} \tag{6}\]
+
+Finally, the Bayes equation could be generalized as:
+
+\[P(A|B) = \frac{P(A) * P(B|A)}{P(B)} \tag{7}\]
+
+\section{\texorpdfstring{Python Probability Practice
+\texttt{Lesson\ 08}}{Python Probability Practice Lesson 08}}\label{python-probability-practice-lesson-08}
+
+Some methods interesting to take notes.
+
+\subsubsection{\texorpdfstring{\texttt{.random.randint()}}{.random.randint()}}\label{random.randint}
+
+Generates a random value.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{np.random.randint}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DataTypeTok{size=}\DecValTok{10000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In the example above, the line code will generate a sample of 10,000
+number from 0 to 1 (the 2 is not inclusive).
+
+\subsubsection{\texorpdfstring{\texttt{.random.choice()}}{.random.choice()}}\label{random.choice}
+
+Generates a radom value with different loads.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{np.random.choice}\NormalTok{([}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{], }\DataTypeTok{size=}\DecValTok{10000}\NormalTok{, }\DataTypeTok{p=}\NormalTok{[}\FloatTok{0.8}\NormalTok{, }\FloatTok{0.2}\NormalTok{])}\ErrorTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In the example the loads are 0.8 and 0.2.
+
+\subsubsection{\texorpdfstring{\texttt{random.binomial()}}{random.binomial()}}\label{random.binomial}
+
+This method is an other way to simulate a coin flip.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{np.random.binomial}\NormalTok{(}\DecValTok{10}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\DecValTok{1000000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The example above will flip 10 coins (with a fair rate due to the 0.5),
+with a sample of 1 million.
+
+The result of this methods is a ``aggregation'' of the success events,
+which means the output varies from 0 to 10.
+
+\section{\texorpdfstring{Normal Distribution Theory
+\texttt{Lesson\ 09}}{Normal Distribution Theory Lesson 09}}\label{normal-distribution-theory-lesson-09}
+
+Comparison between a simple probability, binomial distribution, and
+normal distribution.
+
+\begin{longtable}[]{@{}cc@{}}
+\toprule
+Type & Quantity\tabularnewline
+\midrule
+\endhead
+Bernoulli & 1\tabularnewline
+Binomial & 10\tabularnewline
+Normal & 1000\tabularnewline
+\bottomrule
+\end{longtable}
+
+Along this chapter I have seen the evolution from the simple probability
+(Bernoulli), to a Binomial, and finally a Normal distribution.
+
+The difference is the size of the ``sample''.
+
+\subsection{Equations}\label{equations}
+
+\begin{itemize}
+\tightlist
+\item
+  Bernoulli
+\end{itemize}
+
+\[ P(HEADS) = P(HEADS)^n \tag{1}\]
+
+\begin{itemize}
+\tightlist
+\item
+  Binomial
+\end{itemize}
+
+\[P(n,k) = \frac{n!}{(n-k)!k!} p^k * (1-p)^{n-k} \tag{2}\]
+
+\begin{itemize}
+\tightlist
+\item
+  Normal (or Gaussian or Gauss or Laplace--Gauss) distribution
+\end{itemize}
+
+\[N(x;\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp^{-\frac{1}{2} \frac{(x-\mu)^2}{\sigma^2}} \tag{3}\]
+
+\(\mu\): mean; \(\sigma^2\): variance.
+
+\section{\texorpdfstring{Sampling distributions and Central Limit
+Theorem
+\texttt{Lesson\ 10}}{Sampling distributions and Central Limit Theorem Lesson 10}}\label{sampling-distributions-and-central-limit-theorem-lesson-10}
+
+Recap of Inferential Statistics.
+
+\subsubsection{Inferential Statistics}\label{inferential-statistics}
+
+\begin{quote}
+In order to assure you are comfortable with the ideas surrounding
+inferential statistics. The next 4 concepts are aimed at the difference
+between Descriptive and Inferential Statistics. Actually applying
+inferential statistics techniques to data will be taught in later
+lessons.
+\end{quote}
+
+\subsubsection{Probability to
+Statistics}\label{probability-to-statistics}
+
+\begin{quote}
+This begins a set of lessons that will be more data oriented in the way
+that you are applying ideas, and less probability oriented.
+\end{quote}
+
+\begin{quote}
+Often we use statistics to verify conclusions of probability through
+simulation. Therefore, simulation (similar to the python lesson you
+completed earlier) will be a large part of the way we show mathematical
+ideas moving forward.
+\end{quote}
+
+\paragraph{Solutions}\label{solutions}
+
+\begin{quote}
+It is in your best interest to work through the solution notebooks on
+your own before looking at the solutions available for this course.
+However, if you get stuck or would like to double check your solutions,
+notice all of the solutions and data are available in the resources tab
+of this course. This is true for all of the following lessons as well.
+--- Class notes
+\end{quote}
+
+\subsubsection{Comparison Descriptive and Inferential
+Statistics}\label{comparison-descriptive-and-inferential-statistics}
+
+\begin{quote}
+In this section, we learned about how Inferential Statistics differs
+from Descriptive Statistics.
+\end{quote}
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Descriptive\ statistics} is about describing our collected
+  data using the measures discussed throughout this lesson: measures of
+  center, measures of spread, shape of our distribution, and outliers.
+  We can also use plots of our data to gain a better understanding.
+\end{itemize}
+\end{quote}
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Inferential\ Statistics} is about using our collected data to
+  draw conclusions to a larger population. Performing inferential
+  statistics well requires that we take a sample that accurately
+  represents our population of interest.
+\end{itemize}
+\end{quote}
+
+\begin{quote}
+A common way to collect data is via a survey. However, surveys may be
+extremely biased depending on the types of questions that are asked, and
+the way the questions are asked. This is a topic you should think about
+when tackling the the first project.
+\end{quote}
+
+\begin{quote}
+We looked at specific examples that allowed us to identify the
+\end{quote}
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  Population - our entire group of interest.
+\item
+  Parameter - numeric summary about a population
+\item
+  Sample - subset of the population
+\item
+  Statistic numeric summary about a sample
+\end{itemize}
+\end{quote}
+
+\subsection{Sampling distribution}\label{sampling-distribution}
+
+\begin{quote}
+A sampling distribution is the distribution of a statistic. Here we
+looked the distribution of the proportion for samples of 5 students.
+This is key to the ideas covered not only in this lesson, but in future
+lessons.
+\end{quote}
+
+\subsection{Notation}\label{notation}
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l10_01.png}
+\caption{}
+\end{figure}
+
+Figure 1
+
+\begin{quote}
+As you saw in this video, we commonly use Greek symbols as parameters
+and lowercase letters as the corresponding statistics. Sometimes in the
+literature, you might also see the same Greek symbols with a ``hat'' to
+represent that this is an estimate of the corresponding parameter.
+\end{quote}
+
+\subsection{Other Sampling
+Distribution}\label{other-sampling-distribution}
+
+It is possible to use other statistics.
+
+\begin{itemize}
+\tightlist
+\item
+  Standard Deviation
+\item
+  Variance
+\item
+  Difference in Means
+\end{itemize}
+
+The difference between parameters and statistics is the last one is
+varies and the first is fixed.
+
+\subsection{Law of Large Number}\label{law-of-large-number}
+
+This theorem preconizes the greater the number of the samples/trials the
+average of this sample will be close to the population mean. This is the
+reason we have simulated samples sizes of 10,000.
+
+\begin{itemize}
+\tightlist
+\item
+  Increasing the size of the sample the mean of this sample will be
+  closer to the population mean.
+\end{itemize}
+
+\href{https://en.wikipedia.org/wiki/Law_of_large_numbers}{Read more in
+Wikipedia} and
+\href{https://www.investopedia.com/terms/l/lawoflargenumbers.asp}{Investopedia}
+
+\subsection{Central Limit Theorem}\label{central-limit-theorem}
+
+Quite similar with the LLN theorem, but this is related to the shape of
+sample. It is necessary to plot a histogram to see the miracle.
+
+\begin{itemize}
+\tightlist
+\item
+  Increasing the size of the sample the shape of the sample will be
+  closer to a normal distribution.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l10_02.png}
+\caption{}
+\end{figure}
+
+Figure 2
+
+\begin{quote}
+The Central Limit Theorem states that with a large enough sample size
+the sampling distribution of the mean will be normally distributed.
+\end{quote}
+
+\begin{quote}
+The Central Limit Theorem actually applies for these well known
+statistics:
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Sample means (\(\bar x\))
+\item
+  Sample proportions (\(p\))
+\item
+  Difference in sample means (\(\bar x_1 - \bar x_2\))
+\item
+  Difference in sample propostions (\(p_1 - p_2\))
+\end{enumerate}
+\end{quote}
+
+But is not applied to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Variance or Standard Deviation
+\item
+  Correlation coeficient
+\item
+  Maximum value
+\end{enumerate}
+
+\begin{quote}
+And it applies for additional statistics, \textbf{but it doesn't apply
+for all statistics!}. You will see more on this towards the end of this
+lesson.
+\end{quote}
+
+Examples CLT in Figures 3 and 4.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l10_03.png}
+\caption{}
+\end{figure}
+
+Figure 3
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l10_04.png}
+\caption{}
+\end{figure}
+
+Figure 4
+
+Varying the value of the sample from 3 to 100, the bell shape could be
+identified.
+
+\subsection{Bootstrapping}\label{bootstrapping}
+
+\begin{quote}
+Bootstrapping is a technique where we sample from a group with
+replacement.
+\end{quote}
+
+\begin{quote}
+We can use bootstrapping to simulate the creation of sampling
+distribution, which you did many times in this lesson.
+\end{quote}
+
+\begin{quote}
+By bootstrapping and then calculating repeated values of our statistics,
+we can gain an understanding of the sampling distribution of our
+statistics.
+\end{quote}
+
+\section{\texorpdfstring{Confidence Intervals
+\texttt{Lesson\ 11}}{Confidence Intervals Lesson 11}}\label{confidence-intervals-lesson-11}
+
+Have in mind this is a part of Inference Statistical.
+
+In this lesson we are going to use the sampling method to create our
+interval of confidence. The steps is very simple:
+
+\begin{itemize}
+\tightlist
+\item
+  From a population gather a sample;
+\item
+  Based on this sample draw many new samples (e.g.~10,000);
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The size of these 10,000 samples should be ``large'' (e.g.~200);
+  \item
+    You can use the \texttt{replace\ =\ True} to work with
+    Bootstrapping;
+  \end{itemize}
+\item
+  Calculate some statistics (of this 200 elements): mean or difference
+  of means;
+\item
+  Plot a histogram of this statistics (should have 10,000 elements to
+  plot).
+\end{itemize}
+
+Plotting this histogram you can take some conclusions about the data.
+For example:
+
+\begin{itemize}
+\tightlist
+\item
+  If you decided to use difference of means, you can check if the two
+  ``samples'' are equals, or greater or less than.
+\end{itemize}
+
+\begin{quote}
+Assuming you control all other items of your analysis:
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Increasing your sample size will decrease the width of your 2.
+  confidence interval.
+\item
+  Increasing your confidence level (say 95\% to 99\%) will increase the
+  width of your confidence interval.
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+You saw that you can compute:
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The confidence interval \textbf{width} (Confidence Interval Width) as
+  the difference between your upper and lower bounds of your confidence
+  interval.
+\item
+  The \textbf{margin of error} (MOE) is half the confidence interval
+  width, and the value that you add and subtract from your sample
+  estimate to achieve your confidence interval final results. ---
+  Udacity class notes
+\end{enumerate}
+\end{quote}
+
+\subsection{Practical and Statistical
+Significance}\label{practical-and-statistical-significance}
+
+\begin{itemize}
+\tightlist
+\item
+  Confidence Intervals will provide a Statistical Significance to be
+  used as bedrock of a conclusion.
+\item
+  Practical Significance is something from outside of the Confidence
+  Interval and could decide if this solution is good or not. The
+  Practical Significance takes account other variables (costs, lack of
+  employee, time, etc.).
+\end{itemize}
+
+\subsection{Traditional Methods vs Bootstrapping Confidence
+Intervals}\label{traditional-methods-vs-bootstrapping-confidence-intervals}
+
+The Bootstrapping Methods can perform all traditional methods of
+Confidence Intervals with minors differences when the sample is a true
+representation of the population.
+
+\begin{quote}
+With large sample sizes, these end up looking very similar. With smaller
+sample sizes, using a traditional methods likely has assumptions that
+are not true of your interval. Small sample sizes are not ideal for
+bootstrapping methods though either, as they can lead to misleading
+results simply due to not accurately representing your entire population
+well.
+\end{quote}
+
+Traditional Methods of Confidence Intervals:
+
+\begin{itemize}
+\tightlist
+\item
+  T-Test: Population mean;
+\item
+  Two sample T-test: Comparing two means;
+\item
+  Z-Test;
+\item
+  Chi-squared test;
+\item
+  F-test.
+\end{itemize}
+
+\subsection{Misinterpretation of Confidence
+Intervals}\label{misinterpretation-of-confidence-intervals}
+
+The aim of a Confidence Interval is to calculate parameter, a single
+value of a entire population, which could be:
+
+\begin{itemize}
+\tightlist
+\item
+  mean
+\item
+  standard deviation
+\item
+  difference between two means (two populations means)
+\item
+  Any other numeric summary in the population
+\end{itemize}
+
+Confidence Interval \textbf{do not} allow us to tell about any specific
+individual of this population.
+
+\begin{quote}
+Confidence intervals take an aggregate approach towards the conclusions
+made based on data, as these tests are aimed at understanding population
+parameters (which are aggregate population values).
+\end{quote}
+
+\begin{quote}
+Alternatively, machine learning techniques take an individual approach
+towards making conclusions, as they attempt to predict an outcome for
+each specific data point.
+\end{quote}
+
+\begin{quote}
+In the final lessons of this class, you will learn about two of the most
+fundamental machine learning approaches used in practice: linear and
+logistic regression. --- Udacity Class notes
+\end{quote}
+
+\subsection{New Methods}\label{new-methods}
+
+\subsubsection{\texorpdfstring{\texttt{.sample()}}{.sample()}}\label{sample}
+
+Will sample a data frame, you can use \texttt{replace\ =\ True} if you
+are wondering perform a bootstrap.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_population.sample(}\DecValTok{100}\NormalTok{, replace }\OperatorTok{=} \VariableTok{True}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+For above example the sample size is 100 and there is replacement (which
+denotes it is a boootstrapping process).
+
+\subsubsection{\texorpdfstring{\texttt{.percentile()}}{.percentile()}}\label{percentile}
+
+This is a numpy method, and gives the percentile from a given value.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{np.percentile(df, }\FloatTok{0.5}\NormalTok{), np.percentile(df, }\FloatTok{99.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+There are two \texttt{.percentile()} representing a two tailed
+confidence interval of 99\%.
+
+\section{\texorpdfstring{Hypothesis Testing
+\texttt{Lesson\ 12}}{Hypothesis Testing Lesson 12}}\label{hypothesis-testing-lesson-12}
+
+Is a way to answer a given question. First step is convert/transform
+this question in hypothesis. Then, gather data to answer/justify which
+hypothesis are likely to be true.
+
+\textbf{Example:} Hypothesis Examples.
+
+My question:
+
+\[ \text{What is the most favorite ice cream flavor?} \]
+
+I have pose two hypothesis about ice cream.
+
+\[H_0: \text{Chocolate is most favorite.} \\
+  H_1:\text{Vanilla is most favorite.} \]
+
+After pose hypothesis, I need to collect data to support my hypothesis
+(if is \texttt{True} or \texttt{False}).
+
+Have in mind, Confidence Intervals and Hypoteshis Testing allow us to
+draw conclusions about the \textbf{population} only using \textbf{sample
+data}.
+
+\subsubsection*{\texorpdfstring{\(H_0\) - Null
+hypotheses}{H\_0 - Null hypotheses}}\label{h_0---null-hypotheses}
+\addcontentsline{toc}{subsubsection}{\(H_0\) - Null hypotheses}
+
+The \(H_0\) hypothesis is also known as \emph{Null hypothesis} and this
+hypothesis stand to be true \textbf{before} collect any data.
+
+Commonly, the Null hypothesis is a statement of two groups being equal
+or ``zero'' effect.
+
+Usually, the Null hypothesis tend to hold these mathematical operators:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(=\)
+\item
+  \(\leq\)
+\item
+  \(\geq\)
+\end{enumerate}
+
+\subsubsection*{\texorpdfstring{\(H_1\) - Alternative
+hypotheses}{H\_1 - Alternative hypotheses}}\label{h_1---alternative-hypotheses}
+\addcontentsline{toc}{subsubsection}{\(H_1\) - Alternative hypotheses}
+
+The \(H_1\) hypothesis must be competing (in comparison with the
+\(H_0\)) and non-overlaping hypothesis.
+
+This hypothesis is always associate with what we want or what we want to
+prove is \texttt{True}.
+
+Usually, the Alternative hypothesis tend to hold these mathematical
+operators:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\neq\)
+\item
+  \(>\)
+\item
+  \(<\)
+\end{enumerate}
+
+\textbf{Example:} Innocent until proven guilty.
+
+My question:
+
+\[ \text{Guilty or innocent?} \]
+
+Which could be translated as:
+
+\[H_0: \text{We believe everyone to be innocent initially.} \\
+  H_1:\text{Guilty.} \]
+
+Before any collect data the \(H_0\) hypothesis is \texttt{True}, and we
+will collect data/evidence to test which hypothesis is supported.
+
+\textbf{Example:} New website's version.
+
+My question:
+
+\[ \text{Which version of website has more traffic?} \]
+
+In terms of hypothesis:
+
+\[H_0: \text{The newer version has less traffic than the older version.} \\
+  H_1:\text{The newer version has more traffic than the older version.} \]
+
+Using mathematical notation and based on the average traffic (\(\mu\)).
+
+\[H_0: \mu_{new} \leq \mu_{old} \\
+  H_1: \mu_{new} > \mu_{old} \]
+
+Bear in mind, the \(H_1\) hypothesis is our expectation (the new website
+has a better performance than the older version), and now we need to
+collect/gather data to analyze which hypothesis is supported.
+
+\subsection{Type of Errors}\label{type-of-errors}
+
+Before any explanation about erros, let's ilustrate the four (4)
+potential outcome of a given \(H_0\) and \(H_1\) in Figure 1, based on
+the judicial example.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l12_01.png}
+\caption{}
+\end{figure}
+
+Figure 1 - Four potential outcome from a Hypothesis Testing.
+
+We can classify each of this outcome as ilustraded in Table 1.
+
+Table 1 - Decision Classification.
+
+GuiltyTruth
+
+InnocentTruth
+
+GuiltyJury
+
+correct decision 1
+
+mistake 1 - False Positive
+
+InnocentJury
+
+mistake 2 - False Negative
+
+correct decision 2
+
+\begin{itemize}
+\tightlist
+\item
+  correct decision 1: Innocent person judged as innocent :+1: ;
+\item
+  correct decision 2: Guilty person judged as guilty :+1: ;
+\item
+  mistake 1: Innocent person judged as guilty :-1: ;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    So-called \textbf{Type 1 Errors};
+  \end{itemize}
+\item
+  mistake 2: Guilty person judged as innocent :-1: ;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    So-called \textbf{Type 2 Errors}.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{\texorpdfstring{Type 1 Errors
+(\(\alpha\))}{Type 1 Errors (\textbackslash{}alpha)}}\label{type-1-errors-alpha}
+
+This is the mistake 1 from \textbf{Table 1}.
+
+\[ \text{The worse of the two types of errors.} \]
+
+Put a innocent person in jail.
+
+This happens when the \(H_1\) (alternative hypothesis) in chosen, but
+actually the \(H_0\) is \texttt{True}.
+
+\[ \text{False Positive} \]
+
+\subsubsection{\texorpdfstring{Type 2 Errors
+(\(\beta\))}{Type 2 Errors (\textbackslash{}beta)}}\label{type-2-errors-beta}
+
+This is the mistake 2 from \textbf{Table 2}.
+
+Let a guilty person free.
+
+This happens when the \(H_0\) (null alternative) in chosen, but actually
+the \(H_1\) is \texttt{True}.
+
+\[ \text{False Negative} \]
+
+\subsubsection{\texorpdfstring{Meaning of
+\(\alpha\)}{Meaning of \textbackslash{}alpha}}\label{meaning-of-alpha}
+
+\begin{quote}
+What is the meaning of \(\alpha\)?
+\end{quote}
+
+This is a threshold of how many of this kind of error (the worst one!)
+we are allowed to commit, leting the rest of the erros in type 2 errors.
+Generally, this \(\alpha\) is quite low value, and varies according to
+the field.
+
+\begin{itemize}
+\tightlist
+\item
+  \(\alpha\)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Medical: 0.01
+  \item
+    Business and Research: 0.05
+  \end{itemize}
+\end{itemize}
+
+\textbf{Example:} Sky diving using Parachute.
+
+In this job you are in charge of check the parachutes.You need to decide
+if the parachute is well prepare to a sky dive. There are 4 possible
+outcomes from your work.
+
+\begin{itemize}
+\tightlist
+\item
+  Accept a well prepare parachute;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is a correct decision;
+  \end{itemize}
+\item
+  Accept a shortcoming parachute;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is an error type 1 the worse outcome because it will kill the
+    skydiver;
+  \end{itemize}
+\item
+  Reject a well prepare parachute;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is an error type 2 because the parachute is OK but you wrongly
+    reject it;
+  \end{itemize}
+\item
+  Reject a shortcoming parachute;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is a correct decision because the parachute is not well
+    prepare.
+  \end{itemize}
+\end{itemize}
+
+Figure 2 ilustrate it.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l12_02.png}
+\caption{}
+\end{figure}
+
+Figure 2 - Four potential outcome from a Hypothesis Testing of a
+Skydiver.
+
+Bear in mind, for this example an \(\alpha\) of 0.01 is still very high.
+
+\subsubsection{Common Hypothesis
+Testing}\label{common-hypothesis-testing}
+
+\begin{itemize}
+\tightlist
+\item
+  T-test: population mean
+\item
+  Two sample t-test: difference in means
+\item
+  Paired t-test: Comparing after and before of a same individual
+\item
+  One sample z-test: population proportion
+\item
+  Two sample z-test: difference between population proportion
+\end{itemize}
+
+\subsection{Selecting a hypothesis}\label{selecting-a-hypothesis}
+
+\[ \text{Which hypothesis is more likely to be True?} \]
+
+There are two ways to select these hypothesis.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Using Confidence Intervals: Sampling distribution of our statistics.
+\item
+  Simulating what we believe to be true under the null hypothesis, and
+  than seeing if our data is actually consistent with that
+\end{enumerate}
+
+\subsubsection{Using Confidence
+Intervals}\label{using-confidence-intervals}
+
+Create the Confidence Intervals and check where is it.
+
+In the example of coffee drinkers, the interval was entirely below 70,
+which would suggest the null (the population mean is less than 70) is
+actually true.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Bootstrapping a sample
+\item
+  Calculate the statistics
+\item
+  Plot the histogram to visualize
+\item
+  Calculte the upper and lower bounds from the Confidence Intervals
+\item
+  Check if the \(H_0\) or \(H_1\) is in this Confidence Interval.
+\end{enumerate}
+
+\subsubsection{Traditional way}\label{traditional-way}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  We assume the \(H_0\) is \texttt{True}.
+\item
+  We know the sampling distribution is normal
+\item
+  We will use the closest value of the \(H_0\), which is almost 70.
+\item
+  Based on the standard deviation of the sampling distribution we could
+  estimate the distribution from the \(H_0\).
+\item
+  Plot the histogram
+\item
+  Check the statistics and the hypothesis \(H_0\).
+\item
+  Decide to reject \(H_0\) or not.
+\end{enumerate}
+
+\subsection{P-value}\label{p-value}
+
+Based on the Bootstrapping process the P-value could be interpreted as:
+a statistics of how many samples will be higher/lower than the threshold
+defined in the hypothesis.
+
+In the exercises the P-value is an ``average'' of all 10,000 samples if
+it is higher, lower, or in the tails of a specific parameter. This
+``average'' (in fact is a ``vector'' of zero or one due to the
+comparison) is the probability of a sample has higher/lower values from
+the parameter.
+
+Bear in mind, if 100 samples say to reject the \(H_0\) but the others
+9,900 say the opposite there are a probability of 100/10,000 to incurr
+in error Type 1. In other words, the 100/10,000 is the so-called
+\textbf{p-value}.
+
+The relationship between \textbf{p-value} and \(\alpha\):
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{p-value} \textless{} \(\alpha\) (or small p-value): Reject
+  \(H_0\)
+\item
+  \textbf{p-value} \(\geq \alpha\) (or Large p-value): Fail to reject
+  \(H_0\)
+\end{itemize}
+
+\href{https://rebeccaebarnes.github.io/2018/05/01/what-is-a-p-value}{Reference}
+
+For a small \(\alpha\) (less than 10/10,000, for instance) probably you
+will accept the \(H_0\), in the case of:
+
+\[H_0: \mu \leq 0 \\ H_1: \mu > 0\]
+
+There are three forms to allocate the \(\alpha\), as you can see in
+Figure 3.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l12_03.png}
+\caption{}
+\end{figure}
+
+\section{\texorpdfstring{A/B Testing
+\texttt{Lesson\ 13}}{A/B Testing Lesson 13}}\label{ab-testing-lesson-13}
+
+This is an application of Confidence Intervals and Hypotheses Testing.
+
+The A/B Testing is a comparison between two groups (A and B), as
+ilustrated in Figure 1.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l13_01.png}
+\caption{}
+\end{figure}
+
+Figure 1 - Two group to be tested.
+
+\begin{quote}
+A/B tests are used to test changes on a web page by running an
+experiment where a control group sees the old version, while the
+experiment group sees the new version. A metric is then chosen to
+measure the level of engagement from users in each group. These results
+are then used to judge whether one version is more effective than the
+other. A/B testing is very much like hypothesis testing with the
+following hypotheses:
+\end{quote}
+
+\[H_0 : \text{The new version is equal or worse than the older version.} \\
+ H_1 : \text{The new version is better than the older version.} \]
+
+Decision:
+
+\begin{itemize}
+\tightlist
+\item
+  If we fail to reject the null hypothesis, the results would suggest
+  keeping the old version, or;
+\item
+  If we reject the null hypothesis, the results would suggest launching
+  the change.
+\end{itemize}
+
+\subsubsection*{Drawbacks}\label{drawbacks}
+\addcontentsline{toc}{subsubsection}{Drawbacks}
+
+\begin{quote}
+It can help you compare two options, but it can't tell you about an
+option you haven't considered. It can also produce bias results when
+tested on existing users, due to factors like change aversion and
+novelty effect.
+\end{quote}
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  Change Aversion: Existing users may give an unfair advantage to the
+  old version, simply because they are unhappy with change, even if it's
+  ultimately for the better.
+\item
+  Novelty Effect: Existing users may give an unfair advantage to the new
+  version, because they're excited or drawn to the change, even if it
+  isn't any better in the long run.
+\end{itemize}
+\end{quote}
+
+\subsection{Example: New Homepage}\label{example-new-homepage}
+
+The Audacity company want to perform an A/B Testing of two versions of a
+new homepage.
+
+\[H_0 : CRT_{new} - CTR_{old} \leq 0 \\
+  H_1 : CRT_{new} - CTR_{old} > 0\]
+
+Where CRT stands to Click Through Rate.
+
+There are two version: \texttt{control} and \texttt{experiment}.
+
+The difference between the CRT is about 0.03.
+
+\subsubsection*{Bootstrapping}\label{bootstrapping-1}
+\addcontentsline{toc}{subsubsection}{Bootstrapping}
+
+\textbf{Example:} New version of Home page.
+
+The bootstrapping provide a histogram presented in Figure 2.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l13_02.png}
+\caption{}
+\end{figure}
+
+The null hypothesis histogram is showed in Figure 3.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l13_03.png}
+\caption{}
+\end{figure}
+
+Finally, Figure 4 ilustrate both histogram.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l13_04.png}
+\caption{}
+\end{figure}
+
+\subsubsection*{P-value}\label{p-value-1}
+\addcontentsline{toc}{subsubsection}{P-value}
+
+Founded on the entire population (excepting the duplicated user id,
+etc.), I have calculated the \texttt{diff}.
+
+\begin{verbatim}
+diff = experiment_crt - control_crt = 0.030034443684015644
+\end{verbatim}
+
+The \texttt{diff} could be interpreted as a threshold which I will use
+as delimiter, to do it I will calculate the proportion of \(H_0\)
+(orange graph) that has a difference between CRT's higher than
+\texttt{diff}.
+
+For this reason, I will calculate the average of a list of
+\texttt{bool}, which will return the proportion I want.
+
+Based on the \texttt{p\_value} of 0.5\% we reject the \(H_0\).
+
+\begin{quote}
+\textbf{Conclusion:} Audacity should launch the new version of the home
+page.
+\end{quote}
+
+\subsection{Example: Average Reading
+Time}\label{example-average-reading-time}
+
+Same idea, two version of a website, one \texttt{control} and other
+\texttt{experiment}.
+
+\begin{itemize}
+\tightlist
+\item
+  Average Reading time of control: 115.38637100678429
+\item
+  Average Reading time of experiment: 131.3208410471793
+\item
+  Difference observed: 15.9
+\end{itemize}
+
+On average, visitor using the experiment version of website spent almost
+16 more seconds.
+
+Hypotheses posed:
+
+\[H_0 : ART_{new} - ART_{old} \leq 0 \\
+  H_1 : ART_{new} - ART_{old} > 0\]
+
+Where ART stands to Average Reading Time.
+
+\subsubsection*{Bootstrapping}\label{bootstrapping-2}
+\addcontentsline{toc}{subsubsection}{Bootstrapping}
+
+Let's apply the bootstrapping, and plot a histogram in Figure 5.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l13_05.png}
+\caption{}
+\end{figure}
+
+The null hypothesis histogram is showed in Figure 6.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l13_06.png}
+\caption{}
+\end{figure}
+
+Finally, Figure 7 ilustrate both histogram.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l13_07.png}
+\caption{}
+\end{figure}
+
+\subsubsection*{P-value}\label{p-value-2}
+\addcontentsline{toc}{subsubsection}{P-value}
+
+The \texttt{p\_value} is zero.
+
+\begin{quote}
+\textbf{Conclusion:} Reject the \(H_0\) because p\_value \textless{}
+\(\alpha\)
+\end{quote}
+
+Where \(\alpha\) is 0.05.
+
+\subsection{Example: Enrollment Rate}\label{example-enrollment-rate}
+
+This is an example to show a case where the \(H_0\) is failed to reject.
+
+I will use the same principle of CRT to evalute the Enrollment rate.
+
+\begin{itemize}
+\tightlist
+\item
+  Enrollment rate control: 0.23452157598499063
+\item
+  Enrollment rate experiment: 0.2642986152919928
+\item
+  Difference observed: 0.02977703930700215
+\end{itemize}
+
+Hypotheses posed:
+
+\[H_0 : ER_{new} - ER_{old} \leq 0 \\
+  H_1 : ER_{new} - ER_{old} > 0\]
+
+Where ER stands to Enrollment Rate.
+
+\subsubsection*{Bootstrapping}\label{bootstrapping-3}
+\addcontentsline{toc}{subsubsection}{Bootstrapping}
+
+Let's apply the bootstrapping, and plot a histogram in Figure 8.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l13_08.png}
+\caption{}
+\end{figure}
+
+The null hypothesis histogram is showed in Figure 9.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l13_09.png}
+\caption{}
+\end{figure}
+
+Finally, Figure 10 ilustrate both histogram.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l13_10.png}
+\caption{}
+\end{figure}
+
+\subsubsection*{P-value}\label{p-value-3}
+\addcontentsline{toc}{subsubsection}{P-value}
+
+The \texttt{p\_value} is 0.0624.
+
+\begin{quote}
+\textbf{Conclusion:} Due to p\_value \textgreater{} \(\alpha\) we fail
+to reject \(H_0\).
+\end{quote}
+
+Where \(\alpha\) is 0.05.
+
+\subsection{Bonferroni Correction}\label{bonferroni-correction}
+
+\begin{quote}
+If you remember from the previous lesson, the Bonferroni Correction is
+one way we could handle experiments with multiple tests, or metrics in
+this case. To compute the new bonferroni correct alpha value, we need to
+divide the original alpha value by the number of tests.
+\end{quote}
+
+The new \(\alpha\) will be:
+
+\[\alpha_{adjusted} = \frac{\alpha}{4} = \frac{0.05}{4} = 0.0125\]
+
+Based on the several test we have done:
+
+\begin{itemize}
+\tightlist
+\item
+  Enrollment Rate: 0.0624 (Read the Jupyther Notebook)
+\item
+  Average Reading Duration: 0 (Read the Jupyther Notebook)
+\item
+  Average Classroom Time: 0.0384 (Read the Jupyther Notebook)
+\item
+  Completion Rate: 0.0846 (Read the Jupyther Notebook)
+\end{itemize}
+
+This new \(\alpha\) will generate only \textbf{one} A/B Testing
+statistical significant.
+
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule
+New Feature & p value & \(\alpha_{adjusted}\) & Result &
+\(H_0\)\tabularnewline
+\midrule
+\endhead
+Enrollment Rate & 0.0624 & 0.0125 & \textgreater{} & Fail to reject
+\(H_0\)\tabularnewline
+Average Reading Duration & 0 & 0.0125 & \textless{} & Reject
+\(H_0\)\tabularnewline
+Average Classroom Time & 0.0384 & 0.0125 & \textgreater{} & Fail to
+reject \(H_0\)\tabularnewline
+Completion Ratee & 0.0846 & 0.0125 & \textgreater{} & Fail to reject
+\(H_0\)\tabularnewline
+\bottomrule
+\end{longtable}
+
+This is the reason the Bonferroni method is considered conservative.
+
+\subsection{Difficulties in A/B
+Testing}\label{difficulties-in-ab-testing}
+
+\begin{quote}
+As you saw in the scenarios above, there are many factors to consider
+when designing an A/B test and drawing conclusions based on its results.
+To conclude, here are some common ones to consider.
+\end{quote}
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  Novelty effect and change aversion when existing users first
+  experience a change
+\item
+  Sufficient traffic and conversions to have significant and repeatable
+  results
+\item
+  Best metric choice for making the ultimate decision (eg. measuring
+  revenue vs.~clicks)
+\item
+  Long enough run time for the experiment to account for changes in
+  behavior based on time of day/week or seasonal events.
+\item
+  Practical significance of a conversion rate (the cost of launching a
+  new feature vs.~the gain from the increase in conversion)
+\item
+  Consistency among test subjects in the control and experiment group
+  (imbalance in the population represented in each group can lead to
+  situations like Simpson's Paradox) --- Udacity notebook
+\end{itemize}
+\end{quote}
+
+\section{\texorpdfstring{Regression
+\texttt{Lesson\ 14}}{Regression Lesson 14}}\label{regression-lesson-14}
+
+Bear in mind, regression is a subject of the Supervised branch of
+Machine Learning. Figure 1 shows a simple big picture.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l14_01.png}
+\caption{}
+\end{figure}
+
+Figure 1 - Machine Learning Branches.
+
+Some hot points in these two branches (there are other branches, but
+these two are the most know).
+
+\begin{itemize}
+\tightlist
+\item
+  Supervised: A machine learning technique where we are attempting to
+  predict a label based on inputs.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Predict fraudulent transactions
+  \item
+    Predict chance of default on a loan
+  \item
+    Predict home prices
+  \end{itemize}
+\item
+  Unsupervised: A machine learning technique where we are attempting to
+  group together unlabeled data based on similar characteristics.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Customer segmentation
+  \item
+    Group document that cover similar topics
+  \end{itemize}
+\end{itemize}
+
+The Linear and Logistic Regression fall into the Supervised Machine
+Learning branch.
+
+\subsection{Introduction to Linear
+Regression}\label{introduction-to-linear-regression}
+
+\begin{itemize}
+\tightlist
+\item
+  Response variable or dependent (y): The variable you are interested in
+  predicting, and;
+\item
+  Explanatory variable or independent (x): The variable used to
+  predicted the response.
+\end{itemize}
+
+\begin{quote}
+A common way to visualize the relationship between two variables in
+linear regression is using a scatterplot. You will see more on this in
+the concepts ahead. --- Udacity notebook
+\end{quote}
+
+Figure 2 shows an example of a scatter plot.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l14_02.png}
+\caption{}
+\end{figure}
+
+Figure 2 - Hours studying vs Test grades.
+
+\subsubsection{Scatter Plot}\label{scatter-plot}
+
+\begin{quote}
+Scatter plots are a common visual for comparing two quantitative
+variables. A common summary statistic that relates to a scatter plot is
+the \textbf{correlation coefficient} commonly denoted by \texttt{r}.
+
+Though there are a few different ways to measure correlation between two
+variables, the most common way is with Pearson's correlation
+coefficient. Pearson's correlation coefficient provides the:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Strength
+\item
+  Direction
+\end{enumerate}
+
+of a linear relationship. Spearman's Correlation Coefficient does not
+measure linear relationships specifically, and it might be more
+appropriate for certain cases of associating two variables. --- Udacity
+notebook
+\end{quote}
+
+Figure 3 shows an example of strong positive relationship.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l14_03.png}
+\caption{}
+\end{figure}
+
+Figure 3 - Strong and Positive Relantionship.
+
+When x increase y also increase, and the points is very close from each
+other. Figure 4 shows the opposite of positive direction.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l14_04.png}
+\caption{}
+\end{figure}
+
+Figure 4 - Moderate and Negative Relantionship.
+
+When x increase y decrease, and the points is a bit sparse. Figure 5
+shows an example of scatter plot with weak strength.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l14_05.png}
+\caption{}
+\end{figure}
+
+Figure 5 - Weak and Negative (??) Relantionship.
+
+Both, strength and direction is capture by the correlation (\texttt{r}).
+
+\begin{itemize}
+\tightlist
+\item
+  Correlation
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Varies from -1 to +1;
+  \item
+    Values close to -1 and +1 are very strong;
+  \item
+    The signal (positive or negative) means the direction.
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l14_06.png}
+\caption{}
+\end{figure}
+
+Figure 6 - Example of Correlation.
+
+\subsection{Correlation Coefficients}\label{correlation-coefficients}
+
+This is highly field-dependent measure and these values are a general
+rule of thumbs.
+
+Have in mind, in social sciences is very difficult to find a strong
+correlation (probably because human are very complex and hard to
+understand).
+
+\begin{itemize}
+\tightlist
+\item
+  Strong: \(0.7 \leq |r| \leq 1.0\)
+\item
+  Moderate: \(0.3 \leq |r| \leq .7\)
+\item
+  Weak: \(0.0 \leq |r| \leq 0.3\)
+\end{itemize}
+
+Sometimes a plot could help a lot, Figure 7 shows an example of two
+graphs with same correlation coefficients.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l14_07.png}
+\caption{}
+\end{figure}
+
+Figure 7 - Two Graphics with same Correlation Coefficients.
+
+This problem presented in Figure 6 is part of the
+\href{https://en.wikipedia.org/wiki/Anscombe\%27s_quartet}{Anscombe's
+Quartet} images.
+
+\subsection{Coefficients}\label{coefficients}
+
+A Linear Regression is a way to estimate the values of some
+coefficients:
+
+\begin{itemize}
+\tightlist
+\item
+  Intercept: The expected value of the response when the explanatory
+  variable is 0 (zero);
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(b_0:\) statistic value (sample)
+  \item
+    \(\beta_0:\) parameter value (population)
+  \end{itemize}
+\item
+  Slope: The expected change in the response for each 1 unit increase in
+  the explanatory variable.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(b_1:\) statistic value (sample)
+  \item
+    \(\beta_1:\) parameter value (population)
+  \end{itemize}
+\end{itemize}
+
+Based on the Intercept and Slope, the Linear Regression equation is
+presented in equation (1).
+
+\[ \hat y = b_0 + b_1x \]
+
+Where: * \(\hat y:\) is the predicted value of the response from the
+line. * \(y:\) is an actual response value for a data point in our
+dataset (not a prediction from our line). * \(b_0:\) is the intercept. *
+\(b_1:\) is the slope. * \(x_1:\) is the explanatory variable.
+
+Figure 8 ilustrate this equation in a picture.
+
+\begin{figure}
+\centering
+\includegraphics{01-img/c4_l14_08.png}
+\caption{}
+\end{figure}
+
+Figure 8 - Linear Model and Equation.
+
+\subsection{Least-squares}\label{least-squares}
 
 \chapter{Intro to Machine Learning}\label{intro-to-machine-learning}
 

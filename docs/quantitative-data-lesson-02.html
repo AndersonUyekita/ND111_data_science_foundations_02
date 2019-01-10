@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>4.2 Quantitative Data Lesson 02 | ND111 - Data Science II - Notebook</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="4.2 Quantitative Data Lesson 02 | ND111 - Data Science II - Notebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4.2 Quantitative Data Lesson 02 | ND111 - Data Science II - Notebook" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="descriptive-statistics-lesson-01.html">
+<link rel="next" href="admissions-case-study-lesson-03.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./" target='_blank'><h3>ND111 - Data Science II</h3></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course Info</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
+<li class="chapter" data-level="2" data-path="sql-for-data-analysis.html"><a href="sql-for-data-analysis.html"><i class="fa fa-check"></i><b>2</b> SQL for Data Analysis</a><ul>
+<li class="chapter" data-level="2.1" data-path="sql-basics.html"><a href="sql-basics.html"><i class="fa fa-check"></i><b>2.1</b> SQL Basics</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="sql-basics.html"><a href="sql-basics.html#entity-relationship-diagrams-erd"><i class="fa fa-check"></i><b>2.1.1</b> Entity Relationship Diagrams (ERD)</a></li>
+<li class="chapter" data-level="2.1.2" data-path="sql-basics.html"><a href="sql-basics.html#sql-introduction"><i class="fa fa-check"></i><b>2.1.2</b> SQL Introduction</a></li>
+<li class="chapter" data-level="2.1.3" data-path="sql-basics.html"><a href="sql-basics.html#clauses"><i class="fa fa-check"></i><b>2.1.3</b> Clauses</a></li>
+<li class="chapter" data-level="2.1.4" data-path="sql-basics.html"><a href="sql-basics.html#derived-columns"><i class="fa fa-check"></i><b>2.1.4</b> Derived Columns</a></li>
+<li class="chapter" data-level="2.1.5" data-path="sql-basics.html"><a href="sql-basics.html#introduction-to-logical-operators"><i class="fa fa-check"></i><b>2.1.5</b> Introduction to “Logical Operators”</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="sql-joins.html"><a href="sql-joins.html"><i class="fa fa-check"></i><b>2.2</b> SQL Joins</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="sql-joins.html"><a href="sql-joins.html#joins"><i class="fa fa-check"></i><b>2.2.1</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="sql-aggregations.html"><a href="sql-aggregations.html"><i class="fa fa-check"></i><b>2.3</b> SQL Aggregations</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="sql-aggregations.html"><a href="sql-aggregations.html#aggregations-functions"><i class="fa fa-check"></i><b>2.3.1</b> Aggregations Functions</a></li>
+<li class="chapter" data-level="2.3.2" data-path="sql-aggregations.html"><a href="sql-aggregations.html#functions"><i class="fa fa-check"></i><b>2.3.2</b> Functions</a></li>
+<li class="chapter" data-level="2.3.3" data-path="sql-aggregations.html"><a href="sql-aggregations.html#date"><i class="fa fa-check"></i><b>2.3.3</b> DATE</a></li>
+<li class="chapter" data-level="2.3.4" data-path="sql-aggregations.html"><a href="sql-aggregations.html#case"><i class="fa fa-check"></i><b>2.3.4</b> CASE</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="sql-subqueries-temporary-tables-advanced.html"><a href="sql-subqueries-temporary-tables-advanced.html"><i class="fa fa-check"></i><b>2.4</b> SQL Subqueries &amp; Temporary Tables (Advanced)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="sql-subqueries-temporary-tables-advanced.html"><a href="sql-subqueries-temporary-tables-advanced.html#subqueries"><i class="fa fa-check"></i><b>2.4.1</b> Subqueries</a></li>
+<li class="chapter" data-level="2.4.2" data-path="sql-subqueries-temporary-tables-advanced.html"><a href="sql-subqueries-temporary-tables-advanced.html#with"><i class="fa fa-check"></i><b>2.4.2</b> WITH</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="data-cleaning-advanced.html"><a href="data-cleaning-advanced.html"><i class="fa fa-check"></i><b>2.5</b> Data Cleaning (Advanced)</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="data-cleaning-advanced.html"><a href="data-cleaning-advanced.html#data-cleaning"><i class="fa fa-check"></i><b>2.5.1</b> Data Cleaning</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="project-01-chinook.html"><a href="project-01-chinook.html"><i class="fa fa-check"></i><b>2.6</b> Project 01 - Chinook</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="project-01-chinook.html"><a href="project-01-chinook.html#project-submission"><i class="fa fa-check"></i><b>2.6.1</b> Project Submission</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html"><i class="fa fa-check"></i><b>3.1</b> Introduction to Data Wrangling</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html#gathering"><i class="fa fa-check"></i><b>3.1.1</b> Gathering</a></li>
+<li class="chapter" data-level="3.1.2" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html#assessing"><i class="fa fa-check"></i><b>3.1.2</b> Assessing</a></li>
+<li class="chapter" data-level="3.1.3" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html#assessing-the-data"><i class="fa fa-check"></i><b>3.1.3</b> Assessing the data</a></li>
+<li class="chapter" data-level="3.1.4" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html#cleaning"><i class="fa fa-check"></i><b>3.1.4</b> Cleaning</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-gathering.html"><a href="data-gathering.html"><i class="fa fa-check"></i><b>3.2</b> Data Gathering</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="data-gathering.html"><a href="data-gathering.html#flat-file"><i class="fa fa-check"></i><b>3.2.1</b> Flat File</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-gathering.html"><a href="data-gathering.html#web-scraping"><i class="fa fa-check"></i><b>3.2.2</b> Web Scraping</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-gathering.html"><a href="data-gathering.html#http-request"><i class="fa fa-check"></i><b>3.2.3</b> HTTP Request</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-gathering.html"><a href="data-gathering.html#encoding-and-character-set"><i class="fa fa-check"></i><b>3.2.4</b> Encoding and Character Set</a></li>
+<li class="chapter" data-level="3.2.5" data-path="data-gathering.html"><a href="data-gathering.html#application-programming-interfaces---api"><i class="fa fa-check"></i><b>3.2.5</b> Application Programming Interfaces - API</a></li>
+<li class="chapter" data-level="3.2.6" data-path="data-gathering.html"><a href="data-gathering.html#json-and-xml"><i class="fa fa-check"></i><b>3.2.6</b> JSON and XML</a></li>
+<li class="chapter" data-level="3.2.7" data-path="data-gathering.html"><a href="data-gathering.html#methods-in-this-lesson"><i class="fa fa-check"></i><b>3.2.7</b> Methods in this Lesson</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="assessing-data.html"><a href="assessing-data.html"><i class="fa fa-check"></i><b>3.3</b> Assessing Data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="assessing-data.html"><a href="assessing-data.html#assess-proccess"><i class="fa fa-check"></i><b>3.3.1</b> Assess Proccess</a></li>
+<li class="chapter" data-level="3.3.2" data-path="assessing-data.html"><a href="assessing-data.html#data-quality-dimensions"><i class="fa fa-check"></i><b>3.3.2</b> Data Quality Dimensions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="cleaning-data.html"><a href="cleaning-data.html"><i class="fa fa-check"></i><b>3.4</b> Cleaning Data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="cleaning-data.html"><a href="cleaning-data.html#tidiness-1"><i class="fa fa-check"></i><b>3.4.1</b> Tidiness</a></li>
+<li class="chapter" data-level="3.4.2" data-path="cleaning-data.html"><a href="cleaning-data.html#quality-1"><i class="fa fa-check"></i><b>3.4.2</b> Quality</a></li>
+<li class="chapter" data-level="3.4.3" data-path="cleaning-data.html"><a href="cleaning-data.html#methods"><i class="fa fa-check"></i><b>3.4.3</b> Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="project-02-wrangle-and-analyze-data.html"><a href="project-02-wrangle-and-analyze-data.html"><i class="fa fa-check"></i><b>3.5</b> Project 02 - Wrangle and Analyze Data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="project-02-wrangle-and-analyze-data.html"><a href="project-02-wrangle-and-analyze-data.html#project-submission-1"><i class="fa fa-check"></i><b>3.5.1</b> Project Submission</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="advanced-statistics.html"><a href="advanced-statistics.html"><i class="fa fa-check"></i><b>4</b> Advanced Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="descriptive-statistics-lesson-01.html"><a href="descriptive-statistics-lesson-01.html"><i class="fa fa-check"></i><b>4.1</b> Descriptive Statistics <code>Lesson 01</code></a><ul>
+<li class="chapter" data-level="4.1.1" data-path="descriptive-statistics-lesson-01.html"><a href="descriptive-statistics-lesson-01.html#what-is-data"><i class="fa fa-check"></i><b>4.1.1</b> What is data?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="descriptive-statistics-lesson-01.html"><a href="descriptive-statistics-lesson-01.html#data-types"><i class="fa fa-check"></i><b>4.1.2</b> Data types</a></li>
+<li class="chapter" data-level="4.1.3" data-path="descriptive-statistics-lesson-01.html"><a href="descriptive-statistics-lesson-01.html#measures-of-center"><i class="fa fa-check"></i><b>4.1.3</b> Measures of Center</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html"><i class="fa fa-check"></i><b>4.2</b> Quantitative Data <code>Lesson 02</code></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html#measures-of-spread"><i class="fa fa-check"></i><b>4.2.1</b> Measures of Spread</a></li>
+<li class="chapter" data-level="4.2.2" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html#five-number-summary"><i class="fa fa-check"></i><b>4.2.2</b> Five Number Summary</a></li>
+<li class="chapter" data-level="4.2.3" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html#standard-deviation"><i class="fa fa-check"></i><b>4.2.3</b> Standard Deviation</a></li>
+<li class="chapter" data-level="4.2.4" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html#shape"><i class="fa fa-check"></i><b>4.2.4</b> Shape</a></li>
+<li class="chapter" data-level="4.2.5" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html#outliers"><i class="fa fa-check"></i><b>4.2.5</b> Outliers</a></li>
+<li class="chapter" data-level="4.2.6" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html#descriptive-vs-inferential"><i class="fa fa-check"></i><b>4.2.6</b> Descriptive vs Inferential</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="admissions-case-study-lesson-03.html"><a href="admissions-case-study-lesson-03.html"><i class="fa fa-check"></i><b>4.3</b> Admissions Case Study <code>Lesson 03</code></a><ul>
+<li class="chapter" data-level="4.3.1" data-path="admissions-case-study-lesson-03.html"><a href="admissions-case-study-lesson-03.html#simpsons-paradox"><i class="fa fa-check"></i><b>4.3.1</b> Simpson’s Paradox</a></li>
+<li class="chapter" data-level="4.3.2" data-path="admissions-case-study-lesson-03.html"><a href="admissions-case-study-lesson-03.html#case-study"><i class="fa fa-check"></i><b>4.3.2</b> Case Study</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="probability-lesson-04.html"><a href="probability-lesson-04.html"><i class="fa fa-check"></i><b>4.4</b> Probability <code>Lesson 04</code></a><ul>
+<li class="chapter" data-level="4.4.1" data-path="probability-lesson-04.html"><a href="probability-lesson-04.html#introduction-to-probability"><i class="fa fa-check"></i><b>4.4.1</b> Introduction to Probability</a></li>
+<li class="chapter" data-level="4.4.2" data-path="probability-lesson-04.html"><a href="probability-lesson-04.html#bernoulli-distribution"><i class="fa fa-check"></i><b>4.4.2</b> Bernoulli Distribution</a></li>
+<li class="chapter" data-level="4.4.3" data-path="probability-lesson-04.html"><a href="probability-lesson-04.html#conditional-probability"><i class="fa fa-check"></i><b>4.4.3</b> Conditional Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="binomial-distribution-lesson-05.html"><a href="binomial-distribution-lesson-05.html"><i class="fa fa-check"></i><b>4.5</b> Binomial Distribution <code>Lesson 05</code></a><ul>
+<li class="chapter" data-level="4.5.1" data-path="binomial-distribution-lesson-05.html"><a href="binomial-distribution-lesson-05.html#equation"><i class="fa fa-check"></i><b>4.5.1</b> Equation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="conditional-probability-lesson-06.html"><a href="conditional-probability-lesson-06.html"><i class="fa fa-check"></i><b>4.6</b> Conditional Probability <code>Lesson 06</code></a><ul>
+<li class="chapter" data-level="4.6.1" data-path="conditional-probability-lesson-06.html"><a href="conditional-probability-lesson-06.html#medical-example-1"><i class="fa fa-check"></i><b>4.6.1</b> Medical Example</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="bayes-rule-lesson-07.html"><a href="bayes-rule-lesson-07.html"><i class="fa fa-check"></i><b>4.7</b> Bayes Rule <code>Lesson 07</code></a><ul>
+<li class="chapter" data-level="4.7.1" data-path="bayes-rule-lesson-07.html"><a href="bayes-rule-lesson-07.html#cancer-example"><i class="fa fa-check"></i><b>4.7.1</b> Cancer Example</a></li>
+<li class="chapter" data-level="4.7.2" data-path="bayes-rule-lesson-07.html"><a href="bayes-rule-lesson-07.html#bayes-rule"><i class="fa fa-check"></i><b>4.7.2</b> Bayes Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="python-probability-practice-lesson-08.html"><a href="python-probability-practice-lesson-08.html"><i class="fa fa-check"></i><b>4.8</b> Python Probability Practice <code>Lesson 08</code></a></li>
+<li class="chapter" data-level="4.9" data-path="normal-distribution-theory-lesson-09.html"><a href="normal-distribution-theory-lesson-09.html"><i class="fa fa-check"></i><b>4.9</b> Normal Distribution Theory <code>Lesson 09</code></a><ul>
+<li class="chapter" data-level="4.9.1" data-path="normal-distribution-theory-lesson-09.html"><a href="normal-distribution-theory-lesson-09.html#equations"><i class="fa fa-check"></i><b>4.9.1</b> Equations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html"><i class="fa fa-check"></i><b>4.10</b> Sampling distributions and Central Limit Theorem <code>Lesson 10</code></a><ul>
+<li class="chapter" data-level="4.10.1" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html#sampling-distribution"><i class="fa fa-check"></i><b>4.10.1</b> Sampling distribution</a></li>
+<li class="chapter" data-level="4.10.2" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html#notation"><i class="fa fa-check"></i><b>4.10.2</b> Notation</a></li>
+<li class="chapter" data-level="4.10.3" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html#other-sampling-distribution"><i class="fa fa-check"></i><b>4.10.3</b> Other Sampling Distribution</a></li>
+<li class="chapter" data-level="4.10.4" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html#law-of-large-number"><i class="fa fa-check"></i><b>4.10.4</b> Law of Large Number</a></li>
+<li class="chapter" data-level="4.10.5" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.10.5</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="4.10.6" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html#bootstrapping"><i class="fa fa-check"></i><b>4.10.6</b> Bootstrapping</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="confidence-intervals-lesson-11.html"><a href="confidence-intervals-lesson-11.html"><i class="fa fa-check"></i><b>4.11</b> Confidence Intervals <code>Lesson 11</code></a><ul>
+<li class="chapter" data-level="4.11.1" data-path="confidence-intervals-lesson-11.html"><a href="confidence-intervals-lesson-11.html#practical-and-statistical-significance"><i class="fa fa-check"></i><b>4.11.1</b> Practical and Statistical Significance</a></li>
+<li class="chapter" data-level="4.11.2" data-path="confidence-intervals-lesson-11.html"><a href="confidence-intervals-lesson-11.html#traditional-methods-vs-bootstrapping-confidence-intervals"><i class="fa fa-check"></i><b>4.11.2</b> Traditional Methods vs Bootstrapping Confidence Intervals</a></li>
+<li class="chapter" data-level="4.11.3" data-path="confidence-intervals-lesson-11.html"><a href="confidence-intervals-lesson-11.html#misinterpretation-of-confidence-intervals"><i class="fa fa-check"></i><b>4.11.3</b> Misinterpretation of Confidence Intervals</a></li>
+<li class="chapter" data-level="4.11.4" data-path="confidence-intervals-lesson-11.html"><a href="confidence-intervals-lesson-11.html#new-methods"><i class="fa fa-check"></i><b>4.11.4</b> New Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="hypothesis-testing-lesson-12.html"><a href="hypothesis-testing-lesson-12.html"><i class="fa fa-check"></i><b>4.12</b> Hypothesis Testing <code>Lesson 12</code></a><ul>
+<li class="chapter" data-level="4.12.1" data-path="hypothesis-testing-lesson-12.html"><a href="hypothesis-testing-lesson-12.html#type-of-errors"><i class="fa fa-check"></i><b>4.12.1</b> Type of Errors</a></li>
+<li class="chapter" data-level="4.12.2" data-path="hypothesis-testing-lesson-12.html"><a href="hypothesis-testing-lesson-12.html#selecting-a-hypothesis"><i class="fa fa-check"></i><b>4.12.2</b> Selecting a hypothesis</a></li>
+<li class="chapter" data-level="4.12.3" data-path="hypothesis-testing-lesson-12.html"><a href="hypothesis-testing-lesson-12.html#p-value"><i class="fa fa-check"></i><b>4.12.3</b> P-value</a></li>
+</ul></li>
+<li class="chapter" data-level="4.13" data-path="ab-testing-lesson-13.html"><a href="ab-testing-lesson-13.html"><i class="fa fa-check"></i><b>4.13</b> A/B Testing <code>Lesson 13</code></a><ul>
+<li class="chapter" data-level="4.13.1" data-path="ab-testing-lesson-13.html"><a href="ab-testing-lesson-13.html#example-new-homepage"><i class="fa fa-check"></i><b>4.13.1</b> Example: New Homepage</a></li>
+<li class="chapter" data-level="4.13.2" data-path="ab-testing-lesson-13.html"><a href="ab-testing-lesson-13.html#example-average-reading-time"><i class="fa fa-check"></i><b>4.13.2</b> Example: Average Reading Time</a></li>
+<li class="chapter" data-level="4.13.3" data-path="ab-testing-lesson-13.html"><a href="ab-testing-lesson-13.html#example-enrollment-rate"><i class="fa fa-check"></i><b>4.13.3</b> Example: Enrollment Rate</a></li>
+<li class="chapter" data-level="4.13.4" data-path="ab-testing-lesson-13.html"><a href="ab-testing-lesson-13.html#bonferroni-correction"><i class="fa fa-check"></i><b>4.13.4</b> Bonferroni Correction</a></li>
+<li class="chapter" data-level="4.13.5" data-path="ab-testing-lesson-13.html"><a href="ab-testing-lesson-13.html#difficulties-in-ab-testing"><i class="fa fa-check"></i><b>4.13.5</b> Difficulties in A/B Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="4.14" data-path="regression-lesson-14.html"><a href="regression-lesson-14.html"><i class="fa fa-check"></i><b>4.14</b> Regression <code>Lesson 14</code></a><ul>
+<li class="chapter" data-level="4.14.1" data-path="regression-lesson-14.html"><a href="regression-lesson-14.html#introduction-to-linear-regression"><i class="fa fa-check"></i><b>4.14.1</b> Introduction to Linear Regression</a></li>
+<li class="chapter" data-level="4.14.2" data-path="regression-lesson-14.html"><a href="regression-lesson-14.html#correlation-coefficients"><i class="fa fa-check"></i><b>4.14.2</b> Correlation Coefficients</a></li>
+<li class="chapter" data-level="4.14.3" data-path="regression-lesson-14.html"><a href="regression-lesson-14.html#coefficients"><i class="fa fa-check"></i><b>4.14.3</b> Coefficients</a></li>
+<li class="chapter" data-level="4.14.4" data-path="regression-lesson-14.html"><a href="regression-lesson-14.html#least-squares"><i class="fa fa-check"></i><b>4.14.4</b> Least-squares</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intro-to-machine-learning.html"><a href="intro-to-machine-learning.html"><i class="fa fa-check"></i><b>5</b> Intro to Machine Learning</a></li>
+<li class="chapter" data-level="6" data-path="data-visualization-optional.html"><a href="data-visualization-optional.html"><i class="fa fa-check"></i><b>6</b> Data Visualization (Optional)</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ND111 - Data Science II - Notebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="quantitative-data-lesson-02" class="section level2">
+<h2><span class="header-section-number">4.2</span> Quantitative Data <code>Lesson 02</code></h2>
+<div id="measures-of-spread" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Measures of Spread</h3>
+<blockquote>
+<p>How far are points from one another.</p>
+</blockquote>
+<p>Common values of spread:</p>
+<ul>
+<li>Range;</li>
+<li>Interquartile range (IQR);</li>
+<li>Standard Deviation, and;</li>
+<li>Variance.</li>
+</ul>
+<div id="histogram" class="section level4">
+<h4><span class="header-section-number">4.2.1.1</span> Histogram</h4>
+<p>Figure 1 shows an example of histogram.</p>
+<div class="figure">
+<img src="01-img/c4_l2_01.png" />
+
+</div>
+<p>This is a way to visualize the quantitative data.</p>
+</div>
+</div>
+<div id="five-number-summary" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Five Number Summary</h3>
+<p>These are the number:</p>
+<ul>
+<li>Maximum;</li>
+<li>Third quartile or Q3 (75%);</li>
+<li>Second quartile (it is the same of mean) or Q2 (or 50%);</li>
+<li>First quartile or Q1 (25%), and;</li>
+<li>Minimum.</li>
+</ul>
+<p>First step to do is order the values, as you can see in Figure 2 (odd set of values).</p>
+<div class="figure">
+<img src="01-img/c4_l2_02.png" />
+
+</div>
+<p>As you can see, Q1 and Q3 are the median of the data on either sides of Q2.</p>
+<p>The range is defined as:</p>
+<p><span class="math display">\[ \text{Range} = maximum - minimum \tag{1}\]</span></p>
+<p>The Interquartile is define as:</p>
+<p><span class="math display">\[ \text{Interquartile} = Q3 - Q1 \tag{2}\]</span></p>
+<p>For a even set of values I need to calculate the “average” of two values.</p>
+<div class="figure">
+<img src="01-img/c4_l2_03.png" />
+
+</div>
+<div id="boxplot" class="section level4">
+<h4><span class="header-section-number">4.2.2.1</span> Boxplot</h4>
+<p>The boxplot graphic is a way to visualize the spread of the data.</p>
+<div class="figure">
+<img src="01-img/c4_l2_04.png" />
+
+</div>
+<p>It could be useful for quickly comparing the spread of two data sets.</p>
+<p>Based on the Figure 4, the graphic on the right shows that in the weekends the number of dogs varies much more than on weekdays (looking to the range).</p>
+</div>
+</div>
+<div id="standard-deviation" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Standard Deviation</h3>
+<blockquote>
+<p>Meaning: On average, how much each point varies from the mean of the points.</p>
+</blockquote>
+<p>First, I need to define the “distance” between mean and each observation. “Distance” could be interpreted as the difference of these two values. The issue observed in this difference are positive and negative values. For this reason, the square is used to turn everything positive (because later I can square root).</p>
+<ul>
+<li>Standard Deviation is frequently used to compare spread of different groups.</li>
+<li>Having higher standard deviation is associated with having higher risk.</li>
+</ul>
+<p><span class="math display">\[ \text{Standard Deviation} = \frac{1}{n} \sum_{i = 1}^n (\bar x - x_i)^2 \tag{3}\]</span></p>
+</div>
+<div id="shape" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> Shape</h3>
+<p>The shape is related to the histogram form, Figure 5 shows an example.</p>
+<div class="figure">
+<img src="01-img/c4_l2_05.png" />
+
+</div>
+<ul>
+<li>Left Skewed
+<ul>
+<li>is pulled to the “begining”</li>
+<li>median stays close to the mode</li>
+<li>GPA, Age of death, Asset price changes</li>
+</ul></li>
+<li>Simmetric (example: Normal distribution or bell curve)
+<ul>
+<li>mean = median = mode;</li>
+<li>Examples: heights, weights, scores, precipitation, etc.</li>
+</ul></li>
+<li>Right Skewed
+<ul>
+<li>mean is pulled to the tail</li>
+<li>median stays close to the mode</li>
+<li>Amount of drug left in your bloodstream over time, distribution of wealth, human athletic abilities.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Side note: If you aren’t sure if your data are normally distributed, there are plots called normal quantile plots and statistical methods like the Kolmogorov-Smirnov test that are aimed to help you understand whether or not your data are normally distributed. Implementing this test is beyond the scope of this class, but can be used as a fun fact.</p>
+</blockquote>
+</div>
+<div id="outliers" class="section level3">
+<h3><span class="header-section-number">4.2.5</span> Outliers</h3>
+<blockquote>
+<p>Data points thah fall very far from the rest of the values in our dataset.</p>
+</blockquote>
+<p>The “very far” is quite generic and could be interpreted in many forms. One way to visualize it is plotting a histogram, as you can see in Figure 6.</p>
+<div class="figure">
+<img src="01-img/c4_l2_06.png" />
+
+</div>
+<ol style="list-style-type: decimal">
+<li>Note they exist and the impact on summary Statistics</li>
+<li>If typo, remove or fix it.</li>
+<li>Understand why they exist, and the impact on questions we are trying to answer</li>
+<li>Reporting the 5 number summary is better than mean and standard deviation when outliers are present</li>
+<li>Be careful in reporting know how to ask the right questions</li>
+</ol>
+</div>
+<div id="descriptive-vs-inferential" class="section level3">
+<h3><span class="header-section-number">4.2.6</span> Descriptive vs Inferential</h3>
+<p>Descriptive Statistics: Describing Collected Data Inferential Statistics: Drawing conclusions about a population based on data collected from sample of individuals from that population.</p>
+</div>
+</div>
+&nbsp;
+<hr />
+<p style="text-align: center;">A work by <a href="https://andersonuyekita.github.io/site/cv.html">AH Uyekita</a></p>
+<p style="text-align: center;"><span style="color: #808080;"><em>anderson.uyekita[at]gmail.com</em></span></p>
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Add font awesome icons -->
+<p style="text-align: center;">
+    <a href="https://linkedin.com/in/andersonuyekita/" class="fa fa-linkedin"></a>
+    <a href="https://github.com/AndersonUyekita/" class="fa fa-github"></a>
+</p>
+
+&nbsp;
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="descriptive-statistics-lesson-01.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="admissions-case-study-lesson-03.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["nd111_-_data_science_ii.pdf", "nd111_-_data_science_ii.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
