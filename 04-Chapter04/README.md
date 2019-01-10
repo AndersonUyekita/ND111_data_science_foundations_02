@@ -7,19 +7,27 @@
 * Course : Data Science II - Foundations Nanodegree
 * COD    : ND111
 
+#### Related Courses
+
+* [UD170 - Introduction to Inferential Statistics][rel_1]
+* [UD170 - Introduction to Descriptive Statistics][rel_2]
+
+[rel_1]: https://classroom.udacity.com/courses/ud201
+[rel_2]: https://classroom.udacity.com/courses/ud827
+
 ## Outline
 
-* [ ] Lesson 01 - Descriptive Statistics - Part 1
-* [ ] Lesson 02 - Descriptive Statistics - Part 2
-* [ ] Lesson 03 - Admissions Case Study
-* [ ] Lesson 04 - Probability
-* [ ] Lesson 05 - Binomial Distribution
-* [ ] Lesson 06 - Conditional Probability
-* [ ] Lesson 07 - Bayes Rule
-* [ ] Lesson 08 - Python Probability Practice
-* [ ] Lesson 09 - Normal Distribution Theory
-* [ ] Lesson 10 - Sampling Distributions and the Central Limit Theorem
-* [ ] Lesson 11 - Confidence Intervals
+* [x] Lesson 01 - Descriptive Statistics - Part 1
+* [x] Lesson 02 - Descriptive Statistics - Part 2
+* [x] Lesson 03 - Admissions Case Study
+* [x] Lesson 04 - Probability
+* [x] Lesson 05 - Binomial Distribution
+* [x] Lesson 06 - Conditional Probability
+* [x] Lesson 07 - Bayes Rule
+* [x] Lesson 08 - Python Probability Practice
+* [x] Lesson 09 - Normal Distribution Theory
+* [x] Lesson 10 - Sampling Distributions and the Central Limit Theorem
+* [x] Lesson 11 - Confidence Intervals
 * [ ] Lesson 12 - Hypothesis Testing
 * [ ] Lesson 13 - Case Study: A/B Tests
 * [ ] Lesson 14 - Regression

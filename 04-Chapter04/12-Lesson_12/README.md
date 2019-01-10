@@ -220,4 +220,30 @@ In the example of coffee drinkers, the interval was entirely below 70, which wou
 3. We will use the closest value of the $H_0$, which is almost 70.
 4. Based on the standard deviation of the sampling distribution we could estimate the distribution from the $H_0$.
 5. Plot the histogram
-6. Check the mean and the hypothesis $H_0$.
+6. Check the statistics and the hypothesis $H_0$.
+7. Decide to reject $H_0$ or not.
+
+### P-value
+
+Based on the Bootstrapping process the P-value could be interpreted as: a statistics of how many samples will be higher/lower than the threshold defined in the hypothesis.
+
+In the exercises the P-value is an "average" of all 10,000 samples if it is higher, lower, or in the tails of a specific parameter. This "average" (in fact is a "vector" of zero or one due to the comparison) is the probability of a sample has higher/lower values from the parameter.
+
+Bear in mind, if 100 samples say to reject the $H_0$ but the others 9,900 say the opposite there are a probability of 100/10,000 to incurr in error Type 1. In other words, the 100/10,000 is the so-called **p-value**.
+
+The relationship between **p-value** and $\alpha$:
+
+* **p-value** $ < \alpha$ (or small p-value): Reject $H_0$
+* **p-value** $\geq \alpha$ (or Large p-value): Fail to reject $H_0$
+
+[Reference][refe_lesson12_c4]
+
+[refe_lesson12_c4]: https://rebeccaebarnes.github.io/2018/05/01/what-is-a-p-value
+
+For a small $\alpha$ (less than 10/10,000, for instance) probably you will accept the $H_0$, in the case of:
+
+$$H_0: \mu \leq 0 \\ H_1: \mu > 0$$
+
+There are three forms to allocate the $\alpha$, as you can see in Figure 3.
+
+![](01-img/c4_l12_03.png)
