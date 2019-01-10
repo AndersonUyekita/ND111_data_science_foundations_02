@@ -236,3 +236,50 @@ As you can see, the R-Squared for this example is 0.678, which should be interpr
 >Many feel that Rsquared isn't a great measure (which is possible true), but I would argue that using cross-validation can assist us with validating with any measure that helps us understand the fit of a model to our data. [Here][url_c4_l14], you can find one such result on why an individual doesn't care for Rsquared. --- <cite>Udacity notebook</cite>
 
 [url_c4_l14]: https://data.library.virginia.edu/is-r-squared-useless/
+
+
+### New Package
+
+In this lesson I will introduced to the [statsmodels][statsmodels_url] package.
+
+[statsmodels_url]: https://www.statsmodels.org/stable/index.html
+
+#### `sm.OLS()`
+
+This methods creates a object to be used to estimate the coefficients of a ordinary least square.
+
+```py
+# Importing the library
+import statsmodels as sm
+
+# Any data frame with two variables.
+df
+
+# Creating this kind of objects.
+lm = sm.OLS(RESPONDE_VARIABLE,EXPLORATORY_VARIABLES)
+```
+Usually the `RESPONDE_VARIABLE` is what you want to predict (y-variable), and `EXPLORATORY_VARIABLES` is everything you use to explain it (intercept and other x-variables).
+
+A simplified example:
+
+```py
+lm = sm.OLS(df['y'],df[['intercept','x']])
+```
+
+#### `.fit()`
+
+This methods use the object create from the `.OLS()` and calculate the coefficients.
+
+```py
+# Calculating the coefficients.
+results = lm.fit()
+```
+
+#### `.summary()`
+
+Founded on the output of `.fit()` methods prints a summary.
+
+```py
+results.summary()
+```
+In this `.summary()` you can find the p-values, coefficients, R-Squared, etc..
