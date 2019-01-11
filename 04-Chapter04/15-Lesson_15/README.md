@@ -249,7 +249,27 @@ There is an other way to calculate this VIF's using the `variance_inflation_fact
 
 ### Higher Order Terms
 
+Adding higher order terms is a way to add non-linearity to explain the response variable.
 
+* Higher Order Terms:
+    * Interactions: $x_1x_2$
+    * Quadratics: $x^2$
+    * Cubics: $x^3$
+    * Other higher orders terms: $x^n$
+
+Adding these terms could improve the response results, but it makes harder to understand and explain the relationship between this higher orders terms.
+
+For instance, $y_1$ do not have higher orders terms and $y_2$ has a interaction. Both equations are quite similar, except from the term $cx_1x_2$.
+
+$$y_1 = ax_1 + bx_2 + d \\
+  y_2 = ax_1 + bx_2 + cx_1x_2 + d$$
+
+The derivate from each equation will return the slope coefficient.
+
+$$\frac{\partial y_1}{\partial x_1} = a \\
+  \frac{\partial y_2}{\partial x_1} = a + c \cdot x_2$$
+
+In $\partial y_1/\partial x_1$ the slope is constant ($a$), whereas in $\partial y_2/\partial x_1$ the slope will varies according to the $c \cdot x_2$.
 
 ### New Method
 
