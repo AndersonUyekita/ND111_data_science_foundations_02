@@ -2,7 +2,7 @@
 
 #### Tags
 * Author : AH Uyekita
-* Title  :  _Wrangle and Analyze Data_
+* Title  : _Wrangle and Analyze Data_
 * Date   : 26/12/2018
 * Course : Data Science II - Foundations Nanodegree
     * COD: ND111
