@@ -84,6 +84,8 @@ The way to interpret the `coef` from the `.Logit()` is quite different from the 
 
 Equally to the Multiple Linear Regression the baseline still in the intercept, but the comparison is made by "times".
 
+Recall, in this example `weekend` is the `baseline` .
+
 For instance:
 
 $$e^{2.5465} = 12.76 \text{ times} $$
