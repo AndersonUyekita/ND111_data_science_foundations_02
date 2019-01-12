@@ -13,9 +13,9 @@
 
 Please, find below the URL to redirect to the project Jupyter Notebook.
 
-[Project 03 - A/B Testing][project03_url]
+[Project 03 - Analyze A/B Test Results :rocket:][project03_url]
 
-[project03_url]: a
+[project03_url]: http://bit.ly/nd111_project_03
 
 ********************************************************************************
 
