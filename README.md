@@ -27,8 +27,6 @@ This is the second course of the Nanodegree of Data Science from Udacity.
 * [Project 02 :rocket: ][project_02_url]
 * [Project 03 :rocket: ][project_03_url]
 
-* <a href='https://bit.ly/nd111_project_03' target='_blank'>Teste</a>
-
 [nd111_bookdown]: https://andersonuyekita.github.io/ND111_data_science_foundations_02/index.html
 [project_01_url]: https://bit.ly/nd111_project_01
 [project_02_url]: https://bit.ly/nd111_project_02
