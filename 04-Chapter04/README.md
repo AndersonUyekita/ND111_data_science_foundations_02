@@ -28,9 +28,9 @@
 * [x] Lesson 09 - Normal Distribution Theory
 * [x] Lesson 10 - Sampling Distributions and the Central Limit Theorem
 * [x] Lesson 11 - Confidence Intervals
-* [ ] Lesson 12 - Hypothesis Testing
-* [ ] Lesson 13 - Case Study: A/B Tests
-* [ ] Lesson 14 - Regression
-* [ ] Lesson 15 - Multiple Linear Regression
-* [ ] Lesson 16 - Logistic Regression
-* [ ] Project 03 - Analyze A/B Test Results
+* [x] Lesson 12 - Hypothesis Testing
+* [x] Lesson 13 - Case Study: A/B Tests
+* [x] Lesson 14 - Regression
+* [x] Lesson 15 - Multiple Linear Regression
+* [x] Lesson 16 - Logistic Regression
+* [x] Project 03 - Analyze A/B Test Results

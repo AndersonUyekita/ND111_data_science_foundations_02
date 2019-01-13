@@ -3,13 +3,24 @@
 #### Tags
 * Author : AH Uyekita
 * Title  :  _Intro to Machine Learning_
-* Date   : 14/12/2018
+* Date   : 12/01/2019
 * Course : Data Science II - Foundations Nanodegree
 * COD    : ND111
 
+#### Prerequisites
+
+* [Intro to Descriptive Statistics][rel_1]
+* [Intro to Inferential Statistics][rel_2]
+
+
+[rel_1]: https://www.udacity.com/course/intro-to-descriptive-statistics--ud827
+[rel_2]: https://www.udacity.com/course/intro-to-inferential-statistics--ud201
+
+***
+
 ## Outline
 
-- [ ] Lesson 01 - Welcome to Machine Learning
+- [x] Lesson 01 - Welcome to Machine Learning
 - [ ] Lesson 02 - Naive Bayes
 - [ ] Lesson 03 - SVM
 - [ ] Lesson 04 - Decision Trees
