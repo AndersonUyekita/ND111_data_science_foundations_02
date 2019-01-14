@@ -13,7 +13,7 @@
 
 ## Bayes Rule
 
-The person who writes down this theorem.
+The person who has written down this theorem.
 
 >Thomas Bayes (/beɪz/; c. 1701 – 7 April 1761) was an English statistician, philosopher and Presbyterian minister who is known for formulating a specific case of the theorem that bears his name: Bayes' theorem. Bayes never published what would become his most famous accomplishment; his notes were edited and published after his death by Richard Price. --- <cite>[Wikipedia - Thomas Bayes][wiki_thomas_bayes]</cite>
 
@@ -21,7 +21,28 @@ The person who writes down this theorem.
 
 ### Cancer Example
 
+For this example of Cancer test, we can ilustrate it in one picture.
+
+<center>
+<img src="01-img/c4_l7_00.png" alt="c4_l7_01" width="80%;" />
+
+<em>Figure 1 - How to structure these example.</em></center><br>
+
+* **Prior probability:** The probability to has cancer;
+* **Test Evidence:** How accurate is the test to determine if the patient has cancer or not;
+* **Posterior probability:** Is what we are looking for;
+    * Example: Given a patient has positive test, what is the probability of this patient has cancer?
+
+#### Example {-}
+
 The probability to a person has cancer is 1% and the probability to the test gives positive is 90%. If a person do not has cancer the probability of the test gives negative is 90%.
+
+Summary:
+
+* 99% do not have Cancer
+    * Sensitivity: 90%  of accuracy to diagnose if negative
+* 1% have Cancer
+    * Specitivity: 90% of accuracy to diagnose if positive
 
 _What is the probability of a given positive test the person has cancer?_
 
@@ -29,15 +50,18 @@ _What is the probability of a given positive test the person has cancer?_
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |No|Negative|0.99|0.90|0.891|No|0|
 |No|Positive|0.99|0.10|0.099|Yes|0.099|
-|Yes|Negative|0.01|0.10|0.001|No|0|
-|Yes|Positive|0.01|0.90|0.009|Yes|0.009|
+|Yes|Negative|0.01|0.90|0.009|Yes|0.009|
+|Yes|Positive|0.01|0.10|0.001|No|0|
 |||||||SUM = 0.108|
 
 Bear in mind, the probability of a false positive is 0.099, which is 11 times bigger than the a truth valeu of 0.009.
 
-Figure 1 ilustrate this situation.
+Figure 2 ilustrate this situation.
 
-![](01-img/c4_l7_01.png)
+<center>
+<img src="01-img/c4_l7_01.png" alt="c4_l7_01" width="60%;" />
+
+<em>Figure 2 - Venn Diagram of the Cancer Test.</em></center><br>
 
 Given the test is positive, the probability of this person has cancer is:
 
