@@ -72,12 +72,30 @@ The [Naive Bayes][bookdown_4.7] was one of the topics covered in Advanced Statis
 In this lesson we are going to use the scikit learn package to perform the Gaussian Naive Bayes.
 
 ```py
-from sklearn import svm
+from sklearn.naive_bayes import GaussianNB
 ```
 
-####
+#### `GaussianNB()`
 
+Creating the classifier.
 
+```py
+# Creating the Classifier.
+clf = GaussianNB()
+```
 
+#### `.fit()`
 
-####
+Bear in mind, the term _fitting_ or _training_ will be used interchangeably along the course.
+
+The `.fit()` method will be used to fit/train the classifier based on two inputs:
+
+* **X:** Coordinates/features of the variable to be classified;
+* **Y:** Results of already classified outputs.
+
+Recall, this is a supervised algorithm, which means, we have
+
+```py
+# fit the classifier on the training features and labels
+clf.fit(X, Y)
+```
