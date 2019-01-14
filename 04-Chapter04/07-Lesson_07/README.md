@@ -10,42 +10,6 @@
     * **Instructor:** Josh Bernhard
 
 ********************************************************************************
-<style>
-
-#special {
-  text-align: center;
-}
-
-teste {
-  color: lightblue;
-  text-align: center;
-  font-style: italic;
-  font-size: 1.5em;
-}
-
-div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
-
-
-
-
-</style>
-
-
-<img src="01-img/c4_l7_00.png" alt="c4_l7_01" width="80%;" />
-
-<div id='special'>asdasdsdasd</div>
-
-
-<teste>asdasdasd</teste>
-
-<div class = "blue">
-
-- This is my first conclusion
-- This is my second conclusion
-
-</div>
-
-
 
 ## Bayes Rule
 
