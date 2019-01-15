@@ -46,12 +46,14 @@ Summary:
 
 _What is the probability of a given positive test the person has cancer?_
 
+<center><strong>Table 1 - Summary of possibilities of Disease and Test.</strong></center>
+
 |Disease|Test|$P_{disease}$|$P_{test}$|P|Q1: Test positive?|Q1: answer|
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |No|Negative|0.99|0.90|0.891|No|0|
 |No|Positive|0.99|0.10|0.099|Yes|0.099|
-|Yes|Negative|0.01|0.90|0.009|Yes|0.009|
-|Yes|Positive|0.01|0.10|0.001|No|0|
+|Yes|Negative|0.01|0.10|0.001|No|0|
+|Yes|Positive|0.01|0.90|0.009|Yes|0.009|
 |||||||SUM = 0.108|
 
 Bear in mind, the probability of a false positive is 0.099, which is 11 times bigger than the a truth valeu of 0.009.
