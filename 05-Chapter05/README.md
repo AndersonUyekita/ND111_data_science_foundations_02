@@ -16,6 +16,13 @@
 [rel_1]: https://www.udacity.com/course/intro-to-descriptive-statistics--ud827
 [rel_2]: https://www.udacity.com/course/intro-to-inferential-statistics--ud201
 
+#### Additional Readings
+
+[Machine Learning Classifiers][sidath_asiri]
+
+[sidath_asiri]: https://towardsdatascience.com/machine-learning-classifiers-a5cc4e1b0623
+
+
 ***
 
 ## Outline

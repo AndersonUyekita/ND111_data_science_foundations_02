@@ -20,6 +20,11 @@ python2 -m ipykernel install --user
 
 [Source](https://stackoverflow.com/questions/46391424/jupyter-notebook-install-python-2)
 
+#### Additional Readings
+
+- [ ] [Chapter 2 : SVM (Support Vector Machine) — Theory][savam_patel]
+
+[savam_patel]: https://medium.com/machine-learning-101/chapter-2-svm-support-vector-machine-theory-f0812effc72
 
 ******************************************************************
 
