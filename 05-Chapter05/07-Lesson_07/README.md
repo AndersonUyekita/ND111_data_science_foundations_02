@@ -41,8 +41,9 @@ The package to calculate the Linear Regression in Scikit Learn is called `linear
 
 ```py
 # Import the library of linear model from Scikit Learn.
-from sklearn import linear_model
+from sklearn.linear_model import LinearRegression
 ```
+
 Analogous to the Classifier problems, the linear regression also has a classifier, the so-called `.linearRegression()`.
 
 ```py
@@ -73,7 +74,7 @@ For the performance we need to use the `.score_` method. Recall, to use the test
 
 ```py
 # Calculating the r-squared.
-reg.score_(featrures_test, output_test)
+reg.score_(feature_test, output_test)
 ```
 The `.score_()` is the "same" o `.accuracy()`.
 
@@ -83,7 +84,7 @@ Erros is not related with wrong, and means the difference between the predicted 
 
 <center><img src="01-img/c5_l7_03.png" alt="c5_l7_03.png" width="70%;"/>
 
-<em>Figure 2 - Actual Points and Predicted Line.</em></center>
+<em>Figure 3 - Actual Points and Predicted Line.</em></center>
 
 Equation (2) shows how to calculate the error.
 
@@ -121,6 +122,33 @@ Have in mind, the $R^2$ is not affect by the number of point, independently it i
 
 #### Comparison {-}
 
+Figure 5 shows a comparison between Discrete and Continuous.
+
 <center><img src="01-img/c5_l7_05.png" alt="c5_l7_05.png" width="80%;"/>
 
 <em>Figure 5 - Comparison Table between Classification and Continuous.</em></center>
+
+### Multivariate Regression
+
+This is a different way to explain the multivariate I have seen before.
+
+<center><img src="01-img/c5_l7_06.png" alt="c5_l7_05.png" width="80%;"/>
+
+<em>Figure 6 - Graphic + Values.</em></center>
+
+Based on the _ceteris paribus_ concept we will analize $x_1$ and $x_2$ separately.
+
+$$y = \beta_1 \cdot x_1 + \beta_2 \cdot x_2 + \beta_0$$
+
+* $\beta_1$
+
+$$\beta_1 = \frac{300 - 100}{60-20} = 5$$
+
+* $\beta_2$
+
+$$\beta_2 = \frac{200-100}{120-80}=2.5$$
+
+* $\beta_0$
+
+$$\beta_0 = y - \beta_1 \cdot x_1 - \beta_2 \cdot x_2 = 100 - 5 \cdot 100 - 2.5 \cdot 80 \\
+\beta_0 = -200$$
