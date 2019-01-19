@@ -9,6 +9,12 @@
     * **Instructor:** Katie Malone
     * **Instructor:** Sebastian Thrun
 
+#### Reading
+
+[Learn ML Algorithms by coding: Decision Trees][medium_lethal]
+
+[medium_lethal]: https://lethalbrains.com/learn-ml-algorithms-by-coding-decision-trees-439ac503c9a4
+
 ******************************************************************
 
 ## Decision Trees
