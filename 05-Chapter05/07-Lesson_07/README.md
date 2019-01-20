@@ -48,7 +48,7 @@ Analogous to the Classifier problems, the linear regression also has a classifie
 
 ```py
 # Creating a Classifier
-reg = linear_model.linearRegression()
+reg = linearRegression()
 ```
 After that you need to fit the model using the `.fit()`.
 
@@ -64,8 +64,18 @@ Where:
 Finally, the let's calculate the coefficients by using the `.coef_`.
 
 ```py
-# Calcularing the coefficients of the linear regression.
+# Calcularing the slope (or coefficients) of the linear regression.
 reg.coef_()
+```
+
+```py
+# Calcularing the intercept of the linear regression.
+reg.intercept_()
+```
+
+```py
+# Calcularing the R-Squared.
+reg.score_()
 ```
 
 #### Performance {-}
