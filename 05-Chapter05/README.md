@@ -28,12 +28,12 @@
 ## Outline
 
 - [x] Lesson 01 - Welcome to Machine Learning
-- [ ] Lesson 02 - Naive Bayes
-- [ ] Lesson 03 - SVM
-- [ ] Lesson 04 - Decision Trees
-- [ ] Lesson 05 - Choose Your Own Algorithm
-- [ ] Lesson 06 - Datasets and Questions
-- [ ] Lesson 07 - Regressions
+- [x] Lesson 02 - Naive Bayes
+- [x] Lesson 03 - SVM
+- [x] Lesson 04 - Decision Trees
+- [x] Lesson 05 - Choose Your Own Algorithm
+- [x] Lesson 06 - Datasets and Questions
+- [x] Lesson 07 - Regressions
 - [ ] Lesson 08 - Outliers
 - [ ] Lesson 09 - Clustering
 - [ ] Lesson 10 - Feature Scaling
