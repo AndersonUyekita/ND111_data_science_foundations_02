@@ -10,6 +10,6 @@
 ## Outline
 
 - [x] Lesson 01 - Introduction to Data Visualization
-- [ ] Lesson 02 - Design
+- [x] Lesson 02 - Design
 - [ ] Lesson 03 - Data Visualization in Tableau
 - [ ] Lesson 04 - Making Dashboard & Stories in Tableau
