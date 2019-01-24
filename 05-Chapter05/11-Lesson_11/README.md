@@ -87,6 +87,12 @@ This is the Natural Language Toolkit and you can access it importing from the nl
 from nltk.corpus import stopwords
 ```
 
+Now, you can create a list of stopwords.
+
+```py
+sw = stopwords.words('english')
+```
+
 ### Stemmer
 
 This is a way to bundle some words with same meaning. Figure 1 shows an example.
