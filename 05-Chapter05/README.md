@@ -34,12 +34,12 @@
 - [x] Lesson 05 - Choose Your Own Algorithm
 - [x] Lesson 06 - Datasets and Questions
 - [x] Lesson 07 - Regressions
-- [ ] Lesson 08 - Outliers
-- [ ] Lesson 09 - Clustering
-- [ ] Lesson 10 - Feature Scaling
-- [ ] Lesson 11 - Text Learning
-- [ ] Lesson 12 - Feature Selection
-- [ ] Lesson 13 - PCA
+- [x] Lesson 08 - Outliers
+- [x] Lesson 09 - Clustering
+- [x] Lesson 10 - Feature Scaling
+- [x] Lesson 11 - Text Learning
+- [x] Lesson 12 - Feature Selection
+- [x] Lesson 13 - PCA
 - [ ] Lesson 14 - Validation
 - [ ] Lesson 15 - Evaluation Metrics
 - [ ] Lesson 16 - Tying It All Together
