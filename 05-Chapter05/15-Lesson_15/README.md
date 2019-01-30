@@ -19,6 +19,8 @@ The confusion matrix allow us to visualize the concepts of Precision and Recall.
 
 <em>Figure 1 - Example of Confusion Matrix.</em></center>
 
+**For each label (Ariel Sharon, Colin Powell, etc.) of this matrix there are a value of precision and recall.**
+
 * The matrix diagonal is the True Positive;
 
 $$\text{True Positive} = \begin{bmatrix} 13 \\ 55 \\ 25 \\ 123\\ 14 \\ 10 \\26 \end{bmatrix}$$
