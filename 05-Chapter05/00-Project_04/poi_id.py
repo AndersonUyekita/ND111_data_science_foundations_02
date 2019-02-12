@@ -7,8 +7,8 @@
 #   Author: Anderson Hitoshi Uyekita                                           #
 #   Course: Data Science - Foundations II                                      #
 #   COD: ND111                                                                 #
-#   Date: 11/02/2019                                                           #
-#   Version: 1.0                                                               #
+#   Date: 12/02/2019                                                           #
+#   Version: 2.0                                                               #
 #                                                                              #
 ################################################################################
 
@@ -30,10 +30,13 @@ import tester
 
 features_list =  ['poi',
  'exercised_stock_options',
- 'deferred_income',
- 'loan_advances',
- 'ratio_to_from',
- 'ratio_to_poi']
+ 'total_stock_value',
+ 'salary',
+ 'total_income',
+ 'restricted_stock',
+ 'total_payments',
+ 'expenses',
+ 'other']
 
 
 ### Load the dictionary containing the dataset
@@ -163,32 +166,19 @@ def feature_engineering(df, ratio_name, variable_numerator, variable_denominator
 
 # 1. Adding the ratio_from_poi.
 feature_engineering(df = df_eda,
-                    ratio_name = 'ratio_from_poi',
-                    variable_numerator = df_eda.from_poi_to_this_person,
-                    variable_denominator = df_eda.from_messages);
-
-# 2. Adding the ratio_to_poi.
-feature_engineering(df = df_eda,
-                    ratio_name = 'ratio_to_poi',
-                    variable_numerator = df_eda.from_this_person_to_poi,
-                    variable_denominator = df_eda.to_messages);
-
-# 3. Adding the ratio_to_from.
-feature_engineering(df = df_eda,
-                    ratio_name = 'ratio_to_from',
-                    variable_numerator = df_eda.to_messages,
-                    variable_denominator = df_eda.from_messages);
-
-# 4. Adding the ratio_from_poi_share.
-feature_engineering(df = df_eda,
-                    ratio_name = 'ratio_from_poi_share',
-                    variable_numerator = df_eda.shared_receipt_with_poi,
-                    variable_denominator = df_eda.from_messages);
-
-# 5. Adding the ratio_salary_total_payments.
-feature_engineering(df = df_eda,
                     ratio_name = 'ratio_salary_total_payments',
                     variable_numerator = df_eda.salary,
+                    variable_denominator = df_eda.total_payments);
+
+
+# Creating new feature.
+df_eda['total_income'] = df_eda.total_payments.astype(float) + df_eda.total_stock_value.astype(float)
+
+
+# 1. Adding the ratio_from_poi.
+feature_engineering(df = df_eda,
+                    ratio_name = 'ratio_stock_total_payments',
+                    variable_numerator = df_eda.total_stock_value,
                     variable_denominator = df_eda.total_payments);
 
 # Saving the dataset in dictionary type.
@@ -251,10 +241,16 @@ def wrapper_featureformatsplit(my_dataset, features_list):
 # Please, find more information in the Jupyter Notebook.
 
 # Importing the AdaBoost from Scikit learn package.
-from sklearn.ensemble import AdaBoostClassifier
+from sklearn import tree
 
 # Creating a classifier with the optimized parameters.
-clf_ada = AdaBoostClassifier(learning_rate = 1.0, n_estimators = 60)
+clf_ada = tree.DecisionTreeClassifier(splitter = 'best',
+                                       criterion = 'gini',
+                                       class_weight = 'balanced',
+                                       min_samples_leaf = 1,
+                                       min_samples_split = 2,
+                                       max_depth = 5,
+                                       max_leaf_nodes = 4)
 
 # Testing the classifier.
 tester.test_classifier(clf = clf_ada,
