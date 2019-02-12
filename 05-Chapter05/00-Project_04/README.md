@@ -15,7 +15,7 @@ Please, find below the URL to redirect to the project Jupyter Notebook.
 
 [Project 04 - Identify Fraud from Enron Email][project04_url]
 
-[project04_url]: a
+[project04_url]: http://bit.ly/nd111_project_04
 
 ******************************************************************
 

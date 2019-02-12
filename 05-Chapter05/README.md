@@ -40,7 +40,7 @@
 - [x] Lesson 11 - Text Learning
 - [x] Lesson 12 - Feature Selection
 - [x] Lesson 13 - PCA
-- [ ] Lesson 14 - Validation
-- [ ] Lesson 15 - Evaluation Metrics
-- [ ] Lesson 16 - Tying It All Together
-- [ ] Project 04 - Identify Fraud from Enron Email
+- [x] Lesson 14 - Validation
+- [x] Lesson 15 - Evaluation Metrics
+- [x] Lesson 16 - Tying It All Together
+- [x] Project 04 - Identify Fraud from Enron Email

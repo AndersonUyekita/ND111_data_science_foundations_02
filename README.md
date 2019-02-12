@@ -1,11 +1,5 @@
 # ND111 - Data Science II - Nanodegree Foundations
 
-This is the second course of the Nanodegree of Data Science from Udacity.
-
-* [My repository to the first course][repo_nd110].
-
-[repo_nd110]: https://github.com/AndersonUyekita/ND110_data_science_foundations_01
-
 #### Tags
 * Author       : AH Uyekita
 * Dedication   : 10 hours/week (suggested)
@@ -18,7 +12,7 @@ This is the second course of the Nanodegree of Data Science from Udacity.
 
 * [ND110 - Data Science I - Nanodegree Foundations][nd110]
 
-[nd110]: https://br.udacity.com/course/python-fundamentos-data-science--nd110
+[nd110]: https://github.com/AndersonUyekita/ND110_data_science_foundations_01
 
 #### Bookdown and Projects
 
@@ -26,11 +20,13 @@ This is the second course of the Nanodegree of Data Science from Udacity.
 * [Project 01 :rocket: ][project_01_url]
 * [Project 02 :rocket: ][project_02_url]
 * [Project 03 :rocket: ][project_03_url]
+* [Project 04 :rocket: ][project_04_url]
 
 [nd111_bookdown]: https://andersonuyekita.github.io/ND111_data_science_foundations_02/index.html
 [project_01_url]: https://bit.ly/nd111_project_01
 [project_02_url]: https://bit.ly/nd111_project_02
 [project_03_url]: https://bit.ly/nd111_project_03
+[project_04_url]: https://bit.ly/nd111_project_04
 
 ********************************************************************************
 
