@@ -7,7 +7,7 @@
 * Course : Data Science II - Foundations Nanodegree
 * COD    : ND111
 
-#### Prerequisites
+#### Suggested Courses
 
 * [Intro to Descriptive Statistics][rel_1]
 * [Intro to Inferential Statistics][rel_2]
