@@ -1,5 +1,42 @@
 # Advanced Statistics
 
+
+<h4>Tags</h4>
+
+* Author : AH Uyekita
+* Title  :  _Advanced Statistics_
+* Date   : 02/01/2019
+* Course : Data Science II - Foundations Nanodegree
+* COD    : ND111
+
+<h4>Related Courses</h4>
+
+* [UD170 - Introduction to Inferential Statistics][rel_1]
+* [UD170 - Introduction to Descriptive Statistics][rel_2]
+
+[rel_1]: https://classroom.udacity.com/courses/ud201
+[rel_2]: https://classroom.udacity.com/courses/ud827
+
+<h2>Outline</h2>
+
+* [x] Lesson 01 - Descriptive Statistics - Part 1
+* [x] Lesson 02 - Descriptive Statistics - Part 2
+* [x] Lesson 03 - Admissions Case Study
+* [x] Lesson 04 - Probability
+* [x] Lesson 05 - Binomial Distribution
+* [x] Lesson 06 - Conditional Probability
+* [x] Lesson 07 - Bayes Rule
+* [x] Lesson 08 - Python Probability Practice
+* [x] Lesson 09 - Normal Distribution Theory
+* [x] Lesson 10 - Sampling Distributions and the Central Limit Theorem
+* [x] Lesson 11 - Confidence Intervals
+* [x] Lesson 12 - Hypothesis Testing
+* [x] Lesson 13 - Case Study: A/B Tests
+* [x] Lesson 14 - Regression
+* [x] Lesson 15 - Multiple Linear Regression
+* [x] Lesson 16 - Logistic Regression
+* [x] Project 03 - Analyze A/B Test Results
+
 ## Descriptive Statistics `Lesson 01`
 
 This lesson is a kind of review.
@@ -1529,3 +1566,415 @@ Figure 8 ilustrate this equation in a picture.
 <center><em>Figure 8 - Linear Model and Equation.</em></center><br>
 
 ### Least-squares
+## Multilinear Regression `Lesson 15`
+
+
+This is a generalization of the simple Linear Model, which allows us to use several explanatory variables, as you can see an example of Multiple Linear Regression in equation (1).
+
+$$ \hat y = b_0 + b_1x_1 + b_2x_2 + b_3x_3 + b_4x_4 \tag{1} $$
+
+Figure 1 ilustrate the variables which could be used to predic the  house's price.
+
+![](01-img/c4_l15_01.png)
+
+<center><em>Figure 1 - House Price Dataset.</em></center><br>
+
+Have in mind, in this table above there are quantitative and categorical variables.
+
+* Quantitative:
+    * Price, Area, Bedrooms, and Bathrooms;
+* Categorical:
+    * Neighborhood and Style.
+
+All these variables will be used to predict the house's price, to do it so it is necessary a little of linear algebra, as you can see in the Figure 2.
+
+![](01-img/c4_l15_02.png)
+
+<center><em>Figure 2 - Matrix notation.</em></center><br>
+
+Where:
+
+* $\bold X:$ Matrix of inputs;
+* $\bold y:$ Vector of response that we want to predict.
+
+After many steps of linear algebra, equation (2) resume the $\beta$ calculation.
+
+$$ \beta = (\bold X' \bold X)^{-1} \bold X \bold y \tag{2}$$
+
+Have in mind, the coefficients calculated in $\beta$ are the same shown in Figure 3 in column `coef`.
+
+#### Interpretation {-}
+
+Figure 3 presents outputs from the OLS of a generic dataset (house_prices.csv).
+
+![](01-img/c4_l15_03.png)
+
+<center><em>Figure 3 - Coefficients, Standard Errors, etc.</em></center><br>
+
+>In this video, the coefficients were all positive. Therefore, we can interpret each coefficient as the **predicted increase in the response for every one unit increase in the explanatory variable, holding all other variables in the model constant.**
+
+This principles is the so-called [_ceteris paribus_][ceteris].
+
+>_Ceteris paribus or caeteris paribus is a Latin phrase meaning "other things equal". English translations of the phrase include "all other things being equal" or "other things held constant" or "all else unchanged". A prediction or a statement about a causal, empirical, or logical relation between two states of affairs is ceteris paribus if it is acknowledged that the prediction, although usually accurate in expected conditions, can fail or the relation can be abolished by intervening factors._ --- <cite>Wikipedia</cite>
+
+[ceteris]: https://en.wikipedia.org/wiki/Ceteris_paribus
+
+#### Statistical Significance
+
+Analogous to the simple Linear Model, it is important to analyse the `p-values` of each variable. Figure 4 shows the `p-values`.
+
+![](01-img/c4_l15_04.png)
+
+<center><em>Figure 4 - Statistical Significance.</em></center><br>
+
+As you can see, most of the variable do not have lower `p-values`, which suggest these variables are not statistically signigicant to the response variable. In this example, only `area` reject $H_0$ the others variables failed to reject $H_0$.
+
+Signigicant bivariate relationships are **not** always signigicant in Multiple Linear Regression.
+
+### Dummy Variable
+
+This is a method to insert categorical variables in Multiple Linear Regressions. We will use 0 and 1 to encode this Dummy Variable, which will work creating new columns for each category of the variable. Figure 5 shows an example.
+
+<img src="./01-img/c4_l15_05.png" alt="c4_l15_05" class="center" width="50%;"/>
+
+<center><em>Figure 5 - Converting Categorical Variable to Dummy Variable.</em></center><br>
+
+Remember, the C columns is not necessary because is a complement of the other two columns (A and B). The dropped columns (in this case the C column) is the so-called **baseline**. What you need to understand about the **baseline** is:
+
+>The coefficients you obtain from the output of your multiple linear regression models are then an indication of how the encoded levels compare to the baseline level (the dropped level). --- <cite>Udacity Notebook</cite>
+
+The mathematical reason to drop one columns is to garantee the $\bold X$ matrix is invertible.
+
+#### Interpretation {-}
+
+The baseline will be used to calculate the real coefficients of each Dummy variable. Figure 6 shows an example of output of a Multiple Linear Regression.
+
+<img src="./01-img/c4_l15_06.png" alt="c4_l15_06" class="center" width="100%;"/>
+
+<center><em>Figure 6 - Example of Coefficients from a Dummies Variables.</em></center><br>
+
+The intercept is the value of the baseline (in other words it is the coefficient of A). To calculate the other coefficients you need to subtract the baseline from each coefficient.
+
+* Coefficient A: 5.411e+05
+* Coefficient B: 5.411e+05 - 5.295e+05 = 1070600.0
+* Coefficient C: 5.411e+05 - 332.36 = 540767.6406
+
+Coef C < Coef A < Coef B
+
+Each of the coefficients provided by the OLS is a comparison with the baseline.
+
+In a more complex example as presented in Figure 7.
+
+<img src="./01-img/c4_l15_07.png" alt="c4_l15_07" class="center" width="100%;"/>
+
+<center><em>Figure 7 - Dummies Variables from two categories.</em></center><br>
+
+There are "two" **baseline** variables: `A` and `ranch`.
+
+* Coefficient A: -383300.0
+* Coefficient B: -383300.0 + 5.229e5 = 139600.0
+* Coefficient C: -383300.0 - 7168.63 = -390500.0
+* ranch: -383300.0
+* lodge: -383300.0 + 1.685e5 = -214800.0
+* victorian: -383300.0 + 7.056e4 = -312770.0
+
+### Problems in Multiple Linear Regression
+
+Problems is sensible to the application of this Multiple Linear Regression.
+
+* What is your model for?
+    * Understand how is related x and y
+    * Best predict the response variable
+    * Which variable is really useful in predicting your response
+
+Founded on the objectivies of the model, there are many possibilities of problems, below there are some common problems.
+
+* A linear relationship does not exist
+* Correlated errors
+* Non-constant variance
+* Outliers
+* Multicollinearity
+
+#### Multicollinearity {-}
+
+Generally, we assume the explanatory variables are all uncorrelated with one another, but we want these explanatory variables are correlated with the responer variable.
+
+An example of possible multicollinearity:
+
+>We expected a bigger number of bedrooms and bathrooms when the house area increases.
+
+There are two ways to identify the multicollinearity:
+
+* Plotting the scatterplot matrix, or;
+* Calculating the [Variance Inflation Factors][vifs_url] (VIFs)
+
+**Scatterplot**
+
+[vifs_url]: https://en.wikipedia.org/wiki/Variance_inflation_factor
+
+Figure 8 shows the scatter plot of area, bedrooms, and bathrooms.
+
+<img src="./01-img/c4_l15_08.png" alt="c4_l15_08" class="center" width="100%;"/>
+
+<center><em>Figure 8 - Scatterplot of area, bedrooms, and bathrooms.</em></center><br>
+
+All three variables have strong and positive correlation.
+
+OK! Let's calculate the Multiple Linear Regression using `area`, `bedrooms`, and `bathrooms` as explanatory variables to predict the `price`. Figure 9 shows the output of the `OLS` method.
+
+<img src="./01-img/c4_l15_09.png" alt="c4_l15_09" class="center" width="100%;"/>
+
+<center><em>Figure 9 - Coefficients of a Multiple Linear Regression based on area, bedrooms, and bathrooms to predict price.</em></center><br>
+
+Remember, we expected positive values of coefficients, but the bedrooms coefficient is negative. This is one of the side effect of multicollinearity, it could flip the signal, and produce a weird result.
+
+**Calculating the VIF**
+
+>The Variance Inflation Factor (VIF) is a measure of colinearity among predictor variables within a multiple regression. It is calculated by taking the the ratio of the variance of all a given model's betas divide by the variane of a single beta if it were fit alone. --- <cite>[Ernest Tavares Website][ernest_site]</cite>
+
+[ernest_site]: https://etav.github.io/python/vif_factor_python.html
+
+In other words, this means to calculate for each explanatory variable the R-squared adopting it as response variable, and later calculate the VIF according to the equation (3).
+
+$$VIF_i = \frac{1}{1-R^2_i} \tag{3}$$
+
+Where:
+
+* $i:$ intercept, area, bedrooms, and bathrooms.
+
+This is my original equation:
+
+$$ price = intercept + area*b_1 + bedrooms * b_2 + bathrooms * b_3 $$
+
+Where:
+
+* Explanatory variables: intercept, area, bedrooms, and bathrooms.
+* Response variable: price
+
+I need to calculate the $R^2$ for each of these equations:
+
+$$ intercept = area*b_1 + bedrooms * b_2 + bathrooms * b_3 \\ bedrooms = intercept + area*b_1 + bathrooms * b_3 \\
+bathrooms = intercept + area*b_1 + bedrooms * b_3 \\
+area = intercept + bathrooms*b_1 + bedrooms * b_3 $$
+
+The result of the $R^2$ is presented in Table 1.
+
+<center><strong>Table 1 - R-Squared used to Calculate the VIF.</strong></center>
+
+|Response Variable|$R^2$|
+|:-:|:-:|
+|intercept|0.8635203885901309|
+|area|0.8167890866692036|
+|bedrooms|0.952048682065964|
+|bathrooms|0.9473873926707678|
+
+Table 2 shows the VIFs for each value of $R^2$.
+
+<center><strong>Table 2 - VIFs.</strong></center>
+
+|Response Variable|VIF|
+|:-:|:-:|
+|intercept|7.3271017529266529|
+|area|5.458190136274525|
+|bedrooms|20.854484153608585|
+|bathrooms|19.006851223744377|
+
+>When VIFs are greater than 10, this suggests that multicollinearity is certainly a problem in your model. Some experts even suggest VIFs of greater than 5 can be problematic. In most cases, not just one VIF is high, rather many VIFs are high, as these are measures of how related variables are with one another. --- <cite>Udacity notebook.</cite>
+
+In this case I will remove the bathrooms variable, and update my equation:
+
+$$ price = intercept + area * b_1 + bedrooms * b_2 \tag{4}$$
+
+Following the same process, I will calculate the new $R^2$ and later the VIF's.
+
+<center><strong>Table 3 - R-Squared used to Calculate the VIF.</strong></center>
+
+|Response Variable|$R^2$|VIF|
+|:-:|:-:|:-:|
+|intercept|0.8350894909730524|6.063894932472694|
+|area|0.8129232492956318|5.345399662089865|
+|bedrooms|0.8129232492956316|5.3453996620898625|
+
+There is an other way to calculate this VIF's using the `variance_inflation_factor` from `statsmodels.stats.outliers_influence`. It is much simpler to apply this methods, but it is quite hard to understand the hidden subject behind the scenes.
+
+### Higher Order Terms
+
+Adding higher order terms is a way to add non-linearity to explain the response variable.
+
+* Higher Order Terms:
+    * Interactions: $x_1x_2$
+    * Quadratics: $x^2$
+    * Cubics: $x^3$
+    * Other higher orders terms: $x^n$
+
+Adding these terms could improve the response results, but it makes harder to understand and explain the relationship between this higher orders terms.
+
+For instance, $y_1$ do not have higher orders terms and $y_2$ has a interaction. Both equations are quite similar, except from the term $cx_1x_2$.
+
+$$y_1 = ax_1 + bx_2 + d \\
+  y_2 = ax_1 + bx_2 + cx_1x_2 + d$$
+
+The derivate from each equation will return the slope coefficient.
+
+$$\frac{\partial y_1}{\partial x_1} = a \\
+  \frac{\partial y_2}{\partial x_1} = a + c \cdot x_2$$
+
+In $\partial y_1/\partial x_1$ the slope is constant ($a$), whereas in $\partial y_2/\partial x_1$ the slope will varies according to the $c \cdot x_2$.
+
+### New Method
+
+In this lesson the pandas package method called `.get_dummies` will introduced.
+
+#### `.get_dummies()`
+
+This method returns a Data Frame with each category of the categorical variable as a new column.
+
+```py
+pd.get_dummies(df['categorical_variable'])
+```
+Remember, this method do not remove the baseline.
+
+
+## Logistic Regression `Lesson 16`
+
+Is used to predict a categorical response (yes or no, A or B, etc.).
+
+Examples:
+
+* Card transactions: Fraud or not?
+* Click in the link: Yes or not?
+* In a loan: default or not?
+
+Anything else with only two outcomes. If the categorical has more than two it is classified as Multiclass Logistic Regression.
+
+### Sigmoid function
+
+The sigmoid function (also known as logistic function) is used to classify the categories in two values based in your probability `p` (later it will be discussed in detail).
+
+![](01-img/c4_l16_01.png)
+
+<center><em>Figure 1 - Sigmoid function.</em></center><br>
+
+Observe the two extreme values, 0 and 1, these two values will be used to describe the two categories of the variable you want to predict. Figure 2 shows an example.
+
+![](01-img/c4_l16_02.png)
+
+<center><em>Figure 2 - How to interpret the categories of Transactions column.</em></center><br>
+
+In other words, the outcome would be:
+
+$$y \in \{0,1\}$$
+
+Where:
+
+* 0: Positive class (Yes, Spam)
+* 1: Negative class (No, Not spam)
+
+The equation used in a regular Linear Regression is stated in equation (1).
+
+$$ y = a + b \cdot x_1 + c \cdot x_2   \tag{1}$$
+
+Which could be noted as equation (2):
+
+$$ \bold y = \underbrace{[a \ b \ c]}_{\theta^T} \cdot \underbrace{\begin{bmatrix} 1 \\ x_1 \\ x_2\end{bmatrix}}_{x} = \theta^T \cdot \bold x \tag{2}$$
+
+The outcome $\bold y$ could have any real number and this is the reason to apply it to the sigmoid function, this action will delimited the outcome between 0 and 1. Equantion (3) shows how is the sigmoid function.
+
+$$h_{\theta}(\bold y) = \frac{1}{1 + e^{- \bold y}} = \frac{1}{1 + e^{-\theta^T \bold x}}$$
+
+Where:
+
+* $\theta^T:$ Coefficients of a linear regression;
+* $\bold x:$Training set.
+
+Have in mind, the $\bold y$ will be defined as:
+
+* $0.5 < \bold y \leq 1.0:$ round to 1;
+* $0.0 \leq \bold y \leq 0.5:$ round to 0.
+
+#### Interpretation {-}
+
+The way to interpret the `coef` from the `.Logit()` is quite different from the `.OLS()`. Figure 3 shows an example of outcome from the Logistic Regression.
+
+![](01-img/c4_l16_03.png)
+
+<center><em>Figure 3 - Example of Logistic Regression output.</em></center><br>
+
+Equally to the Multiple Linear Regression the baseline still in the intercept, but the comparison is made by "times".
+
+Recall, in this example `weekend` is the `baseline` .
+
+For instance:
+
+$$e^{2.5465} = 12.76 \text{ times} $$
+
+This means:
+
+>On Weekdays the chance of fraud is 12.76 times more likely than on weekends. Have in mind, the weekend is our baseline.
+
+It is not necessary to do math (add or subtract from the baseline).
+
+$$e^{-1.4637} = 0.23 \text{ times} $$
+
+This means:
+
+>For each minute spent in transaction the fraud is 0.23 times more likely than on weekends.
+
+In this case, this kind of conclusion is quite wierd, and for this reason we rephrase it.
+
+$$1/e^{-1.4637} = 4.32 \text{ times} $$
+
+>For each minute less spent on the transaction, the chance of fraud is 4.32 times more likely holding the day of the week constant.
+
+### Model Diagnostic
+
+The model diagnostic will be performed by the Confusion Matrix. Figure 4, 5, and 6 shows examples of this kind of matrix with differents values.
+
+![](01-img/c4_l16_04.png)
+
+<center><em>Figure 4 - Confusion Matrix - Collin Powell Example.</em></center><br>
+
+![](01-img/c4_l16_05.png)
+
+<center><em>Figure 5 - Confusion Matrix - George Bush Example.</em></center><br>
+
+![](01-img/c4_l16_06.png)
+
+<center><em>Figure 6 - Confusion Matrix - Donald Rumsfeld - Example.</em></center><br>
+
+Based on these example, recall and precision could be defined as:
+
+* **Recall:** Out of all the items that are truly positive, how many were correctly classified as positive. Or simply, how many positive items were 'recalled' from the dataset.
+
+$$\text{Recall} = \frac{\text{True Positive}}{\text{True Positive + False Negative}}$$
+
+* **Precision:** Out of all the items labeled as positive, how many truly belong to the positive class.
+
+$$\text{Recall} = \frac{\text{True Positive}}{\text{True Positive + False Positive}}$$
+
+### Statistics vs Machine Learning
+
+![](01-img/c4_l16_07.png)
+
+<center><em>Figure 7 - Comparison between Statistics and Machine Learning.</em></center><br>
+
+### New Methods
+
+#### `.drop()`
+
+This method drop a column, is a part of pandas.
+
+```py
+pd.drop('column_to_be_dropped', axis = 1)
+
+```
+
+#### `.Logit()`
+
+This method is anologous to the OLS and performs the Logistic Regression.
+
+```py
+import statsmodels as sm
+
+sm.Logit('y_variable', ['intercept','x1_variable','x2_variable'])
+```

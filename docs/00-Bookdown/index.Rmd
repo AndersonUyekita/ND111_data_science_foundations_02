@@ -5,7 +5,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+description: "This is my notebook of the Course ND111."
 ---
 
 # Course Info {-}
@@ -23,7 +23,19 @@ description: "This is a minimal example of using the bookdown package to write a
 
 * [ND110 - Data Science I - Nanodegree Foundations][nd110]
 
-[nd110]: https://br.udacity.com/course/python-fundamentos-data-science--nd110
+[nd110]: https://github.com/AndersonUyekita/ND110_data_science_foundations_01
+
+<h4>Bookdown and Projects</h4>
+
+* [Project 01][project_01_url]
+* [Project 02][project_02_url]
+* [Project 03][project_03_url]
+* [Project 04][project_04_url]
+
+[project_01_url]: https://bit.ly/nd111_project_01
+[project_02_url]: https://bit.ly/nd111_project_02
+[project_03_url]: https://bit.ly/nd111_project_03
+[project_04_url]: https://bit.ly/nd111_project_04
 
 ***************************************************************************************************
 

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>4.15 Multilinear Regression Lesson 15 | ND111 - Data Science II - Notebook</title>
+  <meta name="description" content="This is my notebook of the Course ND111.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="4.15 Multilinear Regression Lesson 15 | ND111 - Data Science II - Notebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is my notebook of the Course ND111." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4.15 Multilinear Regression Lesson 15 | ND111 - Data Science II - Notebook" />
+  
+  <meta name="twitter:description" content="This is my notebook of the Course ND111." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="regression-lesson-14.html">
+<link rel="next" href="logistic-regression-lesson-16.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./" target='_blank'><h3>ND111 - Data Science II</h3></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course Info</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
+<li class="chapter" data-level="2" data-path="sql-for-data-analysis.html"><a href="sql-for-data-analysis.html"><i class="fa fa-check"></i><b>2</b> SQL for Data Analysis</a><ul>
+<li class="chapter" data-level="2.1" data-path="sql-basics.html"><a href="sql-basics.html"><i class="fa fa-check"></i><b>2.1</b> SQL Basics</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="sql-basics.html"><a href="sql-basics.html#entity-relationship-diagrams-erd"><i class="fa fa-check"></i><b>2.1.1</b> Entity Relationship Diagrams (ERD)</a></li>
+<li class="chapter" data-level="2.1.2" data-path="sql-basics.html"><a href="sql-basics.html#sql-introduction"><i class="fa fa-check"></i><b>2.1.2</b> SQL Introduction</a></li>
+<li class="chapter" data-level="2.1.3" data-path="sql-basics.html"><a href="sql-basics.html#clauses"><i class="fa fa-check"></i><b>2.1.3</b> Clauses</a></li>
+<li class="chapter" data-level="2.1.4" data-path="sql-basics.html"><a href="sql-basics.html#derived-columns"><i class="fa fa-check"></i><b>2.1.4</b> Derived Columns</a></li>
+<li class="chapter" data-level="2.1.5" data-path="sql-basics.html"><a href="sql-basics.html#introduction-to-logical-operators"><i class="fa fa-check"></i><b>2.1.5</b> Introduction to “Logical Operators”</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="sql-joins.html"><a href="sql-joins.html"><i class="fa fa-check"></i><b>2.2</b> SQL Joins</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="sql-joins.html"><a href="sql-joins.html#joins"><i class="fa fa-check"></i><b>2.2.1</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="sql-aggregations.html"><a href="sql-aggregations.html"><i class="fa fa-check"></i><b>2.3</b> SQL Aggregations</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="sql-aggregations.html"><a href="sql-aggregations.html#aggregations-functions"><i class="fa fa-check"></i><b>2.3.1</b> Aggregations Functions</a></li>
+<li class="chapter" data-level="2.3.2" data-path="sql-aggregations.html"><a href="sql-aggregations.html#functions"><i class="fa fa-check"></i><b>2.3.2</b> Functions</a></li>
+<li class="chapter" data-level="2.3.3" data-path="sql-aggregations.html"><a href="sql-aggregations.html#date"><i class="fa fa-check"></i><b>2.3.3</b> DATE</a></li>
+<li class="chapter" data-level="2.3.4" data-path="sql-aggregations.html"><a href="sql-aggregations.html#case"><i class="fa fa-check"></i><b>2.3.4</b> CASE</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="sql-subqueries-temporary-tables-advanced.html"><a href="sql-subqueries-temporary-tables-advanced.html"><i class="fa fa-check"></i><b>2.4</b> SQL Subqueries &amp; Temporary Tables (Advanced)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="sql-subqueries-temporary-tables-advanced.html"><a href="sql-subqueries-temporary-tables-advanced.html#subqueries"><i class="fa fa-check"></i><b>2.4.1</b> Subqueries</a></li>
+<li class="chapter" data-level="2.4.2" data-path="sql-subqueries-temporary-tables-advanced.html"><a href="sql-subqueries-temporary-tables-advanced.html#with"><i class="fa fa-check"></i><b>2.4.2</b> WITH</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="data-cleaning-advanced.html"><a href="data-cleaning-advanced.html"><i class="fa fa-check"></i><b>2.5</b> Data Cleaning (Advanced)</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="data-cleaning-advanced.html"><a href="data-cleaning-advanced.html#data-cleaning"><i class="fa fa-check"></i><b>2.5.1</b> Data Cleaning</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="project-01-chinook.html"><a href="project-01-chinook.html"><i class="fa fa-check"></i><b>2.6</b> Project 01 - Chinook</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="project-01-chinook.html"><a href="project-01-chinook.html#project-submission"><i class="fa fa-check"></i><b>2.6.1</b> Project Submission</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html"><i class="fa fa-check"></i><b>3.1</b> Introduction to Data Wrangling</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html#gathering"><i class="fa fa-check"></i><b>3.1.1</b> Gathering</a></li>
+<li class="chapter" data-level="3.1.2" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html#assessing"><i class="fa fa-check"></i><b>3.1.2</b> Assessing</a></li>
+<li class="chapter" data-level="3.1.3" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html#assessing-the-data"><i class="fa fa-check"></i><b>3.1.3</b> Assessing the data</a></li>
+<li class="chapter" data-level="3.1.4" data-path="introduction-to-data-wrangling.html"><a href="introduction-to-data-wrangling.html#cleaning"><i class="fa fa-check"></i><b>3.1.4</b> Cleaning</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-gathering.html"><a href="data-gathering.html"><i class="fa fa-check"></i><b>3.2</b> Data Gathering</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="data-gathering.html"><a href="data-gathering.html#flat-file"><i class="fa fa-check"></i><b>3.2.1</b> Flat File</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-gathering.html"><a href="data-gathering.html#web-scraping"><i class="fa fa-check"></i><b>3.2.2</b> Web Scraping</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-gathering.html"><a href="data-gathering.html#http-request"><i class="fa fa-check"></i><b>3.2.3</b> HTTP Request</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-gathering.html"><a href="data-gathering.html#encoding-and-character-set"><i class="fa fa-check"></i><b>3.2.4</b> Encoding and Character Set</a></li>
+<li class="chapter" data-level="3.2.5" data-path="data-gathering.html"><a href="data-gathering.html#application-programming-interfaces---api"><i class="fa fa-check"></i><b>3.2.5</b> Application Programming Interfaces - API</a></li>
+<li class="chapter" data-level="3.2.6" data-path="data-gathering.html"><a href="data-gathering.html#json-and-xml"><i class="fa fa-check"></i><b>3.2.6</b> JSON and XML</a></li>
+<li class="chapter" data-level="3.2.7" data-path="data-gathering.html"><a href="data-gathering.html#methods-in-this-lesson"><i class="fa fa-check"></i><b>3.2.7</b> Methods in this Lesson</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="assessing-data.html"><a href="assessing-data.html"><i class="fa fa-check"></i><b>3.3</b> Assessing Data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="assessing-data.html"><a href="assessing-data.html#assess-proccess"><i class="fa fa-check"></i><b>3.3.1</b> Assess Proccess</a></li>
+<li class="chapter" data-level="3.3.2" data-path="assessing-data.html"><a href="assessing-data.html#data-quality-dimensions"><i class="fa fa-check"></i><b>3.3.2</b> Data Quality Dimensions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="cleaning-data.html"><a href="cleaning-data.html"><i class="fa fa-check"></i><b>3.4</b> Cleaning Data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="cleaning-data.html"><a href="cleaning-data.html#tidiness-1"><i class="fa fa-check"></i><b>3.4.1</b> Tidiness</a></li>
+<li class="chapter" data-level="3.4.2" data-path="cleaning-data.html"><a href="cleaning-data.html#quality-1"><i class="fa fa-check"></i><b>3.4.2</b> Quality</a></li>
+<li class="chapter" data-level="3.4.3" data-path="cleaning-data.html"><a href="cleaning-data.html#methods"><i class="fa fa-check"></i><b>3.4.3</b> Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="project-02-wrangle-and-analyze-data.html"><a href="project-02-wrangle-and-analyze-data.html"><i class="fa fa-check"></i><b>3.5</b> Project 02 - Wrangle and Analyze Data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="project-02-wrangle-and-analyze-data.html"><a href="project-02-wrangle-and-analyze-data.html#project-submission-1"><i class="fa fa-check"></i><b>3.5.1</b> Project Submission</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="advanced-statistics.html"><a href="advanced-statistics.html"><i class="fa fa-check"></i><b>4</b> Advanced Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="descriptive-statistics-lesson-01.html"><a href="descriptive-statistics-lesson-01.html"><i class="fa fa-check"></i><b>4.1</b> Descriptive Statistics <code>Lesson 01</code></a><ul>
+<li class="chapter" data-level="4.1.1" data-path="descriptive-statistics-lesson-01.html"><a href="descriptive-statistics-lesson-01.html#what-is-data"><i class="fa fa-check"></i><b>4.1.1</b> What is data?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="descriptive-statistics-lesson-01.html"><a href="descriptive-statistics-lesson-01.html#data-types"><i class="fa fa-check"></i><b>4.1.2</b> Data types</a></li>
+<li class="chapter" data-level="4.1.3" data-path="descriptive-statistics-lesson-01.html"><a href="descriptive-statistics-lesson-01.html#measures-of-center"><i class="fa fa-check"></i><b>4.1.3</b> Measures of Center</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html"><i class="fa fa-check"></i><b>4.2</b> Quantitative Data <code>Lesson 02</code></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html#measures-of-spread"><i class="fa fa-check"></i><b>4.2.1</b> Measures of Spread</a></li>
+<li class="chapter" data-level="4.2.2" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html#five-number-summary"><i class="fa fa-check"></i><b>4.2.2</b> Five Number Summary</a></li>
+<li class="chapter" data-level="4.2.3" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html#standard-deviation"><i class="fa fa-check"></i><b>4.2.3</b> Standard Deviation</a></li>
+<li class="chapter" data-level="4.2.4" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html#shape"><i class="fa fa-check"></i><b>4.2.4</b> Shape</a></li>
+<li class="chapter" data-level="4.2.5" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html#outliers"><i class="fa fa-check"></i><b>4.2.5</b> Outliers</a></li>
+<li class="chapter" data-level="4.2.6" data-path="quantitative-data-lesson-02.html"><a href="quantitative-data-lesson-02.html#descriptive-vs-inferential"><i class="fa fa-check"></i><b>4.2.6</b> Descriptive vs Inferential</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="admissions-case-study-lesson-03.html"><a href="admissions-case-study-lesson-03.html"><i class="fa fa-check"></i><b>4.3</b> Admissions Case Study <code>Lesson 03</code></a><ul>
+<li class="chapter" data-level="4.3.1" data-path="admissions-case-study-lesson-03.html"><a href="admissions-case-study-lesson-03.html#simpsons-paradox"><i class="fa fa-check"></i><b>4.3.1</b> Simpson’s Paradox</a></li>
+<li class="chapter" data-level="4.3.2" data-path="admissions-case-study-lesson-03.html"><a href="admissions-case-study-lesson-03.html#case-study"><i class="fa fa-check"></i><b>4.3.2</b> Case Study</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="probability-lesson-04.html"><a href="probability-lesson-04.html"><i class="fa fa-check"></i><b>4.4</b> Probability <code>Lesson 04</code></a><ul>
+<li class="chapter" data-level="4.4.1" data-path="probability-lesson-04.html"><a href="probability-lesson-04.html#introduction-to-probability"><i class="fa fa-check"></i><b>4.4.1</b> Introduction to Probability</a></li>
+<li class="chapter" data-level="4.4.2" data-path="probability-lesson-04.html"><a href="probability-lesson-04.html#bernoulli-distribution"><i class="fa fa-check"></i><b>4.4.2</b> Bernoulli Distribution</a></li>
+<li class="chapter" data-level="4.4.3" data-path="probability-lesson-04.html"><a href="probability-lesson-04.html#conditional-probability"><i class="fa fa-check"></i><b>4.4.3</b> Conditional Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="binomial-distribution-lesson-05.html"><a href="binomial-distribution-lesson-05.html"><i class="fa fa-check"></i><b>4.5</b> Binomial Distribution <code>Lesson 05</code></a><ul>
+<li class="chapter" data-level="4.5.1" data-path="binomial-distribution-lesson-05.html"><a href="binomial-distribution-lesson-05.html#equation"><i class="fa fa-check"></i><b>4.5.1</b> Equation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="conditional-probability-lesson-06.html"><a href="conditional-probability-lesson-06.html"><i class="fa fa-check"></i><b>4.6</b> Conditional Probability <code>Lesson 06</code></a><ul>
+<li class="chapter" data-level="4.6.1" data-path="conditional-probability-lesson-06.html"><a href="conditional-probability-lesson-06.html#medical-example-1"><i class="fa fa-check"></i><b>4.6.1</b> Medical Example</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="bayes-rule-lesson-07.html"><a href="bayes-rule-lesson-07.html"><i class="fa fa-check"></i><b>4.7</b> Bayes Rule <code>Lesson 07</code></a><ul>
+<li class="chapter" data-level="4.7.1" data-path="bayes-rule-lesson-07.html"><a href="bayes-rule-lesson-07.html#cancer-example"><i class="fa fa-check"></i><b>4.7.1</b> Cancer Example</a></li>
+<li class="chapter" data-level="4.7.2" data-path="bayes-rule-lesson-07.html"><a href="bayes-rule-lesson-07.html#bayes-rule"><i class="fa fa-check"></i><b>4.7.2</b> Bayes Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="python-probability-practice-lesson-08.html"><a href="python-probability-practice-lesson-08.html"><i class="fa fa-check"></i><b>4.8</b> Python Probability Practice <code>Lesson 08</code></a></li>
+<li class="chapter" data-level="4.9" data-path="normal-distribution-theory-lesson-09.html"><a href="normal-distribution-theory-lesson-09.html"><i class="fa fa-check"></i><b>4.9</b> Normal Distribution Theory <code>Lesson 09</code></a><ul>
+<li class="chapter" data-level="4.9.1" data-path="normal-distribution-theory-lesson-09.html"><a href="normal-distribution-theory-lesson-09.html#equations"><i class="fa fa-check"></i><b>4.9.1</b> Equations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html"><i class="fa fa-check"></i><b>4.10</b> Sampling distributions and Central Limit Theorem <code>Lesson 10</code></a><ul>
+<li class="chapter" data-level="4.10.1" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html#sampling-distribution"><i class="fa fa-check"></i><b>4.10.1</b> Sampling distribution</a></li>
+<li class="chapter" data-level="4.10.2" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html#notation"><i class="fa fa-check"></i><b>4.10.2</b> Notation</a></li>
+<li class="chapter" data-level="4.10.3" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html#other-sampling-distribution"><i class="fa fa-check"></i><b>4.10.3</b> Other Sampling Distribution</a></li>
+<li class="chapter" data-level="4.10.4" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html#law-of-large-number"><i class="fa fa-check"></i><b>4.10.4</b> Law of Large Number</a></li>
+<li class="chapter" data-level="4.10.5" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.10.5</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="4.10.6" data-path="sampling-distributions-and-central-limit-theorem-lesson-10.html"><a href="sampling-distributions-and-central-limit-theorem-lesson-10.html#bootstrapping"><i class="fa fa-check"></i><b>4.10.6</b> Bootstrapping</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="confidence-intervals-lesson-11.html"><a href="confidence-intervals-lesson-11.html"><i class="fa fa-check"></i><b>4.11</b> Confidence Intervals <code>Lesson 11</code></a><ul>
+<li class="chapter" data-level="4.11.1" data-path="confidence-intervals-lesson-11.html"><a href="confidence-intervals-lesson-11.html#practical-and-statistical-significance"><i class="fa fa-check"></i><b>4.11.1</b> Practical and Statistical Significance</a></li>
+<li class="chapter" data-level="4.11.2" data-path="confidence-intervals-lesson-11.html"><a href="confidence-intervals-lesson-11.html#traditional-methods-vs-bootstrapping-confidence-intervals"><i class="fa fa-check"></i><b>4.11.2</b> Traditional Methods vs Bootstrapping Confidence Intervals</a></li>
+<li class="chapter" data-level="4.11.3" data-path="confidence-intervals-lesson-11.html"><a href="confidence-intervals-lesson-11.html#misinterpretation-of-confidence-intervals"><i class="fa fa-check"></i><b>4.11.3</b> Misinterpretation of Confidence Intervals</a></li>
+<li class="chapter" data-level="4.11.4" data-path="confidence-intervals-lesson-11.html"><a href="confidence-intervals-lesson-11.html#new-methods"><i class="fa fa-check"></i><b>4.11.4</b> New Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="hypothesis-testing-lesson-12.html"><a href="hypothesis-testing-lesson-12.html"><i class="fa fa-check"></i><b>4.12</b> Hypothesis Testing <code>Lesson 12</code></a><ul>
+<li class="chapter" data-level="4.12.1" data-path="hypothesis-testing-lesson-12.html"><a href="hypothesis-testing-lesson-12.html#type-of-errors"><i class="fa fa-check"></i><b>4.12.1</b> Type of Errors</a></li>
+<li class="chapter" data-level="4.12.2" data-path="hypothesis-testing-lesson-12.html"><a href="hypothesis-testing-lesson-12.html#selecting-a-hypothesis"><i class="fa fa-check"></i><b>4.12.2</b> Selecting a hypothesis</a></li>
+<li class="chapter" data-level="4.12.3" data-path="hypothesis-testing-lesson-12.html"><a href="hypothesis-testing-lesson-12.html#p-value"><i class="fa fa-check"></i><b>4.12.3</b> P-value</a></li>
+</ul></li>
+<li class="chapter" data-level="4.13" data-path="ab-testing-lesson-13.html"><a href="ab-testing-lesson-13.html"><i class="fa fa-check"></i><b>4.13</b> A/B Testing <code>Lesson 13</code></a><ul>
+<li class="chapter" data-level="4.13.1" data-path="ab-testing-lesson-13.html"><a href="ab-testing-lesson-13.html#example-new-homepage"><i class="fa fa-check"></i><b>4.13.1</b> Example: New Homepage</a></li>
+<li class="chapter" data-level="4.13.2" data-path="ab-testing-lesson-13.html"><a href="ab-testing-lesson-13.html#example-average-reading-time"><i class="fa fa-check"></i><b>4.13.2</b> Example: Average Reading Time</a></li>
+<li class="chapter" data-level="4.13.3" data-path="ab-testing-lesson-13.html"><a href="ab-testing-lesson-13.html#example-enrollment-rate"><i class="fa fa-check"></i><b>4.13.3</b> Example: Enrollment Rate</a></li>
+<li class="chapter" data-level="4.13.4" data-path="ab-testing-lesson-13.html"><a href="ab-testing-lesson-13.html#bonferroni-correction"><i class="fa fa-check"></i><b>4.13.4</b> Bonferroni Correction</a></li>
+<li class="chapter" data-level="4.13.5" data-path="ab-testing-lesson-13.html"><a href="ab-testing-lesson-13.html#difficulties-in-ab-testing"><i class="fa fa-check"></i><b>4.13.5</b> Difficulties in A/B Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="4.14" data-path="regression-lesson-14.html"><a href="regression-lesson-14.html"><i class="fa fa-check"></i><b>4.14</b> Regression <code>Lesson 14</code></a><ul>
+<li class="chapter" data-level="4.14.1" data-path="regression-lesson-14.html"><a href="regression-lesson-14.html#introduction-to-linear-regression"><i class="fa fa-check"></i><b>4.14.1</b> Introduction to Linear Regression</a></li>
+<li class="chapter" data-level="4.14.2" data-path="regression-lesson-14.html"><a href="regression-lesson-14.html#correlation-coefficients"><i class="fa fa-check"></i><b>4.14.2</b> Correlation Coefficients</a></li>
+<li class="chapter" data-level="4.14.3" data-path="regression-lesson-14.html"><a href="regression-lesson-14.html#coefficients"><i class="fa fa-check"></i><b>4.14.3</b> Coefficients</a></li>
+<li class="chapter" data-level="4.14.4" data-path="regression-lesson-14.html"><a href="regression-lesson-14.html#least-squares"><i class="fa fa-check"></i><b>4.14.4</b> Least-squares</a></li>
+</ul></li>
+<li class="chapter" data-level="4.15" data-path="multilinear-regression-lesson-15.html"><a href="multilinear-regression-lesson-15.html"><i class="fa fa-check"></i><b>4.15</b> Multilinear Regression <code>Lesson 15</code></a><ul>
+<li class="chapter" data-level="4.15.1" data-path="multilinear-regression-lesson-15.html"><a href="multilinear-regression-lesson-15.html#dummy-variable"><i class="fa fa-check"></i><b>4.15.1</b> Dummy Variable</a></li>
+<li class="chapter" data-level="4.15.2" data-path="multilinear-regression-lesson-15.html"><a href="multilinear-regression-lesson-15.html#problems-in-multiple-linear-regression"><i class="fa fa-check"></i><b>4.15.2</b> Problems in Multiple Linear Regression</a></li>
+<li class="chapter" data-level="4.15.3" data-path="multilinear-regression-lesson-15.html"><a href="multilinear-regression-lesson-15.html#higher-order-terms"><i class="fa fa-check"></i><b>4.15.3</b> Higher Order Terms</a></li>
+<li class="chapter" data-level="4.15.4" data-path="multilinear-regression-lesson-15.html"><a href="multilinear-regression-lesson-15.html#new-method"><i class="fa fa-check"></i><b>4.15.4</b> New Method</a></li>
+</ul></li>
+<li class="chapter" data-level="4.16" data-path="logistic-regression-lesson-16.html"><a href="logistic-regression-lesson-16.html"><i class="fa fa-check"></i><b>4.16</b> Logistic Regression <code>Lesson 16</code></a><ul>
+<li class="chapter" data-level="4.16.1" data-path="logistic-regression-lesson-16.html"><a href="logistic-regression-lesson-16.html#sigmoid-function"><i class="fa fa-check"></i><b>4.16.1</b> Sigmoid function</a></li>
+<li class="chapter" data-level="4.16.2" data-path="logistic-regression-lesson-16.html"><a href="logistic-regression-lesson-16.html#model-diagnostic"><i class="fa fa-check"></i><b>4.16.2</b> Model Diagnostic</a></li>
+<li class="chapter" data-level="4.16.3" data-path="logistic-regression-lesson-16.html"><a href="logistic-regression-lesson-16.html#statistics-vs-machine-learning"><i class="fa fa-check"></i><b>4.16.3</b> Statistics vs Machine Learning</a></li>
+<li class="chapter" data-level="4.16.4" data-path="logistic-regression-lesson-16.html"><a href="logistic-regression-lesson-16.html#new-methods-1"><i class="fa fa-check"></i><b>4.16.4</b> New Methods</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intro-to-machine-learning.html"><a href="intro-to-machine-learning.html"><i class="fa fa-check"></i><b>5</b> Intro to Machine Learning</a><ul>
+<li class="chapter" data-level="5.1" data-path="naive-bayes.html"><a href="naive-bayes.html"><i class="fa fa-check"></i><b>5.1</b> Naïve Bayes</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="naive-bayes.html"><a href="naive-bayes.html#gaussian---naive-bayes"><i class="fa fa-check"></i><b>5.1.1</b> Gaussian - Naive Bayes</a></li>
+<li class="chapter" data-level="5.1.2" data-path="naive-bayes.html"><a href="naive-bayes.html#scikit-learn"><i class="fa fa-check"></i><b>5.1.2</b> Scikit Learn</a></li>
+<li class="chapter" data-level="5.1.3" data-path="naive-bayes.html"><a href="naive-bayes.html#text-learning"><i class="fa fa-check"></i><b>5.1.3</b> Text Learning</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="support-vector-machine-svm.html"><a href="support-vector-machine-svm.html"><i class="fa fa-check"></i><b>5.2</b> Support Vector Machine (SVM)</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="support-vector-machine-svm.html"><a href="support-vector-machine-svm.html#scikit-learn-1"><i class="fa fa-check"></i><b>5.2.1</b> Scikit Learn</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="decision-trees.html"><a href="decision-trees.html"><i class="fa fa-check"></i><b>5.3</b> Decision Trees</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="decision-trees.html"><a href="decision-trees.html#scikit-learn-decision-tree"><i class="fa fa-check"></i><b>5.3.1</b> Scikit Learn Decision Tree</a></li>
+<li class="chapter" data-level="5.3.2" data-path="decision-trees.html"><a href="decision-trees.html#parameters-1"><i class="fa fa-check"></i><b>5.3.2</b> Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="decision-trees-1.html"><a href="decision-trees-1.html"><i class="fa fa-check"></i><b>5.4</b> Decision Trees</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="decision-trees-1.html"><a href="decision-trees-1.html#scikit-learn-decision-tree-1"><i class="fa fa-check"></i><b>5.4.1</b> Scikit Learn Decision Tree</a></li>
+<li class="chapter" data-level="5.4.2" data-path="decision-trees-1.html"><a href="decision-trees-1.html#parameters-2"><i class="fa fa-check"></i><b>5.4.2</b> Parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-visualization-optional.html"><a href="data-visualization-optional.html"><i class="fa fa-check"></i><b>6</b> Data Visualization (Optional)</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ND111 - Data Science II - Notebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="multilinear-regression-lesson-15" class="section level2">
+<h2><span class="header-section-number">4.15</span> Multilinear Regression <code>Lesson 15</code></h2>
+<p>This is a generalization of the simple Linear Model, which allows us to use several explanatory variables, as you can see an example of Multiple Linear Regression in equation (1).</p>
+<p><span class="math display">\[ \hat y = b_0 + b_1x_1 + b_2x_2 + b_3x_3 + b_4x_4 \tag{1} \]</span></p>
+<p>Figure 1 ilustrate the variables which could be used to predic the house’s price.</p>
+<div class="figure">
+<img src="01-img/c4_l15_01.png" />
+
+</div>
+<center>
+<em>Figure 1 - House Price Dataset.</em>
+</center>
+<p><br></p>
+<p>Have in mind, in this table above there are quantitative and categorical variables.</p>
+<ul>
+<li>Quantitative:
+<ul>
+<li>Price, Area, Bedrooms, and Bathrooms;</li>
+</ul></li>
+<li>Categorical:
+<ul>
+<li>Neighborhood and Style.</li>
+</ul></li>
+</ul>
+<p>All these variables will be used to predict the house’s price, to do it so it is necessary a little of linear algebra, as you can see in the Figure 2.</p>
+<div class="figure">
+<img src="01-img/c4_l15_02.png" />
+
+</div>
+<center>
+<em>Figure 2 - Matrix notation.</em>
+</center>
+<p><br></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\bold X:\)</span> Matrix of inputs;</li>
+<li><span class="math inline">\(\bold y:\)</span> Vector of response that we want to predict.</li>
+</ul>
+<p>After many steps of linear algebra, equation (2) resume the <span class="math inline">\(\beta\)</span> calculation.</p>
+<p><span class="math display">\[ \beta = (\bold X&#39; \bold X)^{-1} \bold X \bold y \tag{2}\]</span></p>
+<p>Have in mind, the coefficients calculated in <span class="math inline">\(\beta\)</span> are the same shown in Figure 3 in column <code>coef</code>.</p>
+<div id="interpretation" class="section level4 unnumbered">
+<h4>Interpretation</h4>
+<p>Figure 3 presents outputs from the OLS of a generic dataset (house_prices.csv).</p>
+<div class="figure">
+<img src="01-img/c4_l15_03.png" />
+
+</div>
+<center>
+<em>Figure 3 - Coefficients, Standard Errors, etc.</em>
+</center>
+<p><br></p>
+<blockquote>
+<p>In this video, the coefficients were all positive. Therefore, we can interpret each coefficient as the <strong>predicted increase in the response for every one unit increase in the explanatory variable, holding all other variables in the model constant.</strong></p>
+</blockquote>
+<p>This principles is the so-called <a href="https://en.wikipedia.org/wiki/Ceteris_paribus"><em>ceteris paribus</em></a>.</p>
+<blockquote>
+<p><em>Ceteris paribus or caeteris paribus is a Latin phrase meaning “other things equal”. English translations of the phrase include “all other things being equal” or “other things held constant” or “all else unchanged”. A prediction or a statement about a causal, empirical, or logical relation between two states of affairs is ceteris paribus if it is acknowledged that the prediction, although usually accurate in expected conditions, can fail or the relation can be abolished by intervening factors.</em> — <cite>Wikipedia</cite></p>
+</blockquote>
+</div>
+<div id="statistical-significance" class="section level4">
+<h4><span class="header-section-number">4.15.0.1</span> Statistical Significance</h4>
+<p>Analogous to the simple Linear Model, it is important to analyse the <code>p-values</code> of each variable. Figure 4 shows the <code>p-values</code>.</p>
+<div class="figure">
+<img src="01-img/c4_l15_04.png" />
+
+</div>
+<center>
+<em>Figure 4 - Statistical Significance.</em>
+</center>
+<p><br></p>
+<p>As you can see, most of the variable do not have lower <code>p-values</code>, which suggest these variables are not statistically signigicant to the response variable. In this example, only <code>area</code> reject <span class="math inline">\(H_0\)</span> the others variables failed to reject <span class="math inline">\(H_0\)</span>.</p>
+<p>Signigicant bivariate relationships are <strong>not</strong> always signigicant in Multiple Linear Regression.</p>
+</div>
+<div id="dummy-variable" class="section level3">
+<h3><span class="header-section-number">4.15.1</span> Dummy Variable</h3>
+<p>This is a method to insert categorical variables in Multiple Linear Regressions. We will use 0 and 1 to encode this Dummy Variable, which will work creating new columns for each category of the variable. Figure 5 shows an example.</p>
+<p><img src="01-img/c4_l15_05.png" alt="c4_l15_05" class="center" width="50%;"/></p>
+<center>
+<em>Figure 5 - Converting Categorical Variable to Dummy Variable.</em>
+</center>
+<p><br></p>
+<p>Remember, the C columns is not necessary because is a complement of the other two columns (A and B). The dropped columns (in this case the C column) is the so-called <strong>baseline</strong>. What you need to understand about the <strong>baseline</strong> is:</p>
+<blockquote>
+<p>The coefficients you obtain from the output of your multiple linear regression models are then an indication of how the encoded levels compare to the baseline level (the dropped level). — <cite>Udacity Notebook</cite></p>
+</blockquote>
+<p>The mathematical reason to drop one columns is to garantee the <span class="math inline">\(\bold X\)</span> matrix is invertible.</p>
+<div id="interpretation-1" class="section level4 unnumbered">
+<h4>Interpretation</h4>
+<p>The baseline will be used to calculate the real coefficients of each Dummy variable. Figure 6 shows an example of output of a Multiple Linear Regression.</p>
+<p><img src="01-img/c4_l15_06.png" alt="c4_l15_06" class="center" width="100%;"/></p>
+<center>
+<em>Figure 6 - Example of Coefficients from a Dummies Variables.</em>
+</center>
+<p><br></p>
+<p>The intercept is the value of the baseline (in other words it is the coefficient of A). To calculate the other coefficients you need to subtract the baseline from each coefficient.</p>
+<ul>
+<li>Coefficient A: 5.411e+05</li>
+<li>Coefficient B: 5.411e+05 - 5.295e+05 = 1070600.0</li>
+<li>Coefficient C: 5.411e+05 - 332.36 = 540767.6406</li>
+</ul>
+<p>Coef C &lt; Coef A &lt; Coef B</p>
+<p>Each of the coefficients provided by the OLS is a comparison with the baseline.</p>
+<p>In a more complex example as presented in Figure 7.</p>
+<p><img src="01-img/c4_l15_07.png" alt="c4_l15_07" class="center" width="100%;"/></p>
+<center>
+<em>Figure 7 - Dummies Variables from two categories.</em>
+</center>
+<p><br></p>
+<p>There are “two” <strong>baseline</strong> variables: <code>A</code> and <code>ranch</code>.</p>
+<ul>
+<li>Coefficient A: -383300.0</li>
+<li>Coefficient B: -383300.0 + 5.229e5 = 139600.0</li>
+<li>Coefficient C: -383300.0 - 7168.63 = -390500.0</li>
+<li>ranch: -383300.0</li>
+<li>lodge: -383300.0 + 1.685e5 = -214800.0</li>
+<li>victorian: -383300.0 + 7.056e4 = -312770.0</li>
+</ul>
+</div>
+</div>
+<div id="problems-in-multiple-linear-regression" class="section level3">
+<h3><span class="header-section-number">4.15.2</span> Problems in Multiple Linear Regression</h3>
+<p>Problems is sensible to the application of this Multiple Linear Regression.</p>
+<ul>
+<li>What is your model for?
+<ul>
+<li>Understand how is related x and y</li>
+<li>Best predict the response variable</li>
+<li>Which variable is really useful in predicting your response</li>
+</ul></li>
+</ul>
+<p>Founded on the objectivies of the model, there are many possibilities of problems, below there are some common problems.</p>
+<ul>
+<li>A linear relationship does not exist</li>
+<li>Correlated errors</li>
+<li>Non-constant variance</li>
+<li>Outliers</li>
+<li>Multicollinearity</li>
+</ul>
+<div id="multicollinearity" class="section level4 unnumbered">
+<h4>Multicollinearity</h4>
+<p>Generally, we assume the explanatory variables are all uncorrelated with one another, but we want these explanatory variables are correlated with the responer variable.</p>
+<p>An example of possible multicollinearity:</p>
+<blockquote>
+<p>We expected a bigger number of bedrooms and bathrooms when the house area increases.</p>
+</blockquote>
+<p>There are two ways to identify the multicollinearity:</p>
+<ul>
+<li>Plotting the scatterplot matrix, or;</li>
+<li>Calculating the <a href="https://en.wikipedia.org/wiki/Variance_inflation_factor">Variance Inflation Factors</a> (VIFs)</li>
+</ul>
+<p><strong>Scatterplot</strong></p>
+<p>Figure 8 shows the scatter plot of area, bedrooms, and bathrooms.</p>
+<p><img src="01-img/c4_l15_08.png" alt="c4_l15_08" class="center" width="100%;"/></p>
+<center>
+<em>Figure 8 - Scatterplot of area, bedrooms, and bathrooms.</em>
+</center>
+<p><br></p>
+<p>All three variables have strong and positive correlation.</p>
+<p>OK! Let’s calculate the Multiple Linear Regression using <code>area</code>, <code>bedrooms</code>, and <code>bathrooms</code> as explanatory variables to predict the <code>price</code>. Figure 9 shows the output of the <code>OLS</code> method.</p>
+<p><img src="01-img/c4_l15_09.png" alt="c4_l15_09" class="center" width="100%;"/></p>
+<center>
+<em>Figure 9 - Coefficients of a Multiple Linear Regression based on area, bedrooms, and bathrooms to predict price.</em>
+</center>
+<p><br></p>
+<p>Remember, we expected positive values of coefficients, but the bedrooms coefficient is negative. This is one of the side effect of multicollinearity, it could flip the signal, and produce a weird result.</p>
+<p><strong>Calculating the VIF</strong></p>
+<blockquote>
+<p>The Variance Inflation Factor (VIF) is a measure of colinearity among predictor variables within a multiple regression. It is calculated by taking the the ratio of the variance of all a given model’s betas divide by the variane of a single beta if it were fit alone. — <cite><a href="https://etav.github.io/python/vif_factor_python.html">Ernest Tavares Website</a></cite></p>
+</blockquote>
+<p>In other words, this means to calculate for each explanatory variable the R-squared adopting it as response variable, and later calculate the VIF according to the equation (3).</p>
+<p><span class="math display">\[VIF_i = \frac{1}{1-R^2_i} \tag{3}\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(i:\)</span> intercept, area, bedrooms, and bathrooms.</li>
+</ul>
+<p>This is my original equation:</p>
+<p><span class="math display">\[ price = intercept + area*b_1 + bedrooms * b_2 + bathrooms * b_3 \]</span></p>
+<p>Where:</p>
+<ul>
+<li>Explanatory variables: intercept, area, bedrooms, and bathrooms.</li>
+<li>Response variable: price</li>
+</ul>
+<p>I need to calculate the <span class="math inline">\(R^2\)</span> for each of these equations:</p>
+<p><span class="math display">\[ intercept = area*b_1 + bedrooms * b_2 + bathrooms * b_3 \\ bedrooms = intercept + area*b_1 + bathrooms * b_3 \\
+bathrooms = intercept + area*b_1 + bedrooms * b_3 \\
+area = intercept + bathrooms*b_1 + bedrooms * b_3 \]</span></p>
+<p>The result of the <span class="math inline">\(R^2\)</span> is presented in Table 1.</p>
+<center>
+<strong>Table 1 - R-Squared used to Calculate the VIF.</strong>
+</center>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Response Variable</th>
+<th align="center"><span class="math inline">\(R^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">intercept</td>
+<td align="center">0.8635203885901309</td>
+</tr>
+<tr class="even">
+<td align="center">area</td>
+<td align="center">0.8167890866692036</td>
+</tr>
+<tr class="odd">
+<td align="center">bedrooms</td>
+<td align="center">0.952048682065964</td>
+</tr>
+<tr class="even">
+<td align="center">bathrooms</td>
+<td align="center">0.9473873926707678</td>
+</tr>
+</tbody>
+</table>
+<p>Table 2 shows the VIFs for each value of <span class="math inline">\(R^2\)</span>.</p>
+<center>
+<strong>Table 2 - VIFs.</strong>
+</center>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Response Variable</th>
+<th align="center">VIF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">intercept</td>
+<td align="center">7.3271017529266529</td>
+</tr>
+<tr class="even">
+<td align="center">area</td>
+<td align="center">5.458190136274525</td>
+</tr>
+<tr class="odd">
+<td align="center">bedrooms</td>
+<td align="center">20.854484153608585</td>
+</tr>
+<tr class="even">
+<td align="center">bathrooms</td>
+<td align="center">19.006851223744377</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>When VIFs are greater than 10, this suggests that multicollinearity is certainly a problem in your model. Some experts even suggest VIFs of greater than 5 can be problematic. In most cases, not just one VIF is high, rather many VIFs are high, as these are measures of how related variables are with one another. — <cite>Udacity notebook.</cite></p>
+</blockquote>
+<p>In this case I will remove the bathrooms variable, and update my equation:</p>
+<p><span class="math display">\[ price = intercept + area * b_1 + bedrooms * b_2 \tag{4}\]</span></p>
+<p>Following the same process, I will calculate the new <span class="math inline">\(R^2\)</span> and later the VIF’s.</p>
+<center>
+<strong>Table 3 - R-Squared used to Calculate the VIF.</strong>
+</center>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Response Variable</th>
+<th align="center"><span class="math inline">\(R^2\)</span></th>
+<th align="center">VIF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">intercept</td>
+<td align="center">0.8350894909730524</td>
+<td align="center">6.063894932472694</td>
+</tr>
+<tr class="even">
+<td align="center">area</td>
+<td align="center">0.8129232492956318</td>
+<td align="center">5.345399662089865</td>
+</tr>
+<tr class="odd">
+<td align="center">bedrooms</td>
+<td align="center">0.8129232492956316</td>
+<td align="center">5.3453996620898625</td>
+</tr>
+</tbody>
+</table>
+<p>There is an other way to calculate this VIF’s using the <code>variance_inflation_factor</code> from <code>statsmodels.stats.outliers_influence</code>. It is much simpler to apply this methods, but it is quite hard to understand the hidden subject behind the scenes.</p>
+</div>
+</div>
+<div id="higher-order-terms" class="section level3">
+<h3><span class="header-section-number">4.15.3</span> Higher Order Terms</h3>
+<p>Adding higher order terms is a way to add non-linearity to explain the response variable.</p>
+<ul>
+<li>Higher Order Terms:
+<ul>
+<li>Interactions: <span class="math inline">\(x_1x_2\)</span></li>
+<li>Quadratics: <span class="math inline">\(x^2\)</span></li>
+<li>Cubics: <span class="math inline">\(x^3\)</span></li>
+<li>Other higher orders terms: <span class="math inline">\(x^n\)</span></li>
+</ul></li>
+</ul>
+<p>Adding these terms could improve the response results, but it makes harder to understand and explain the relationship between this higher orders terms.</p>
+<p>For instance, <span class="math inline">\(y_1\)</span> do not have higher orders terms and <span class="math inline">\(y_2\)</span> has a interaction. Both equations are quite similar, except from the term <span class="math inline">\(cx_1x_2\)</span>.</p>
+<p><span class="math display">\[y_1 = ax_1 + bx_2 + d \\
+  y_2 = ax_1 + bx_2 + cx_1x_2 + d\]</span></p>
+<p>The derivate from each equation will return the slope coefficient.</p>
+<p><span class="math display">\[\frac{\partial y_1}{\partial x_1} = a \\
+  \frac{\partial y_2}{\partial x_1} = a + c \cdot x_2\]</span></p>
+<p>In <span class="math inline">\(\partial y_1/\partial x_1\)</span> the slope is constant (<span class="math inline">\(a\)</span>), whereas in <span class="math inline">\(\partial y_2/\partial x_1\)</span> the slope will varies according to the <span class="math inline">\(c \cdot x_2\)</span>.</p>
+</div>
+<div id="new-method" class="section level3">
+<h3><span class="header-section-number">4.15.4</span> New Method</h3>
+<p>In this lesson the pandas package method called <code>.get_dummies</code> will introduced.</p>
+<div id="get_dummies" class="section level4">
+<h4><span class="header-section-number">4.15.4.1</span> <code>.get_dummies()</code></h4>
+<p>This method returns a Data Frame with each category of the categorical variable as a new column.</p>
+<div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">pd.get_dummies(df[<span class="st">&#39;categorical_variable&#39;</span>])</code></pre></div>
+<p>Remember, this method do not remove the baseline.</p>
+</div>
+</div>
+</div>
+&nbsp;
+<hr />
+<p style="text-align: center;">A work by <a href="https://andersonuyekita.github.io/site/cv.html">AH Uyekita</a></p>
+<p style="text-align: center;"><span style="color: #808080;"><em>anderson.uyekita[at]gmail.com</em></span></p>
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Add font awesome icons -->
+<p style="text-align: center;">
+    <a href="https://linkedin.com/in/andersonuyekita/" class="fa fa-linkedin"></a>
+    <a href="https://github.com/AndersonUyekita/" class="fa fa-github"></a>
+</p>
+
+&nbsp;
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regression-lesson-14.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logistic-regression-lesson-16.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["nd111_-_data_science_ii.pdf", "nd111_-_data_science_ii.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
