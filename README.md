@@ -7,6 +7,9 @@
 * End (Planned): 28/12/2018
 * Title        : Data Science II - Foundations Nanodegree Program
     * COD      : ND111
+    * **Certificate**: [KE5NTMFH][certificate]
+
+[certificate]: https://confirm.udacity.com/KE5NTMFH
 
 #### Related Courses
 
@@ -26,7 +29,7 @@
 [project_01_url]: https://bit.ly/nd111_project_01
 [project_02_url]: https://bit.ly/nd111_project_02
 [project_03_url]: https://bit.ly/nd111_project_03
-[project_04_url]: https://bit.ly/nd111_project_04
+[project_04_url]: https://bit.ly/nd111_project_04_v3
 
 ********************************************************************************
 
