@@ -10,21 +10,23 @@
 
 [derek]: https://modeanalytics.com
 
+#### Notebooks in ModeAnalytics {-}
+
+* <a href="https://modeanalytics.com/ah_uyekita/reports/03e5141ea602" target="_blank">Lesson 01</a>
+* <a href="https://modeanalytics.com/ah_uyekita/reports/7a7293af2041" target="_blank">Lesson 02</a>
+* <a href="https://modeanalytics.com/ah_uyekita/reports/9a9bccedfc63" target="_blank">Lesson 03 - Part 01</a>
+* <a href="https://modeanalytics.com/ah_uyekita/reports/67d5f05b7443" target="_blank">Lesson 03 - Part 02</a>
+* <a href="https://modeanalytics.com/ah_uyekita/reports/c44f93e9f2d4" target="_blank">Lesson 04</a>
+* <a href="https://modeanalytics.com/ah_uyekita/reports/25f24649e397" target="_blank">Lesson 05</a>
+
 ## Outline
 
-* [x] [Lesson 01 - Basic SQL][1]
-* [x] [Lesson 02 - SQL Joins][2]
-* [x] [Lesson 03 - SQL Aggregations][3]
-* [x] [Lesson 04 - (Optional) SQL Subqueries & Temporary Tables (Advanced)][4]
-* [x] [Lesson 05 - (Optional) SQL Data Cleaning (Advanced)][5]
-* [x] [Project 01 - Query a Digital Music Store Database][6]
-
-[1]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/tree/master/02-Chapter02/01-Lesson_01
-[2]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/tree/master/02-Chapter02/02-Lesson_02
-[3]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/tree/master/02-Chapter02/03-Lesson_03
-[4]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/tree/master/02-Chapter02/04-Lesson_04
-[5]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/tree/master/02-Chapter02/05-Lesson_05
-[6]: https://github.com/AndersonUyekita/ND111_data_science_foundations_02/tree/master/02-Chapter02/00-Project_01
+* [x] Lesson 01 - Basic SQL
+* [x] Lesson 02 - SQL Joins
+* [x] Lesson 03 - SQL Aggregations
+* [x] Lesson 04 - (Optional) SQL Subqueries & Temporary Tables (Advanced)
+* [x] Lesson 05 - (Optional) SQL Data Cleaning (Advanced)
+* [x] Project 01 - Query a Digital Music Store Database
 
 ## Software/Tool
 
@@ -35,5 +37,3 @@ Although this is not a requirement, I have created an account at Mode Analytics,
     * There is an option to create Jupyter Notebook or a complete Report;
 * Far better tool from the Udacity embedded tool;
 * It is free.
-
-<a href="https://modeanalytics.com/ah_uyekita/reports/03e5141ea602" target="_blank">My notebook in Mode Analytics.</a>

@@ -6,6 +6,8 @@
 * Date   : 14/12/2018
 * Course : Data Science II - Foundations Nanodegree
 * COD    : ND111
+    * **Instructor:** Dave
+
 
 ## Lesson 01 - Instructions
 
